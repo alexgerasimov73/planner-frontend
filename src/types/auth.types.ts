@@ -16,3 +16,5 @@ export interface IAuthResponse {
 	readonly accessToken: string
 	readonly user: IUser
 }
+
+export type TUserForm = Omit<IUser, 'id'> & { password?: string }
