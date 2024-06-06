@@ -42,6 +42,7 @@ export function Auth() {
 				onSubmit={handleSubmit(onSubmit)}
 			>
 				<Heading title='Authorisation' />
+
 				<Field
 					id='email'
 					extra='mb-4'
@@ -50,6 +51,16 @@ export function Auth() {
 					type='email'
 					{...register('email', { required: 'Email is required!' })}
 				/>
+
+				<Field
+					id='password'
+					extra='mb-6'
+					label='Password:'
+					placeholder='Enter the password'
+					type='password'
+					{...register('password', { required: 'Password is required!' })}
+				/>
+
 				<div className='flex items-center justify-center gap-5'>
 					<Button onClick={() => setIsLoginForm(true)}>Login</Button>
 					<Button onClick={() => setIsLoginForm(false)}>Register</Button>
