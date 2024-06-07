@@ -1,4 +1,4 @@
-import { IBase } from './common.types'
+import type { IBase } from './common.types'
 
 export interface ITimerRoundResponse extends IBase {
 	readonly isCompleted?: boolean
