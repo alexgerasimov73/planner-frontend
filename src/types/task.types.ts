@@ -9,7 +9,7 @@ export enum EnumTaskPriority {
 export interface ITaskResponse extends IBase {
 	readonly isCompleted: boolean
 	readonly name: string
-	readonly priority: EnumTaskPriority
+	readonly priority?: EnumTaskPriority
 }
 
 export type TTaskFormState = Partial<Omit<ITaskResponse, 'id' | 'updatedAt'>>

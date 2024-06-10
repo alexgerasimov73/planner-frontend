@@ -1,9 +1,8 @@
+import { add } from '@hello-pangea/dnd/src/state/position'
 import dayjs, { type Dayjs } from 'dayjs'
 import 'dayjs/locale/en'
 import isoWeek from 'dayjs/plugin/isoWeek'
 import weekOfYear from 'dayjs/plugin/weekOfYear'
-
-import { add } from './../../../node_modules/@hello-pangea/dnd/src/state/position'
 
 dayjs.extend(isoWeek)
 dayjs.extend(weekOfYear)
