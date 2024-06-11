@@ -13,16 +13,16 @@ import type { ITaskResponse, TTaskFormState } from '@/types/task.types'
 import { useDeleteTask } from '../hooks/useDeleteTask'
 import { useTaskDebounce } from '../hooks/useTaskDebounce'
 
-import styles from './ListView.module.scss'
+import styles from './KanbanView.module.scss'
 
-interface IListRow {
+interface IKanbanCard {
 	readonly item: ITaskResponse
 	readonly setItems: Dispatch<
 		SetStateAction<ReadonlyArray<ITaskResponse> | undefined>
 	>
 }
 
-export default function ListRow({ item, setItems }: IListRow) {
+export default function KanbanCard({ item, setItems }: IKanbanCard) {
 	const { control, register, watch } = useForm<TTaskFormState>({
 		defaultValues: {
 			createdAt: item.createdAt,

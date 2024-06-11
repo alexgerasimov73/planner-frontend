@@ -6,11 +6,11 @@ import type { ITaskResponse } from '@/types/task.types'
 import { FILTERS } from '../columns.data'
 import { filterTasks } from '../filter-tasks'
 
-import ListAddRowInput from './ListAddRowInput'
-import ListRow from './ListRow'
-import styles from './ListView.module.scss'
+import KanbanAddRowInput from './KanbanAddRowInput'
+import KanbanCard from './KanbanCard'
+import styles from './KanbanView.module.scss'
 
-interface IListRowParent {
+interface IKanbanColumn {
 	readonly items?: ReadonlyArray<ITaskResponse>
 	readonly label: string
 	readonly value: string
@@ -19,12 +19,12 @@ interface IListRowParent {
 	>
 }
 
-export default function ListRowParent({
+export default function KanbanColumn({
 	items,
 	label,
 	value,
 	setItems
-}: IListRowParent) {
+}: IKanbanColumn) {
 	return (
 		<Droppable droppableId={value}>
 			{provided => (
@@ -48,7 +48,7 @@ export default function ListRowParent({
 									{...provided.draggableProps}
 									{...provided.dragHandleProps}
 								>
-									<ListRow
+									<KanbanCard
 										key={item.id}
 										item={item}
 										setItems={setItems}
@@ -61,7 +61,7 @@ export default function ListRowParent({
 					{provided.placeholder}
 
 					{value !== 'completed' && !items?.some(item => !item.id) && (
-						<ListAddRowInput
+						<KanbanAddRowInput
 							setItems={setItems}
 							filterDate={FILTERS[value] ? FILTERS[value].format() : undefined}
 						/>

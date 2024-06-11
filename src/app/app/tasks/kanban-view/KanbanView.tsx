@@ -6,10 +6,10 @@ import { COLUMNS } from '../columns.data'
 import { useTaskDnd } from '../hooks/useTaskDnd'
 import { useTasks } from '../hooks/useTasks'
 
-import ListRowParent from './ListRowParent'
-import styles from './ListView.module.scss'
+import KanbanColumn from './KanbanColumn'
+import styles from './KanbanView.module.scss'
 
-export default function ListView() {
+export default function KanbanView() {
 	const { items, setItems } = useTasks()
 	const { onDragEnd } = useTaskDnd()
 
@@ -25,7 +25,7 @@ export default function ListView() {
 
 				<div className={styles.parentsWrapper}>
 					{COLUMNS.map(column => (
-						<ListRowParent
+						<KanbanColumn
 							key={column.value}
 							items={items}
 							label={column.label}
