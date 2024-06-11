@@ -2,20 +2,18 @@ import type { Dispatch, SetStateAction } from 'react'
 
 import type { ITaskResponse } from '@/types/task.types'
 
-import styles from './KanbanView.module.scss'
-
-interface IKanbanAddRowInput {
+interface IKanbanAddCardInput {
 	readonly filterDate?: string
 	readonly setItems: Dispatch<
 		SetStateAction<ReadonlyArray<ITaskResponse> | undefined>
 	>
 }
 
-export default function KanbanAddRowInput({
+export default function KanbanAddCardInput({
 	filterDate,
 	setItems
-}: IKanbanAddRowInput) {
-	const addRow = () => {
+}: IKanbanAddCardInput) {
+	const addCard = () => {
 		setItems(prev => {
 			if (!prev) return
 
@@ -31,10 +29,10 @@ export default function KanbanAddRowInput({
 		})
 	}
 	return (
-		<div className={styles.addRow}>
+		<div className='mt-5'>
 			<button
 				className='italic opacity-40 text-sm'
-				onClick={addRow}
+				onClick={addCard}
 			>
 				Add task...
 			</button>
