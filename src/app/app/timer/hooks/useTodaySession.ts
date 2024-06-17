@@ -3,10 +3,10 @@ import { Dispatch, SetStateAction, useEffect } from 'react'
 
 import { ITimerRoundResponse } from '@/types/timer.types'
 
+import { useLoadSettings } from './useLoadSettings'
 import { timerService } from '@/services/timer.service'
 
 interface IUseTodaySession {
-	readonly workInterval: number
 	readonly setActiveRound: Dispatch<
 		SetStateAction<ITimerRoundResponse | undefined>
 	>
@@ -14,10 +14,11 @@ interface IUseTodaySession {
 }
 
 export function useTodaySession({
-	workInterval,
 	setActiveRound,
 	setSecondsLeft
 }: IUseTodaySession) {
+	// TODO: Delete workIntterval.
+	const { workInterval } = useLoadSettings()
 	const {
 		data: sessionsResponse,
 		isLoading,
@@ -36,10 +37,10 @@ export function useTodaySession({
 			setActiveRound(activeRound)
 
 			if (activeRound && activeRound.totalSeconds !== 0) {
-				setSecondsLeft(workInterval - activeRound.totalSeconds)
+				setSecondsLeft(activeRound.totalSeconds)
 			}
 		}
 	}, [isSuccess, rounds, workInterval])
 
-	return { isLoading, isSuccess, sessionsResponse, refetch }
+	return { isLoading, isSuccess, sessionsResponse, workInterval, refetch }
 }

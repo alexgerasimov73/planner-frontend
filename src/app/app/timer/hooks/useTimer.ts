@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { ITimerRoundResponse } from '@/types/timer.types'
+import type { ITimerRoundResponse } from '@/types/timer.types'
 
 import { useLoadSettings } from './useLoadSettings'
 
@@ -28,7 +28,7 @@ export function useTimer() {
 				clearInterval(interval)
 			}
 		}
-	}, [isRunning, secondsLeft])
+	}, [activeRound, isRunning, secondsLeft, workInterval])
 
 	useEffect(() => {
 		// TODO: Leave a comment.
@@ -36,7 +36,14 @@ export function useTimer() {
 
 		setIsBreakTime(!isBreakTime)
 		setSecondsLeft((isBreakTime ? workInterval : breakInterval) * 60)
-	}, [])
+	}, [breakInterval, isBreakTime, secondsLeft, workInterval])
 
-	return {}
+	return {
+		activeRound,
+		isRunning,
+		secondsLeft,
+		setActiveRound,
+		setIsRunning,
+		setSecondsLeft
+	}
 }

@@ -3,21 +3,21 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 import { ITimerRoundResponse } from '@/types/timer.types'
 
-import styles from './PomodoroRounds.module.scss'
+import styles from './TimerRounds.module.scss'
 
-interface IPomodoroRounds {
+interface ITimerRounds {
 	readonly activeRound?: ITimerRoundResponse
 	readonly rounds?: ITimerRoundResponse[]
 	readonly nextRoundHandler: () => void
 	readonly prevRoundHandler: () => void
 }
 
-export function PomodoroRounds({
+export function TimerRounds({
 	activeRound,
 	rounds,
 	nextRoundHandler,
 	prevRoundHandler
-}: IPomodoroRounds) {
+}: ITimerRounds) {
 	const isCanPrevRound = rounds
 		? rounds.some(round => round.isCompleted)
 		: false
