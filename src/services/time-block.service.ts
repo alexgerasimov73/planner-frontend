@@ -10,7 +10,7 @@ const TIME_BLOCKS_URL = '/user/time-blocks'
 export const timeBlockService = {
 	async getTimeBlocks() {
 		const response =
-			await axiosWithAuth.get<ITimeBlockResponse>(TIME_BLOCKS_URL)
+			await axiosWithAuth.get<ITimeBlockResponse[]>(TIME_BLOCKS_URL)
 		return response
 	},
 	async createTimeBlock(data: TTimeBlockFormState) {
