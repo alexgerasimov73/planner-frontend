@@ -18,7 +18,7 @@ const zen = Noto_Sans({
 export const metadata: Metadata = {
 	title: {
 		default: SITE_NAME,
-		template: `$s | ${SITE_NAME}`
+		template: `%s | ${SITE_NAME}`
 	},
 	description: 'The best planner ever ;)'
 }

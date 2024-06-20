@@ -11,9 +11,9 @@ export function useTimeBlocks() {
 		queryFn: () => timeBlockService.getTimeBlocks()
 	})
 
-	const [items, setItems] = useState<
-		ReadonlyArray<ITimeBlockResponse> | undefined
-	>(data?.data)
+	const [items, setItems] = useState<ITimeBlockResponse[] | undefined>(
+		data?.data
+	)
 
 	useEffect(() => setItems(data?.data), [data?.data])
 

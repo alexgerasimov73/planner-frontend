@@ -14,10 +14,8 @@ import { ITimeBlockResponse } from '@/types/time-block.types'
 import { timeBlockService } from '@/services/time-block.service'
 
 interface IUseTimeBlockDnD {
-	readonly items?: ReadonlyArray<ITimeBlockResponse>
-	readonly setItems: Dispatch<
-		SetStateAction<ReadonlyArray<ITimeBlockResponse> | undefined>
-	>
+	readonly items?: ITimeBlockResponse[]
+	readonly setItems: Dispatch<SetStateAction<ITimeBlockResponse[] | undefined>>
 }
 
 export function useTimeBlockDnD({ items, setItems }: IUseTimeBlockDnD) {

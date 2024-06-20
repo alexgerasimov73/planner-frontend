@@ -29,7 +29,7 @@ export function useTaskDnd() {
 			id: result.draggableId,
 			data: {
 				createdAt: newCreatedAt,
-				isCompleted: true
+				isCompleted: false
 			}
 		})
 	}
