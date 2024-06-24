@@ -39,7 +39,7 @@ export default function ListRowParent({
 					{filterTasks(value, items)?.map((item, index) => (
 						<Draggable
 							key={item.id}
-							draggableId={item.id}
+							draggableId={item.id || String(index)}
 							index={index}
 						>
 							{provided => (

@@ -8,7 +8,7 @@ export function useTimeBlockSortable(id: UniqueIdentifier) {
 		useSortable({ id })
 
 	const style: CSSProperties = {
-		transform: CSS.Transform.toString(transform),
+		transform: CSS.Translate.toString(transform),
 		transition
 	}
 

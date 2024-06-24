@@ -12,8 +12,8 @@ export default function Sidebar() {
 		<aside className='border-r border-r-border h-full bg-sidebar flex flex-col justify-between'>
 			<div>
 				<Link
-					href='/'
 					className='flex items-center gap-2.5 p-layout border-b border-b-border'
+					href='/'
 				>
 					<GanttChartSquare
 						color={COLORS.primary}
@@ -26,8 +26,8 @@ export default function Sidebar() {
 					<LogoutButton />
 					{MENU.map(item => (
 						<MenuItem
-							item={item}
 							key={item.link}
+							item={item}
 						/>
 					))}
 				</div>

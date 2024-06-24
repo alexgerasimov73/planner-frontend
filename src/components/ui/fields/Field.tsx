@@ -2,6 +2,7 @@ import { KeyboardEvent, forwardRef } from 'react'
 
 interface InputFieldProps {
 	readonly id: string
+	readonly disableAutocomplete?: boolean
 	readonly disabled?: boolean
 	readonly extra?: string
 	readonly isNumber?: boolean
@@ -16,6 +17,7 @@ export const Field = forwardRef<HTMLInputElement, InputFieldProps>(
 	(
 		{
 			id,
+			disableAutocomplete,
 			disabled,
 			label,
 			extra,
@@ -51,7 +53,6 @@ export const Field = forwardRef<HTMLInputElement, InputFieldProps>(
 					{label}
 				</label>
 				<input
-					ref={ref}
 					className={`mt-2 flex w-full items-center justify-center rounded-lg border border-border bg-white/0 p-3 text-base outline-none placeholder:text-white/30 placeholder:font-normal duration-500 transition-colors focus:border-primary ${
 						disabled === true
 							? '!border-none !bg-gray-100 dark:!bg-white/5 dark:placeholder:!text-[rgba(255,255,255,0.15)]'
@@ -61,9 +62,11 @@ export const Field = forwardRef<HTMLInputElement, InputFieldProps>(
 									? 'border-green-500 text-green-500 placeholder:text-green-500 dark:!border-green-400 dark:!text-green-400 dark:placeholder:!text-green-400'
 									: ''
 					}`}
+					autoComplete={disableAutocomplete ? 'off' : ''}
 					id={id}
 					disabled={disabled}
 					placeholder={placeholder}
+					ref={ref}
 					onKeyDown={onKeyDown}
 					{...rest}
 				/>

@@ -2,7 +2,7 @@
 
 import { useMutation } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
@@ -18,7 +18,7 @@ import { authService } from '@/services/auth.service'
 
 export function Auth() {
 	const [isLoginForm, setIsLoginForm] = useState(false)
-	const { push } = useRouter()
+	const { push, prefetch } = useRouter()
 	const { register, handleSubmit, reset } = useForm<IAuthForm>({
 		mode: 'onChange'
 	})
@@ -32,6 +32,8 @@ export function Auth() {
 			push(DASHBOARD_PAGES.HOME)
 		}
 	})
+
+	useEffect(() => prefetch(DASHBOARD_PAGES.HOME), [prefetch])
 
 	const onSubmit: SubmitHandler<IAuthForm> = data => mutate(data)
 

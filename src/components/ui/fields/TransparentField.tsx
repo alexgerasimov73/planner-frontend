@@ -10,6 +10,7 @@ export const TransparentField = forwardRef<HTMLInputElement, TTransparentField>(
 				'bg-transparent border-none focus:outline-0 focus:shadow-transparent w-full',
 				className
 			)}
+			autoComplete='off'
 			ref={ref}
 			{...rest}
 		/>

@@ -55,6 +55,16 @@ input:checked.defaultCheckbox::before {
 	opacity: 1;
 }
 
+// Fixing for the autofill styles.
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+	transition:
+		background-color 0s 600000s,
+		color 0s 600000s !important;
+}
+
 .slide {
 	animation: slide_anim 0.5s;
 }

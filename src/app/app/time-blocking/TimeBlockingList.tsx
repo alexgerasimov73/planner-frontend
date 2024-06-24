@@ -1,4 +1,8 @@
 import { DndContext, closestCenter } from '@dnd-kit/core'
+import {
+	restrictToParentElement,
+	restrictToVerticalAxis
+} from '@dnd-kit/modifiers'
 import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable'
 
 import { Loader } from '@/components/ui/Loader'
@@ -21,6 +25,7 @@ export function TimeBlockingList() {
 		<div>
 			<DndContext
 				collisionDetection={closestCenter}
+				modifiers={[restrictToVerticalAxis, restrictToParentElement]}
 				sensors={sensors}
 				onDragEnd={handleDragEnd}
 			>

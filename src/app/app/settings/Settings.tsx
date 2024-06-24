@@ -66,6 +66,7 @@ export default function Settings() {
 
 					<div>
 						<Field
+							disableAutocomplete
 							id='workInterval'
 							extra='mb-4'
 							isNumber
@@ -75,6 +76,7 @@ export default function Settings() {
 						/>
 
 						<Field
+							disableAutocomplete
 							id='breakInterval'
 							extra='mb-4'
 							isNumber
@@ -84,6 +86,7 @@ export default function Settings() {
 						/>
 
 						<Field
+							disableAutocomplete
 							id='intervalsCount'
 							extra='mb-6'
 							isNumber
