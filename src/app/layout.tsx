@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Noto_Sans } from 'next/font/google'
+import { Oswald } from 'next/font/google'
 import { Toaster } from 'sonner'
 
 import { SITE_NAME } from '@/constants/seo.constants'
@@ -7,9 +7,9 @@ import { SITE_NAME } from '@/constants/seo.constants'
 import './globals.scss'
 import { Providers } from './providers'
 
-const zen = Noto_Sans({
+const zen = Oswald({
 	subsets: ['latin'],
-	weight: ['300', '400', '500', '600', '700'],
+	weight: ['300', '400', '500', '700'],
 	display: 'swap',
 	variable: '--font-zen',
 	style: ['normal']
