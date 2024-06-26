@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
-import { Heading } from '@/components/ui/Heading'
+import { Logo } from '@/components/ui/Logo'
 import { Button } from '@/components/ui/buttons/Button'
 import { Field } from '@/components/ui/fields/Field'
 
@@ -38,13 +38,19 @@ export function Auth() {
 	const onSubmit: SubmitHandler<IAuthForm> = data => mutate(data)
 
 	return (
-		<div className='flex min-h-screen'>
+		<div className='relative flex flex-col items-center justify-center  min-h-screen'>
+			<Logo
+				className='!absolute top-5 left-5'
+				isPrimaryColor
+			/>
+			<h1>Welcome back</h1>
+			<p>Login into your account</p>
+			<p>or register</p>
+
 			<form
-				className='w-1/4 m-auto shadow bg-sidebar rounded-xl p-layout'
+				className='w-1/3 p-layout'
 				onSubmit={handleSubmit(onSubmit)}
 			>
-				<Heading title='Authorisation' />
-
 				<Field
 					id='email'
 					extra='mb-4'
@@ -63,7 +69,7 @@ export function Auth() {
 					{...register('password', { required: 'Password is required!' })}
 				/>
 
-				<div className='flex items-center justify-center gap-5'>
+				<div className='flex items-center justify-center gap-7'>
 					<Button onClick={() => setIsLoginForm(true)}>Login</Button>
 					<Button onClick={() => setIsLoginForm(false)}>Register</Button>
 				</div>

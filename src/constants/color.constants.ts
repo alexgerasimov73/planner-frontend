@@ -1,7 +1,6 @@
 export const COLORS = {
-	primary: '#7551FF',
-	secondary: '#F97912',
-	border: 'rgba(255,255,255,.12)',
-	sidebar: '#603e75',
-	bg: '#0E0f0F'
+	bg: '#f8f9ff',
+	primary: '#603e75',
+	secondary: '#7e82b9',
+	white: '#ffffff'
 }

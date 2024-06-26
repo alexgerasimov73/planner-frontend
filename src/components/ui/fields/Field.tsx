@@ -47,14 +47,14 @@ export const Field = forwardRef<HTMLInputElement, InputFieldProps>(
 		return (
 			<div className={`${extra}`}>
 				<label
+					className='text-sm ml-1.5 font-medium'
 					htmlFor={id}
-					className='text-sm text-white/60 dark:text-white ml-1.5 font-medium'
 				>
 					{label}
 				</label>
 				<input
-					className={`mt-2 flex w-full items-center justify-center rounded-lg border border-border bg-white/0 p-3 text-base outline-none placeholder:text-white/30 placeholder:font-normal duration-500 transition-colors focus:border-primary ${
-						disabled === true
+					className={`mt-2 flex w-full items-center justify-center rounded-lg border border-border bg-white/0 p-3 text-base outline-none placeholder:text-gray-700 placeholder:font-normal duration-500 transition-colors hover:border-secondary focus:border-primary ${
+						disabled
 							? '!border-none !bg-gray-100 dark:!bg-white/5 dark:placeholder:!text-[rgba(255,255,255,0.15)]'
 							: state === 'error'
 								? 'border-red-500 text-red-500 placeholder:text-red-500 dark:!border-red-400 dark:!text-red-400 dark:placeholder:!text-red-400'

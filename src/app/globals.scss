@@ -1,10 +1,28 @@
 @tailwind base;
+
+@layer base {
+	h1 {
+		@apply text-3xl font-bold;
+	}
+	h2 {
+		@apply text-2xl font-medium;
+	}
+	h3 {
+		@apply text-xl;
+	}
+	h4 {
+		@apply text-lg;
+	}
+	p {
+		@apply text-base font-normal;
+	}
+}
 @tailwind components;
 @tailwind utilities;
 
 :root {
-	--foreground-rgb: 255, 255, 255;
-	--background-start-rgb: 214, 219, 220;
+	--font-color: #191919;
+	--background-color: #f8f9ff;
 	--background-end-rgb: 255, 255, 255;
 }
 
@@ -19,8 +37,8 @@
 body {
 	@apply text-base overflow-hidden;
 	font-family: var(--font-zen), sans-serif;
-	color: rgb(var(--foreground-rgb));
-	background-color: #0e0f0f;
+	color: var(--foreground-rgb);
+	background-color: var(--background-color);
 
 	@media (max-width: 1200px) {
 		font-size: 16px;
