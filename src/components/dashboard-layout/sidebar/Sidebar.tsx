@@ -1,7 +1,7 @@
-import { GanttChartSquare } from 'lucide-react'
+import Image from 'next/image'
 import Link from 'next/link'
 
-import { COLORS } from '@/constants/color.constants'
+import { PIcon } from '@/assets/icons'
 
 import LogoutButton from './LogoutButton'
 import MenuItem from './MenuItem'
@@ -9,21 +9,23 @@ import { MENU } from './menu.data'
 
 export default function Sidebar() {
 	return (
-		<aside className='border-r border-r-border h-full bg-sidebar flex flex-col justify-between'>
+		<aside className='h-full flex flex-col justify-between bg-sidebar'>
 			<div>
 				<Link
-					className='flex items-center gap-2.5 p-layout border-b border-b-border'
+					className='relative flex items-baseline p-layout'
 					href='/'
 				>
-					<GanttChartSquare
-						color={COLORS.primary}
-						size={38}
+					<Image
+						className='w-9'
+						src={PIcon}
+						alt='P'
 					/>
-					<span className='text-2xl font-bold relative'>Planner</span>
+					<span className='absolute top-7 left-16 text-2xl font-bold tracking-widest'>
+						lanner
+					</span>
 				</Link>
 
 				<div className='p-3 relative'>
-					<LogoutButton />
 					{MENU.map(item => (
 						<MenuItem
 							key={item.link}
@@ -32,6 +34,7 @@ export default function Sidebar() {
 					))}
 				</div>
 			</div>
+			<LogoutButton />
 		</aside>
 	)
 }

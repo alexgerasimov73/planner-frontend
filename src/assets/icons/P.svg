@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.0"
+   width="800"
+   height="1040"
+   id="svg2">
+  <defs
+     id="defs4" />
+  <rect
+     width="741.73834"
+     height="982.62433"
+     x="30.962265"
+     y="28.067698"
+     id="rect3498"
+     style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#603e75;stroke-width:38.95716476;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  <rect
+     width="667.80298"
+     height="915.84412"
+     x="67.929955"
+     y="61.457874"
+     id="rect3496"
+     style="opacity:1;fill:#603e75;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  <path
+     d="M 379.24501,272.24557 L 379.24501,522.23067 C 380.9991,522.23103 383.48433,522.37722 386.7007,522.66924 C 389.91669,522.96198 392.25573,523.10817 393.71783,523.10781 C 405.41282,523.10817 413.38018,521.06151 417.61991,516.96783 C 421.85919,512.87487 423.97895,505.27299 423.97918,494.16217 L 423.97918,474.4265 L 423.97918,311.7169 C 423.97895,293.58992 421.93229,282.47948 417.8392,278.38555 C 413.74565,274.29284 405.41282,272.24618 392.84069,272.24557 L 379.24501,272.24557 z M 224.86824,884.05121 L 224.86824,154.70872 L 400.73495,154.70872 C 477.33829,154.70945 526.16574,163.40775 547.21745,180.80365 C 568.26845,198.20096 578.79413,239.79201 578.79452,305.57692 L 578.79452,488.02218 C 578.79413,554.39282 568.19536,596.27625 546.99816,613.67259 C 525.80026,631.06946 477.33829,639.76777 401.61209,639.76752 L 379.24501,639.76752 L 379.24501,884.05121 L 224.86824,884.05121 z"
+     id="text3492"
+     style="font-size:898.19207764px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Compacta Bd BT;-inkscape-font-specification:Compacta Bd BT" />
+</svg>
