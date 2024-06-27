@@ -16,7 +16,8 @@ const config: Config = {
 			spacing: {
 				0.5: '0.12rem',
 				layout: '1.4rem',
-				'big-layout': '2.3rem'
+				'big-layout': '2.3rem',
+				23: '5.75rem'
 			},
 			fontSize: {
 				xs: '0.9rem',

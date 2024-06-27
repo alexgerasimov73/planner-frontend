@@ -8,9 +8,9 @@ export default function DashboardLayout({ children }: PropsWithChildren) {
 		<div className='grid min-h-screen 2xl:grid-cols-[1.1fr_6fr] grid-cols-[1.2fr_6fr]'>
 			<Sidebar />
 
-			<main className='p-big-layout overflow-x-hidden max-h-screen relative'>
+			<main className='overflow-x-hidden max-h-screen relative'>
 				<Header />
-				{children}
+				<section className='p-big-layout'>{children}</section>
 			</main>
 		</div>
 	)
