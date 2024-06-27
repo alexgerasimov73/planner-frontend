@@ -8,10 +8,10 @@
 	.header,
 	.parentsWrapper .row,
 	.parentsWrapper .colHeading {
-		@apply rounded border-t border-border text-left w-auto whitespace-nowrap;
+		@apply rounded border-t border-primary text-left w-auto whitespace-nowrap;
 
 		> div {
-			@apply border-r border-border py-2 px-4;
+			@apply border-r border-primary py-2 px-4;
 
 			&:last-child {
 				@apply border-0;
@@ -30,7 +30,7 @@
 		}
 
 		.addRow {
-			@apply py-2 px-4 border-t border-border;
+			@apply py-2 px-4 border-t border-primary;
 		}
 
 		.row {

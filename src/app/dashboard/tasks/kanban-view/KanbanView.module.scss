@@ -8,7 +8,7 @@
 		min-height: 79vh;
 
 		.card {
-			@apply rounded border border-border mt-5 p-4 relative bg-[#0e0f0f];
+			@apply rounded border border-primary mt-5 p-4 relative bg-[#0e0f0f];
 
 			&.completed {
 				@apply italic line-through opacity-50;
