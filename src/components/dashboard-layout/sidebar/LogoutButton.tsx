@@ -16,7 +16,7 @@ export default function LogoutButton() {
 
 	return (
 		<button
-			className='flex items-center gap-2.5 mb-10 px-8 opacity-50 hover:opacity-100 transition-opacity duration-300'
+			className='flex items-center gap-2.5 mb-10 ml-8 text-white opacity-70 hover:opacity-100 transition-opacity duration-300'
 			onClick={() => mutate()}
 		>
 			<LogOut size={20} /> Logout

@@ -1,17 +1,26 @@
+import cn from 'clsx'
 import Link from 'next/link'
 
+import styles from './MenuItem.module.scss'
 import { IMenuItem } from './menu.interface'
 
-export default function MenuItem({ item }: { item: IMenuItem }) {
+export default function MenuItem({
+	item,
+	isActive
+}: {
+	item: IMenuItem
+	isActive: boolean
+}) {
+	console.log(item.name, isActive)
 	return (
-		<div>
-			<Link
-				className='flex gap-2.5 items-center py-1.5 mt-2 px-layout transition-colors hover:bg-border rounded-lg'
-				href={item.link}
-			>
-				<item.icon />
-				<span>{item.name}</span>
-			</Link>
-		</div>
+		<Link
+			className={cn(styles.item, {
+				[styles.active]: isActive
+			})}
+			href={item.link}
+		>
+			<item.icon />
+			<span>{item.name}</span>
+		</Link>
 	)
 }
