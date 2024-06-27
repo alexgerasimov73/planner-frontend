@@ -19,7 +19,7 @@ export default function Statistics() {
 				data.statistics.map(statistic => (
 					<Link
 						key={statistic.label}
-						className='bg-border/5 rounded p-layout text-center hover:-translate-y-2 transition-transform duration-100 cursor-pointer'
+						className='rounded p-layout shadow bg-white text-center hover:-translate-y-1 transition-transform duration-100 cursor-pointer'
 						href={DASHBOARD_PAGES.TASKS}
 					>
 						<div className='text-xl'>{statistic.label}</div>
