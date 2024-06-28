@@ -46,8 +46,11 @@ export default function KanbanCard({ item, setItems }: IKanbanCard) {
 			)}
 		>
 			<div className={styles.cardHeader}>
-				<button aria-describedby='todo-item'>
-					<GripVertical className={styles.grip} />
+				<button
+					className={styles.grip}
+					aria-describedby='todo-item'
+				>
+					<GripVertical />
 				</button>
 
 				<Controller
@@ -55,26 +58,30 @@ export default function KanbanCard({ item, setItems }: IKanbanCard) {
 					name='isCompleted'
 					render={({ field: { value, onChange } }) => (
 						<Checkbox
-							onChange={onChange}
 							checked={value}
+							onChange={onChange}
 						/>
 					)}
 				/>
 
-				<TransparentField {...register('name')} />
-			</div>
-
-			<div className={styles.cardBody}>
 				<Controller
 					control={control}
 					name='createdAt'
 					render={({ field: { value, onChange } }) => (
 						<DatePicker
-							onChange={onChange}
-							value={value || ''}
 							position='left'
+							value={value || ''}
+							onChange={onChange}
 						/>
 					)}
+				/>
+			</div>
+
+			<div className={styles.cardBody}>
+				<TransparentField
+					className='mb-3'
+					placeholder='Type the name of the task here...'
+					{...register('name')}
 				/>
 
 				<Controller
@@ -86,8 +93,8 @@ export default function KanbanCard({ item, setItems }: IKanbanCard) {
 								value: item,
 								label: item
 							}))}
-							onChange={onChange}
 							value={value || ''}
+							onChange={onChange}
 						/>
 					)}
 				/>
@@ -95,10 +102,10 @@ export default function KanbanCard({ item, setItems }: IKanbanCard) {
 
 			<div className={styles.cardActions}>
 				<button
+					className='opacity-50 transition-opacity hover:opacity-100'
 					onClick={() =>
 						item.id ? deleteTask(item.id) : setItems(prev => prev?.slice(0, -1))
 					}
-					className='opacity-50 transition-opacity hover:opacity-100'
 				>
 					{isDeletePending ? <Loader size={15} /> : <Trash size={15} />}
 				</button>

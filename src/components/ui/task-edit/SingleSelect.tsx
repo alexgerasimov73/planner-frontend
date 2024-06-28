@@ -65,7 +65,7 @@ export function SingleSelect({
 
 			{value && (
 				<button
-					className='absolute top-0 right-0 opacity-30 hover:opacity-100 transition-opacity'
+					className='absolute top-2 right-6 opacity-30 hover:opacity-100 transition-opacity'
 					onClick={handleValueClick}
 				>
 					<X size={14} />

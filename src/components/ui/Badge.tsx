@@ -8,12 +8,12 @@ interface IBadge {
 }
 
 const badge = tv({
-	base: 'rounded-lg w-max py-1 px-2 text-xs font-semibold text-sm text-white transition',
+	base: 'rounded-lg w-max py-1 px-2 text-xs text-sm text-text transition',
 	variants: {
 		backgroundColor: {
-			gray: 'bg-gray-500/20',
-			high: 'bg-red-400/60',
-			medium: 'bg-orange-400/70',
+			gray: 'bg-secondary/15',
+			high: 'bg-pink',
+			medium: 'bg-yellow',
 			low: 'bg-blue-400/70'
 		}
 	},

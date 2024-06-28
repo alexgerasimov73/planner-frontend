@@ -50,7 +50,7 @@ export function DatePicker({
 			</button>
 			{value && (
 				<button
-					className='absolute -top-2 -right-4 opacity-30 hover:opacity-100 transition-opacity'
+					className='absolute top-2 -right-6 opacity-30 hover:opacity-100 transition-opacity'
 					onClick={() => onChange('')}
 				>
 					<X size={14} />
