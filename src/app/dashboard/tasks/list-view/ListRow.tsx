@@ -54,13 +54,16 @@ export default function ListRow({ item, setItems }: IListRow) {
 						name='isCompleted'
 						render={({ field: { value, onChange } }) => (
 							<Checkbox
-								onChange={onChange}
 								checked={value}
+								onChange={onChange}
 							/>
 						)}
 					/>
 
-					<TransparentField {...register('name')} />
+					<TransparentField
+						placeholder='Type the name of the task here...'
+						{...register('name')}
+					/>
 				</span>
 			</div>
 
@@ -87,8 +90,8 @@ export default function ListRow({ item, setItems }: IListRow) {
 								value: item,
 								label: item
 							}))}
-							onChange={onChange}
 							value={value || ''}
+							onChange={onChange}
 						/>
 					)}
 				/>
@@ -96,12 +99,12 @@ export default function ListRow({ item, setItems }: IListRow) {
 
 			<div>
 				<button
+					className='opacity-50 transition-opacity hover:opacity-100'
 					onClick={() =>
 						item.id ? deleteTask(item.id) : setItems(prev => prev?.slice(0, -1))
 					}
-					className='opacity-50 transition-opacity hover:opacity-100'
 				>
-					{isDeletePending ? <Loader size={15} /> : <Trash size={15} />}
+					{isDeletePending ? <Loader size={15} /> : <Trash size={20} />}
 				</button>
 			</div>
 		</div>

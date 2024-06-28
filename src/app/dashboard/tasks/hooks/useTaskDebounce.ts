@@ -18,7 +18,8 @@ export function useTaskDebounce({ itemId, watch }: IUseTaskDebounce) {
 
 	const debounceCreateTask = useCallback(
 		debounce((formatData: TTaskFormState) => {
-			createTask(formatData)
+			const name = formatData.name || 'Untitled task'
+			createTask({ ...formatData, name })
 		}, 400),
 		[debounce]
 	)

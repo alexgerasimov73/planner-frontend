@@ -19,12 +19,12 @@ export default function TasksView() {
 	if (isLoading) return <Loader />
 
 	return (
-		<div>
+		<>
 			<SwitcherView
 				type={type}
 				setType={setType}
 			/>
 			{type === 'list' ? <ListView /> : <KanbanView />}
-		</div>
+		</>
 	)
 }

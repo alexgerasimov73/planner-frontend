@@ -74,7 +74,7 @@ export function SingleSelect({
 
 			{isShow && (
 				<div
-					className='absolute w-full p-2.5 left-0 slide bg-primary z-10 shadow rounded-lg'
+					className='absolute w-full p-2.5 left-0 slide bg-white z-10 shadow rounded-lg'
 					style={{
 						top: 'calc(100% + .5rem)'
 					}}
