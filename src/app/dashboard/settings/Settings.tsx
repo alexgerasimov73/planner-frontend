@@ -31,7 +31,7 @@ export default function Settings() {
 	return (
 		<div>
 			<form
-				className='w-2/4'
+				className='w-3/4'
 				onSubmit={handleSubmit(onSubmit)}
 			>
 				<div className='grid grid-cols-2 gap-10'>
@@ -40,7 +40,7 @@ export default function Settings() {
 							id='email'
 							extra='mb-4'
 							label='Email:'
-							placeholder='Enter the email'
+							placeholder='Type the email here...'
 							type='email'
 							{...register('email', { required: 'Email is required!' })}
 						/>
@@ -49,7 +49,7 @@ export default function Settings() {
 							id='name'
 							extra='mb-4'
 							label='Name:'
-							placeholder='Enter the name'
+							placeholder='Type the name here...'
 							type='name'
 							{...register('name', { required: 'Name is required!' })}
 						/>
@@ -58,7 +58,7 @@ export default function Settings() {
 							id='password'
 							extra='mb-10'
 							label='Password:'
-							placeholder='Enter the password'
+							placeholder='Type the password here...'
 							type='password'
 							{...register('password')}
 						/>
@@ -71,7 +71,7 @@ export default function Settings() {
 							extra='mb-4'
 							isNumber
 							label='Work interval (min):'
-							placeholder='Enter the work interval (min)'
+							placeholder='Type the work interval here...'
 							{...register('workInterval', { valueAsNumber: true })}
 						/>
 
@@ -81,7 +81,7 @@ export default function Settings() {
 							extra='mb-4'
 							isNumber
 							label='Break interval (min):'
-							placeholder='Enter the break interval (min)'
+							placeholder='Type the break interval here...'
 							{...register('breakInterval', { valueAsNumber: true })}
 						/>
 
@@ -91,7 +91,7 @@ export default function Settings() {
 							extra='mb-6'
 							isNumber
 							label='Interval count (max 10):'
-							placeholder='Enter the interval count (max 10)'
+							placeholder='Type the interval count here...'
 							{...register('intervalsCount', { valueAsNumber: true })}
 						/>
 					</div>

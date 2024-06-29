@@ -34,13 +34,14 @@ export function TimeBlock({ item }: ITimeBlock) {
 					height: `${item.duration}px`
 				}}
 			>
-				<div className='flex items-center'>
+				<div className='flex items-center text-white'>
 					<button
+						className={styles.grip}
 						{...attributes}
 						{...listeners}
 						aria-describedby='time-block'
 					>
-						<GripVertical className={styles.grip} />
+						<GripVertical />
 					</button>
 					<div>
 						{item.name}{' '}
@@ -50,7 +51,7 @@ export function TimeBlock({ item }: ITimeBlock) {
 
 				<div className={styles.actions}>
 					<button
-						className='opacity-50 transition-opacity hover:opacity-100 mr-2'
+						className='opacity-70 text-white transition-opacity hover:opacity-100 mr-2'
 						onClick={() => {
 							reset({
 								id: item.id,
@@ -65,7 +66,7 @@ export function TimeBlock({ item }: ITimeBlock) {
 					</button>
 
 					<button
-						className='opacity-50 transition-opacity hover:opacity-100'
+						className='opacity-70 text-white transition-opacity hover:opacity-100'
 						onClick={() => deleteTimeBlock()}
 					>
 						{isDeletePending ? <Loader size={16} /> : <Trash size={16} />}

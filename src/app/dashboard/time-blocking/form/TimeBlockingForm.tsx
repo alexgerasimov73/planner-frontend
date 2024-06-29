@@ -44,16 +44,16 @@ export function TimeBlockingForm() {
 		>
 			<Field
 				id='name'
-				label='Enter name:'
-				placeholder='Enter name:'
+				label='Block title:'
+				placeholder='Type the block title here...'
 				extra='mb-4'
 				{...register('name', { required: true })}
 			/>
 
 			<Field
 				id='duration'
-				label='Enter duration (min):'
-				placeholder='Enter duration (min):'
+				label='Duration (min):'
+				placeholder='Type the duration here...'
 				extra='mb-4'
 				{...register('duration', { required: true, valueAsNumber: true })}
 			/>

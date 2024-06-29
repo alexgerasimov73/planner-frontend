@@ -55,7 +55,7 @@ export function Auth() {
 					id='email'
 					extra='mb-4'
 					label='Email:'
-					placeholder='Enter the email'
+					placeholder='Type the email here...'
 					type='email'
 					{...register('email', { required: 'Email is required!' })}
 				/>
@@ -64,7 +64,7 @@ export function Auth() {
 					id='password'
 					extra='mb-6'
 					label='Password:'
-					placeholder='Enter the password'
+					placeholder='Type the password here...'
 					type='password'
 					{...register('password', { required: 'Password is required!' })}
 				/>
