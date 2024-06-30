@@ -17,19 +17,18 @@ export function useTodaySession({
 	setActiveRound,
 	setSecondsLeft
 }: IUseTodaySession) {
-	// TODO: Delete workIntterval.
+	// TODO: Delete workInterval.
 	const { workInterval } = useLoadSettings()
 	const {
 		data: sessionsResponse,
 		isLoading,
-		isSuccess,
-		refetch
+		isSuccess
 	} = useQuery({
 		queryKey: ['get today session'],
 		queryFn: () => timerService.getTodaySession()
 	})
 
-	const rounds = sessionsResponse?.data.rounds
+	const rounds = sessionsResponse?.data.timerRounds
 
 	useEffect(() => {
 		if (isSuccess && rounds) {
@@ -42,5 +41,10 @@ export function useTodaySession({
 		}
 	}, [isSuccess, rounds, workInterval])
 
-	return { isLoading, isSuccess, sessionsResponse, workInterval, refetch }
+	return {
+		isLoading,
+		isSuccess,
+		sessionData: sessionsResponse?.data,
+		workInterval
+	}
 }

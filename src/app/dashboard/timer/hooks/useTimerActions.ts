@@ -21,16 +21,14 @@ export function useTimerActions({
 	const { isUpdateRoundPending, updateRound } = useUpdateRound()
 
 	const pauseHandler = () => {
-		const totalSeconds = workInterval * 60 - secondsLeft
-
 		setIsRunning(false)
 		if (!activeRound?.id) return
 
 		updateRound({
 			id: activeRound.id,
 			data: {
-				totalSeconds,
-				isCompleted: Math.floor(totalSeconds / 60) >= workInterval
+				totalSeconds: secondsLeft,
+				isCompleted: secondsLeft >= workInterval * 60
 			}
 		})
 	}
@@ -47,6 +45,7 @@ export function useTimerActions({
 				isCompleted: true
 			}
 		})
+		setSecondsLeft(workInterval * 60)
 	}
 
 	const prevRoundHandler = () => {
@@ -63,6 +62,7 @@ export function useTimerActions({
 		})
 
 		setActiveRound(lastCompletedRound)
+		setSecondsLeft(workInterval * 60)
 	}
 
 	return {

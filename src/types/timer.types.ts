@@ -7,7 +7,7 @@ export interface ITimerRoundResponse extends IBase {
 
 export interface ITimerSessionResponse extends IBase {
 	readonly isCompleted?: boolean
-	readonly rounds?: ITimerRoundResponse[]
+	readonly timerRounds?: ITimerRoundResponse[]
 }
 
 export type TTimerRoundState = Partial<

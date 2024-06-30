@@ -22,11 +22,12 @@ export function Timer() {
 		setIsRunning,
 		setSecondsLeft
 	} = useTimer()
-	const { isLoading, sessionsResponse, workInterval } = useTodaySession({
+
+	const { isLoading, sessionData, workInterval } = useTodaySession({
 		setActiveRound,
 		setSecondsLeft
 	})
-	const rounds = sessionsResponse?.data.rounds
+	const rounds = sessionData?.timerRounds
 	const {
 		isUpdateRoundPending,
 		nextRoundHandler,
@@ -50,10 +51,10 @@ export function Timer() {
 	const handleCreateSession = () => createSession()
 
 	const handleDeleteSession = () => {
-		if (!sessionsResponse?.data.id) return
+		if (!sessionData?.id) return
 
 		setIsRunning(false)
-		deleteSession(sessionsResponse.data.id)
+		deleteSession(sessionData.id)
 	}
 
 	return (
@@ -64,7 +65,7 @@ export function Timer() {
 
 			{isLoading ? (
 				<Loader />
-			) : sessionsResponse?.data ? (
+			) : sessionData ? (
 				<>
 					<TimerRounds
 						activeRound={activeRound}
@@ -73,7 +74,7 @@ export function Timer() {
 						prevRoundHandler={prevRoundHandler}
 					/>
 					<button
-						className='mt-6 opacity-80 transition-opacity hover:opacity-100 '
+						className='mt-6 opacity-70 transition-opacity hover:opacity-100 '
 						disabled={isUpdateRoundPending}
 						onClick={isRunning ? pauseHandler : playHandler}
 					>

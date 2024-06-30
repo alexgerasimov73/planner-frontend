@@ -3,13 +3,19 @@ import { useEffect, useState } from 'react'
 import type { ITimerRoundResponse } from '@/types/timer.types'
 
 import { useLoadSettings } from './useLoadSettings'
+import { useUpdateRound } from './useUpdateRound'
 
 export function useTimer() {
 	const { breakInterval, workInterval } = useLoadSettings()
+	const { updateRound } = useUpdateRound()
 	const [activeRound, setActiveRound] = useState<ITimerRoundResponse>()
-	const [isBreakTime, setIsBreakTime] = useState(false)
+	const [isWorkTime, setIsWorkTime] = useState(true)
 	const [isRunning, setIsRunning] = useState(false)
-	const [secondsLeft, setSecondsLeft] = useState(workInterval * 60)
+	const [secondsLeft, setSecondsLeft] = useState(3000)
+
+	useEffect(() => {
+		setSecondsLeft(workInterval * 60)
+	}, [workInterval])
 
 	useEffect(() => {
 		let interval: NodeJS.Timeout | null = null
@@ -19,8 +25,6 @@ export function useTimer() {
 				() => setSecondsLeft(secondsLeft => secondsLeft - 1),
 				1000
 			)
-		} else if (!isRunning && secondsLeft !== 0 && interval) {
-			clearInterval(interval)
 		}
 
 		return () => {
@@ -28,15 +32,25 @@ export function useTimer() {
 				clearInterval(interval)
 			}
 		}
-	}, [activeRound, isRunning, secondsLeft, workInterval])
+	}, [isRunning, secondsLeft])
 
 	useEffect(() => {
 		// TODO: Leave a comment.
 		if (secondsLeft > 0) return
 
-		setIsBreakTime(!isBreakTime)
-		setSecondsLeft((isBreakTime ? workInterval : breakInterval) * 60)
-	}, [breakInterval, isBreakTime, secondsLeft, workInterval])
+		setIsWorkTime(!isWorkTime)
+		setSecondsLeft((isWorkTime ? breakInterval : workInterval) * 60)
+
+		if (activeRound && !isWorkTime) {
+			updateRound({
+				id: activeRound.id,
+				data: {
+					totalSeconds: workInterval * 60,
+					isCompleted: true
+				}
+			})
+		}
+	}, [activeRound, breakInterval, isWorkTime, secondsLeft, workInterval])
 
 	return {
 		activeRound,
