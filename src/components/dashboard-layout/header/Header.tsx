@@ -2,11 +2,11 @@
 
 import Link from 'next/link'
 
-import { Loader } from '@/components/ui/Loader'
-
 import { DASHBOARD_PAGES } from '@/config/pages-url.config'
 
 import { useProfile } from '@/hooks/useProfile'
+
+import GlobalLoader from './GlobalLoader'
 
 export default function Header() {
 	const { data, isLoading } = useProfile()
@@ -14,7 +14,7 @@ export default function Header() {
 	return (
 		<header className='h-23 flex justify-between items-center p-big-layout bg-white shadow-md'>
 			{isLoading ? (
-				<Loader />
+				<GlobalLoader />
 			) : (
 				<>
 					<h1 className='text-3xl font-medium'>{`Hello, ${data?.user.name}!`}</h1>
