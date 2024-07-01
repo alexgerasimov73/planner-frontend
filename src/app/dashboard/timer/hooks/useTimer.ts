@@ -11,11 +11,7 @@ export function useTimer() {
 	const [activeRound, setActiveRound] = useState<ITimerRoundResponse>()
 	const [isWorkTime, setIsWorkTime] = useState(true)
 	const [isRunning, setIsRunning] = useState(false)
-	const [secondsLeft, setSecondsLeft] = useState(3000)
-
-	useEffect(() => {
-		setSecondsLeft(workInterval * 60)
-	}, [workInterval])
+	const [secondsLeft, setSecondsLeft] = useState(workInterval * 60)
 
 	useEffect(() => {
 		let interval: NodeJS.Timeout | null = null
