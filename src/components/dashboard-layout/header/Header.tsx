@@ -19,10 +19,15 @@ export default function Header() {
 				<>
 					<h1 className='text-3xl font-medium'>{`Hello, ${data?.user.name}!`}</h1>
 					<Link
-						className='text-sm opacity-40'
+						className='flex items-center gap-3'
 						href={DASHBOARD_PAGES.SETTINGS}
 					>
-						{data?.user.email}
+						<span className='text-sm opacity-40'>{data?.user.email}</span>
+						<img
+							className='rounded-full border border-primary'
+							src={`https://robohash.org/${data?.user.name}.png?size=60x60`}
+							width={60}
+						/>
 					</Link>
 				</>
 			)}

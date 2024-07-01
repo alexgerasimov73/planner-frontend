@@ -31,6 +31,7 @@ export default function ListAddRowInput({
 			]
 		})
 	}
+
 	return (
 		<div className={styles.addRow}>
 			<button
