@@ -11,10 +11,10 @@
 }
 
 .round {
-	@apply rounded border border-primary w-5 h-5 relative;
+	@apply rounded-md border border-primary w-5 h-5 relative;
 
 	&::before {
-		@apply bg-primary rounded-l transition-all duration-300;
+		@apply bg-primary rounded transition-all duration-300;
 		content: '';
 		position: absolute;
 		top: 0;

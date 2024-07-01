@@ -44,6 +44,7 @@ export function TimeBlockingForm() {
 		>
 			<Field
 				id='name'
+				disableAutocomplete
 				label='Block title:'
 				placeholder='Type the block title here...'
 				extra='mb-4'
@@ -52,6 +53,8 @@ export function TimeBlockingForm() {
 
 			<Field
 				id='duration'
+				disableAutocomplete
+				isNumber
 				label='Duration (min):'
 				placeholder='Type the duration here...'
 				extra='mb-4'

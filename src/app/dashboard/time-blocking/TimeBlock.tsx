@@ -7,6 +7,7 @@ import type {
 } from '@/types/time-block.types'
 
 import styles from './TimeBlocking.module.scss'
+import { COLORS } from './form/colors.data'
 import { useDeleteTimeBlock } from './hooks/useDeleteTimeBlock'
 import { useTimeBlockSortable } from './hooks/useTimeBlockSortable'
 
@@ -30,7 +31,7 @@ export function TimeBlock({ item }: ITimeBlock) {
 			<div
 				className={styles.block}
 				style={{
-					backgroundColor: item.color || 'lightgray',
+					backgroundColor: item.color || COLORS[COLORS.length - 1],
 					height: `${item.duration}px`
 				}}
 			>

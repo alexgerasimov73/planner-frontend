@@ -38,34 +38,34 @@ export default function ListRowParent({
 						<div className='w-full'>{label}</div>
 					</div>
 
-					{filteredList?.length ? (
-						filteredList.map((item, index) => (
-							<Draggable
-								key={item.id}
-								draggableId={item.id || String(index)}
-								index={index}
-							>
-								{provided => (
-									<div
-										ref={provided.innerRef}
-										{...provided.draggableProps}
-										{...provided.dragHandleProps}
-									>
-										<ListRow
-											key={item.id}
-											item={item}
-											setItems={setItems}
-										/>
-									</div>
-								)}
-							</Draggable>
-						))
-					) : (
-						<p className={styles.emptyRow}>
-							Looks like there are no tasks yet. Maybe it's time to create the
-							first one by clicking on the "Add task" button?
-						</p>
-					)}
+					{filteredList?.length
+						? filteredList.map((item, index) => (
+								<Draggable
+									key={item.id}
+									draggableId={item.id || String(index)}
+									index={index}
+								>
+									{provided => (
+										<div
+											ref={provided.innerRef}
+											{...provided.draggableProps}
+											{...provided.dragHandleProps}
+										>
+											<ListRow
+												key={item.id}
+												item={item}
+												setItems={setItems}
+											/>
+										</div>
+									)}
+								</Draggable>
+							))
+						: value !== 'completed' && (
+								<p className={styles.emptyRow}>
+									Looks like there are no tasks yet. Maybe it's time to create
+									the first one by clicking on the "Add task" button?
+								</p>
+							)}
 
 					{provided.placeholder}
 

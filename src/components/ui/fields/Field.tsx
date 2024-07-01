@@ -67,6 +67,7 @@ export const Field = forwardRef<HTMLInputElement, InputFieldProps>(
 					disabled={disabled}
 					placeholder={placeholder}
 					ref={ref}
+					type={type}
 					onKeyDown={onKeyDown}
 					{...rest}
 				/>

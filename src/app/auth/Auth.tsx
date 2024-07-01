@@ -1,6 +1,7 @@
 'use client'
 
 import { useMutation } from '@tanstack/react-query'
+import { AxiosError } from 'axios'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
@@ -16,6 +17,12 @@ import { DASHBOARD_PAGES } from '@/config/pages-url.config'
 
 import { authService } from '@/services/auth.service'
 
+interface AxiosErrorData {
+	readonly error: string
+	readonly message: string
+	readonly statusCode: number
+}
+
 export function Auth() {
 	const [isLoginForm, setIsLoginForm] = useState(false)
 	const { push, prefetch } = useRouter()
@@ -30,6 +37,9 @@ export function Auth() {
 			toast.success('Succesfully login!')
 			reset()
 			push(DASHBOARD_PAGES.HOME)
+		},
+		onError(err: AxiosError<AxiosErrorData>) {
+			toast.error(`An error has occured: ${err.response?.data.message}`)
 		}
 	})
 

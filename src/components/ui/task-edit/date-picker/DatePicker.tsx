@@ -45,12 +45,15 @@ export function DatePicker({
 			className='relative'
 			ref={ref}
 		>
-			<button onClick={() => setIsShow(!isShow)}>
+			<button
+				className='pr-4'
+				onClick={() => setIsShow(!isShow)}
+			>
 				{value ? dayjs(value).format('LL') : 'Click for select'}
 			</button>
 			{value && (
 				<button
-					className='absolute top-2 -right-6 opacity-30 hover:opacity-100 transition-opacity'
+					className='absolute top-2 -right-2 opacity-30 hover:opacity-100 transition-opacity'
 					onClick={() => onChange('')}
 				>
 					<X size={14} />

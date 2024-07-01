@@ -47,11 +47,14 @@ export function TimeBlockingList() {
 					</SortableContext>
 				</div>
 			</DndContext>
-			<div>
-				{hoursLeft > 0
-					? `${hoursLeft} hours out of 24 left for sleep`
-					: 'No hours left to sleep'}
-			</div>
+
+			{!!items?.length && (
+				<div>
+					{hoursLeft > 0
+						? `${hoursLeft} hours out of 24 left for sleep`
+						: 'No hours left to sleep'}
+				</div>
+			)}
 		</div>
 	)
 }
