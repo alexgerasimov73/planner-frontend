@@ -19,6 +19,7 @@ export default function Header({ userData }: { userData: IUser }) {
 					className='rounded-full border border-primary'
 					src={`https://robohash.org/${userName}.png?size=60x60`}
 					width={60}
+					height={60}
 				/>
 			</Link>
 		</header>
