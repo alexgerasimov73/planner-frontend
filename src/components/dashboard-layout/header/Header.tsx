@@ -1,10 +1,14 @@
 import Link from 'next/link'
 
-import { IUser } from '@/types/auth.types'
+import type { IUser } from '@/types/auth.types'
 
 import { DASHBOARD_PAGES } from '@/config/pages-url.config'
 
-export default function Header({ userData }: { userData: IUser }) {
+interface IHeader {
+	readonly userData: IUser
+}
+
+export default function Header({ userData }: IHeader) {
 	const userName = userData.name ?? 'Anonymous'
 
 	return (

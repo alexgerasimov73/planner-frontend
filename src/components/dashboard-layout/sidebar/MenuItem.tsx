@@ -2,15 +2,14 @@ import cn from 'clsx'
 import Link from 'next/link'
 
 import styles from './MenuItem.module.scss'
-import { IMenuItem } from './menu.interface'
+import type { IMenuItem } from './menu.interface'
 
-export default function MenuItem({
-	item,
-	isActive
-}: {
-	item: IMenuItem
-	isActive: boolean
-}) {
+interface IMenuItemProps {
+	readonly item: IMenuItem
+	readonly isActive: boolean
+}
+
+export default function MenuItem({ item, isActive }: IMenuItemProps) {
 	console.log(item.name, isActive)
 	return (
 		<Link

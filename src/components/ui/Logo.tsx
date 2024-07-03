@@ -3,13 +3,12 @@ import Image from 'next/image'
 
 import { PIcon } from '@/assets/icons'
 
-export function Logo({
-	className,
-	isPrimaryColor
-}: {
-	className?: string
-	isPrimaryColor?: boolean
-}) {
+interface ILogo {
+	readonly className?: string
+	readonly isPrimaryColor?: boolean
+}
+
+export function Logo({ className, isPrimaryColor }: ILogo) {
 	return (
 		<div
 			className={cn(

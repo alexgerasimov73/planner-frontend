@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 
-import { TTimeBlockFormState } from '@/types/time-block.types'
+import type { TTimeBlockFormState } from '@/types/time-block.types'
 
 import { timeBlockService } from '@/services/time-block.service'
 

@@ -1,4 +1,4 @@
-import { ITaskResponse, TTaskFormState } from '@/types/task.types'
+import type { ITaskResponse, TTaskFormState } from '@/types/task.types'
 
 import { axiosWithAuth } from '@/api/interceptors'
 

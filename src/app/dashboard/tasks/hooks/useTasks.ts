@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
 
-import { ITaskResponse } from '@/types/task.types'
+import type { ITaskResponse } from '@/types/task.types'
 
 import { taskService } from '@/services/task.service'
 

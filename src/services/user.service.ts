@@ -1,15 +1,11 @@
-import { TUserForm } from '@/types/auth.types'
+import type { IUser, TUserForm } from '@/types/auth.types'
+import type { IOption } from '@/types/common.types'
 
 import { axiosWithAuth } from '@/api/interceptors'
 
-import { IUser } from './../types/auth.types'
-
 export interface IProfileResponse {
 	readonly user: IUser
-	readonly statistics: {
-		readonly label: string
-		readonly value: string
-	}[]
+	readonly statistics: IOption[]
 }
 
 const USER_URL = '/user/profile'

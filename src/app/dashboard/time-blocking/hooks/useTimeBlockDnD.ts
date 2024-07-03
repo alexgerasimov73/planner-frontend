@@ -1,5 +1,5 @@
 import {
-	DragEndEvent,
+	type DragEndEvent,
 	KeyboardSensor,
 	PointerSensor,
 	useSensor,
@@ -7,9 +7,9 @@ import {
 } from '@dnd-kit/core'
 import { arrayMove } from '@dnd-kit/sortable'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { Dispatch, SetStateAction } from 'react'
+import type { Dispatch, SetStateAction } from 'react'
 
-import { ITimeBlockResponse } from '@/types/time-block.types'
+import type { ITimeBlockResponse } from '@/types/time-block.types'
 
 import { timeBlockService } from '@/services/time-block.service'
 

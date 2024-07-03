@@ -1,4 +1,4 @@
-import { Controller, SubmitHandler, useFormContext } from 'react-hook-form'
+import { Controller, type SubmitHandler, useFormContext } from 'react-hook-form'
 
 import { Button } from '@/components/ui/buttons/Button'
 import { Field } from '@/components/ui/fields/Field'

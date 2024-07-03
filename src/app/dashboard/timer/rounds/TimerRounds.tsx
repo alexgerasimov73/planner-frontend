@@ -1,7 +1,7 @@
 import cn from 'clsx'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
-import { ITimerRoundResponse } from '@/types/timer.types'
+import type { ITimerRoundResponse } from '@/types/timer.types'
 
 import styles from './TimerRounds.module.scss'
 

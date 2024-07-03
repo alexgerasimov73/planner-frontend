@@ -1,4 +1,4 @@
-import { DropResult } from '@hello-pangea/dnd'
+import type { DropResult } from '@hello-pangea/dnd'
 
 import { FILTERS } from '../columns.data'
 

@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { Dispatch, SetStateAction, useEffect } from 'react'
 
-import { ITimerRoundResponse } from '@/types/timer.types'
+import type { ITimerRoundResponse } from '@/types/timer.types'
 
 import { useLoadSettings } from './useLoadSettings'
 import { timerService } from '@/services/timer.service'

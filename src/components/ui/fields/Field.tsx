@@ -1,4 +1,4 @@
-import { KeyboardEvent, forwardRef } from 'react'
+import { type KeyboardEvent, forwardRef } from 'react'
 
 interface InputFieldProps {
 	readonly id: string

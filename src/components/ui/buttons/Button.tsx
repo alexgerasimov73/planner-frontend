@@ -1,5 +1,5 @@
 import cn from 'clsx'
-import { ButtonHTMLAttributes, PropsWithChildren } from 'react'
+import type { ButtonHTMLAttributes, PropsWithChildren } from 'react'
 
 export function Button({
 	children,

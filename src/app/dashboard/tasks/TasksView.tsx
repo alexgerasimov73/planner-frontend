@@ -11,9 +11,9 @@ import ListView from './list-view/ListView'
 export type TView = 'list' | 'kanban'
 
 export default function TasksView() {
-	const [isLoading, type, setType] = useLocalStorage<TView>({
+	const { isLoading, type, setType } = useLocalStorage<TView>({
 		defaultValue: 'list',
-		key: 'viiew-type'
+		key: 'view-type'
 	})
 
 	if (isLoading) return <Loader />

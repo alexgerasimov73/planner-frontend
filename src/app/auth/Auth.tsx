@@ -1,17 +1,17 @@
 'use client'
 
 import { useMutation } from '@tanstack/react-query'
-import { AxiosError } from 'axios'
+import type { AxiosError } from 'axios'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { SubmitHandler, useForm } from 'react-hook-form'
+import { type SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
 import { Logo } from '@/components/ui/Logo'
 import { Button } from '@/components/ui/buttons/Button'
 import { Field } from '@/components/ui/fields/Field'
 
-import { IAuthForm } from '@/types/auth.types'
+import type { IAuthForm } from '@/types/auth.types'
 
 import { DASHBOARD_PAGES } from '@/config/pages-url.config'
 

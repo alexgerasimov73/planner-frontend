@@ -1,12 +1,18 @@
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react'
+import {
+	type Dispatch,
+	type SetStateAction,
+	useEffect,
+	useRef,
+	useState
+} from 'react'
 
-type TOut = {
+interface IOutside {
 	readonly isShow: boolean
 	readonly ref: any
 	readonly setIsShow: Dispatch<SetStateAction<boolean>>
 }
 
-export function useOutside(initialVisible: boolean): TOut {
+export function useOutside(initialVisible: boolean): IOutside {
 	const [isShow, setIsShow] = useState(initialVisible)
 	const ref = useRef<HTMLElement>(null)
 

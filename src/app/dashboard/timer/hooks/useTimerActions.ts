@@ -1,4 +1,4 @@
-import { ITimerRoundResponse } from '@/types/timer.types'
+import type { ITimerRoundResponse } from '@/types/timer.types'
 
 import type { ITimerState } from '../timer.types'
 

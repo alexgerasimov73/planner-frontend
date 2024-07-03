@@ -2,7 +2,7 @@
 
 import { FormProvider, useForm } from 'react-hook-form'
 
-import { TTimeBlockFormState } from '@/types/time-block.types'
+import type { TTimeBlockFormState } from '@/types/time-block.types'
 
 import { TimeBlockingList } from './TimeBlockingList'
 import { TimeBlockingForm } from './form/TimeBlockingForm'

@@ -1,4 +1,4 @@
-import {
+import type {
 	ITimeBlockResponse,
 	TTimeBlockFormState
 } from '@/types/time-block.types'

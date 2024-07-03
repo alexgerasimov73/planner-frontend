@@ -1,14 +1,11 @@
 import cn from 'clsx'
 import { X } from 'lucide-react'
 
+import type { IOption } from '@/types/common.types'
+
 import { useOutside } from '@/hooks/useOutside'
 
 import { Badge } from '../Badge'
-
-export interface IOption {
-	readonly label: string
-	readonly value: string
-}
 
 interface ISingleSelect {
 	readonly data: IOption[]

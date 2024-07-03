@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { toast } from 'sonner'
 
-import { TUserForm } from '@/types/auth.types'
+import type { TUserForm } from '@/types/auth.types'
 
 import { userService } from '@/services/user.service'
 

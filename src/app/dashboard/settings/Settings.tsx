@@ -1,11 +1,11 @@
 'use client'
 
-import { SubmitHandler, useForm } from 'react-hook-form'
+import { type SubmitHandler, useForm } from 'react-hook-form'
 
 import { Button } from '@/components/ui/buttons/Button'
 import { Field } from '@/components/ui/fields/Field'
 
-import { TUserForm } from '@/types/auth.types'
+import type { TUserForm } from '@/types/auth.types'
 
 import { useFetchInitData } from './useFetchInitData'
 import { useUpdateSettings } from './useUpdateSettings'

@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 
-import { TTimerRoundState } from '@/types/timer.types'
+import type { TTimerRoundState } from '@/types/timer.types'
 
 import { timerService } from '@/services/timer.service'
 
@@ -8,6 +8,7 @@ interface MutationFunctionInterface {
 	readonly id: string
 	readonly data: TTimerRoundState
 }
+
 export function useUpdateRound() {
 	const queryClient = useQueryClient()
 

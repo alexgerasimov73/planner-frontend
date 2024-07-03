@@ -1,15 +1,12 @@
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 interface IUseLocalStorage<T> {
 	readonly defaultValue: T
 	readonly key: string
 }
 
-export function useLocalStorage<T>({
-	defaultValue,
-	key
-}: IUseLocalStorage<T>): [boolean, T, Dispatch<SetStateAction<T>>] {
-	const [value, setValue] = useState<T>(defaultValue)
+export function useLocalStorage<T>({ defaultValue, key }: IUseLocalStorage<T>) {
+	const [type, setType] = useState<T>(defaultValue)
 	const [isLoading, setIsLoading] = useState(true)
 	const isMounted = useRef(false)
 
@@ -17,7 +14,7 @@ export function useLocalStorage<T>({
 		try {
 			const item = window.localStorage.getItem(key)
 			if (item) {
-				setValue(JSON.parse(item))
+				setType(JSON.parse(item))
 			}
 		} catch (error) {
 			console.error(error)
@@ -32,11 +29,11 @@ export function useLocalStorage<T>({
 
 	useEffect(() => {
 		if (isMounted.current) {
-			window.localStorage.setItem(key, JSON.stringify(value))
+			window.localStorage.setItem(key, JSON.stringify(type))
 		} else {
 			isMounted.current = true
 		}
-	}, [key, value])
+	}, [key, type])
 
-	return [isLoading, value, setValue]
+	return { isLoading, type, setType }
 }

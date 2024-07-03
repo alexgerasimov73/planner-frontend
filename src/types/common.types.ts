@@ -3,3 +3,8 @@ export interface IBase {
 	readonly id: string
 	readonly updatedAt?: string
 }
+
+export interface IOption {
+	readonly label: string
+	readonly value: string
+}

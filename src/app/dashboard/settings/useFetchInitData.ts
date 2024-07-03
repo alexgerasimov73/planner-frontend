@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
-import { UseFormReset } from 'react-hook-form'
+import type { UseFormReset } from 'react-hook-form'
 
-import { TUserForm } from '@/types/auth.types'
+import type { TUserForm } from '@/types/auth.types'
 
 import { useProfile } from '@/hooks/useProfile'
 
