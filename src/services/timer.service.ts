@@ -1,3 +1,5 @@
+import { TIMER_URL } from '@/constants/constants'
+
 import type {
 	ITimerSessionResponse,
 	TTimerRoundState,
@@ -5,8 +7,6 @@ import type {
 } from '@/types/timer.types'
 
 import { axiosWithAuth } from '@/api/interceptors'
-
-const TIMER_URL = '/user/timer'
 
 export const timerService = {
 	async getTodaySession() {

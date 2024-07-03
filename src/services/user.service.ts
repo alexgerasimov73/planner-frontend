@@ -1,3 +1,5 @@
+import { USER_URL } from '@/constants/constants'
+
 import type { IUser, TUserForm } from '@/types/auth.types'
 import type { IOption } from '@/types/common.types'
 
@@ -7,8 +9,6 @@ export interface IProfileResponse {
 	readonly user: IUser
 	readonly statistics: IOption[]
 }
-
-const USER_URL = '/user/profile'
 
 export const userService = {
 	async getProfile() {

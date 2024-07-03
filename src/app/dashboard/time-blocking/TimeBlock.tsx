@@ -1,13 +1,14 @@
 import { Edit, GripVertical, Loader, Trash } from 'lucide-react'
 import { useFormContext } from 'react-hook-form'
 
+import { TIME_BLOCKING_COLORS } from '@/constants/constants'
+
 import type {
 	ITimeBlockResponse,
 	TTimeBlockFormState
 } from '@/types/time-block.types'
 
 import styles from './TimeBlocking.module.scss'
-import { COLORS } from './form/colors.data'
 import { useDeleteTimeBlock } from './hooks/useDeleteTimeBlock'
 import { useTimeBlockSortable } from './hooks/useTimeBlockSortable'
 
@@ -31,7 +32,8 @@ export function TimeBlock({ item }: ITimeBlock) {
 			<div
 				className={styles.block}
 				style={{
-					backgroundColor: item.color || COLORS[COLORS.length - 1],
+					backgroundColor:
+						item.color || TIME_BLOCKING_COLORS[TIME_BLOCKING_COLORS.length - 1],
 					height: `${item.duration}px`
 				}}
 			>

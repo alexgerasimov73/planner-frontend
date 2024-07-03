@@ -4,9 +4,10 @@ import { Button } from '@/components/ui/buttons/Button'
 import { Field } from '@/components/ui/fields/Field'
 import { SingleSelect } from '@/components/ui/task-edit/SingleSelect'
 
+import { TIME_BLOCKING_COLORS } from '@/constants/constants'
+
 import type { TTimeBlockFormState } from '@/types/time-block.types'
 
-import { COLORS } from './colors.data'
 import { useCreateTimeBlock } from './useCreateTimeBlock'
 import { useUpdateTimeBlock } from './useUpdateTimeBlock'
 
@@ -29,7 +30,7 @@ export function TimeBlockingForm() {
 		}
 
 		reset({
-			color: COLORS[COLORS.length - 1],
+			color: TIME_BLOCKING_COLORS[TIME_BLOCKING_COLORS.length - 1],
 			duration: 0,
 			id: undefined,
 			name: '',
@@ -68,12 +69,14 @@ export function TimeBlockingForm() {
 					name='color'
 					render={({ field: { value, onChange } }) => (
 						<SingleSelect
-							data={COLORS.map(color => ({
+							data={TIME_BLOCKING_COLORS.map(color => ({
 								label: color,
 								value: color
 							}))}
 							isColorSelected
-							value={value || COLORS[COLORS.length - 1]}
+							value={
+								value || TIME_BLOCKING_COLORS[TIME_BLOCKING_COLORS.length - 1]
+							}
 							onChange={onChange}
 						/>
 					)}

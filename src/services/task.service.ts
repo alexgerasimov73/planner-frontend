@@ -1,8 +1,8 @@
+import { TASK_URL } from '@/constants/constants'
+
 import type { ITaskResponse, TTaskFormState } from '@/types/task.types'
 
 import { axiosWithAuth } from '@/api/interceptors'
-
-const TASK_URL = '/user/tasks'
 
 export const taskService = {
 	async getTasks() {

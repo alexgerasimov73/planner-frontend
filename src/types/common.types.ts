@@ -8,3 +8,8 @@ export interface IOption {
 	readonly label: string
 	readonly value: string
 }
+
+export enum TasksRepresentation {
+	list = 'list',
+	kanban = 'kanban'
+}

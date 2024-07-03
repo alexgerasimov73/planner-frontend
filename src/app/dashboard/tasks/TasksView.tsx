@@ -2,17 +2,17 @@
 
 import { Loader } from '@/components/ui/Loader'
 
+import { TasksRepresentation } from '@/types/common.types'
+
 import { useLocalStorage } from '@/hooks/useLocalStorage'
 
 import { SwitcherView } from './SwitcherView'
 import KanbanView from './kanban-view/KanbanView'
 import ListView from './list-view/ListView'
 
-export type TView = 'list' | 'kanban'
-
 export default function TasksView() {
-	const { isLoading, type, setType } = useLocalStorage<TView>({
-		defaultValue: 'list',
+	const { isLoading, type, setType } = useLocalStorage<TasksRepresentation>({
+		defaultValue: TasksRepresentation.list,
 		key: 'view-type'
 	})
 
@@ -24,7 +24,7 @@ export default function TasksView() {
 				type={type}
 				setType={setType}
 			/>
-			{type === 'list' ? <ListView /> : <KanbanView />}
+			{type === TasksRepresentation.list ? <ListView /> : <KanbanView />}
 		</>
 	)
 }

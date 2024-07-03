@@ -1,11 +1,11 @@
+import { TIME_BLOCKS_URL } from '@/constants/constants'
+
 import type {
 	ITimeBlockResponse,
 	TTimeBlockFormState
 } from '@/types/time-block.types'
 
 import { axiosWithAuth } from '@/api/interceptors'
-
-const TIME_BLOCKS_URL = '/user/time-blocks'
 
 export const timeBlockService = {
 	async getTimeBlocks() {

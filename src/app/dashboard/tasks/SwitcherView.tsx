@@ -3,11 +3,11 @@
 import cn from 'clsx'
 import { Kanban, ListTodo } from 'lucide-react'
 
-import type { TView } from './TasksView'
+import { TasksRepresentation } from '@/types/common.types'
 
 interface ISwitcherView {
-	readonly type: TView
-	readonly setType: (value: TView) => void
+	readonly type: TasksRepresentation
+	readonly setType: (value: TasksRepresentation) => void
 }
 
 export function SwitcherView({ type, setType }: ISwitcherView) {
@@ -15,9 +15,9 @@ export function SwitcherView({ type, setType }: ISwitcherView) {
 		<div className='flex items-center gap-4 mb-5'>
 			<button
 				className={cn('flex items-center gap-1', {
-					'opacity-40': type === 'kanban'
+					'opacity-40': type === TasksRepresentation.kanban
 				})}
-				onClick={() => setType('list')}
+				onClick={() => setType(TasksRepresentation.list)}
 			>
 				<ListTodo />
 				List
@@ -25,9 +25,9 @@ export function SwitcherView({ type, setType }: ISwitcherView) {
 
 			<button
 				className={cn('flex items-center gap-1', {
-					'opacity-40': type === 'list'
+					'opacity-40': type === TasksRepresentation.list
 				})}
-				onClick={() => setType('kanban')}
+				onClick={() => setType(TasksRepresentation.kanban)}
 			>
 				<Kanban />
 				Board

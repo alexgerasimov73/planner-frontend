@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Oswald } from 'next/font/google'
 import { Toaster } from 'sonner'
 
-import { SITE_NAME } from '@/constants/seo.constants'
+import { SITE_NAME } from '@/constants/constants'
 
 import './globals.scss'
 import { Providers } from './providers'
