@@ -1,4 +1,4 @@
-import { USER_URL } from '@/constants/constants'
+import { USER_URL } from '@/constants/common.constants'
 
 import type { IUser, TUserForm } from '@/types/auth.types'
 import type { IOption } from '@/types/common.types'

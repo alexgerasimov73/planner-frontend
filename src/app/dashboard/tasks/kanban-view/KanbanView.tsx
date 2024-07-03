@@ -2,7 +2,8 @@
 
 import { DragDropContext } from '@hello-pangea/dnd'
 
-import { COLUMNS } from '../columns.data'
+import { TASKS_COLUMNS } from '@/constants/common.constants'
+
 import { useTaskDnd } from '../hooks/useTaskDnd'
 import { useTasks } from '../hooks/useTasks'
 
@@ -16,7 +17,7 @@ export default function KanbanView() {
 	return (
 		<DragDropContext onDragEnd={onDragEnd}>
 			<div className={styles.board}>
-				{COLUMNS.map(column => (
+				{TASKS_COLUMNS.map(column => (
 					<KanbanColumn
 						key={column.value}
 						items={items}

@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/buttons/Button'
 import { Field } from '@/components/ui/fields/Field'
 import { SingleSelect } from '@/components/ui/task-edit/SingleSelect'
 
-import { TIME_BLOCKING_COLORS } from '@/constants/constants'
+import { TIME_BLOCKING_COLORS } from '@/constants/common.constants'
 
 import type { TTimeBlockFormState } from '@/types/time-block.types'
 

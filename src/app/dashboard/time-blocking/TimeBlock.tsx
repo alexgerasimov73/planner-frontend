@@ -1,7 +1,7 @@
 import { Edit, GripVertical, Loader, Trash } from 'lucide-react'
 import { useFormContext } from 'react-hook-form'
 
-import { TIME_BLOCKING_COLORS } from '@/constants/constants'
+import { TIME_BLOCKING_COLORS } from '@/constants/common.constants'
 
 import type {
 	ITimeBlockResponse,

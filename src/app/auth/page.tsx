@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import { NO_INDEX_PAGE } from '@/constants/constants'
+import { NO_INDEX_PAGE } from '@/constants/common.constants'
 
 import { Auth } from './Auth'
 

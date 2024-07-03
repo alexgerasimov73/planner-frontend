@@ -2,7 +2,8 @@
 
 import { DragDropContext } from '@hello-pangea/dnd'
 
-import { COLUMNS } from '../columns.data'
+import { TASKS_COLUMNS } from '@/constants/common.constants'
+
 import { useTaskDnd } from '../hooks/useTaskDnd'
 import { useTasks } from '../hooks/useTasks'
 
@@ -24,7 +25,7 @@ export default function ListView() {
 				</div>
 
 				<div className={styles.parentsWrapper}>
-					{COLUMNS.map(column => (
+					{TASKS_COLUMNS.map(column => (
 						<ListRowParent
 							key={column.value}
 							items={items}

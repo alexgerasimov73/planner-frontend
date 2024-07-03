@@ -1,16 +1,9 @@
 import dayjs from 'dayjs'
 import type { DateFormatter } from 'react-day-picker'
 
-import { SEASON_EMOJI } from '@/constants/constants'
+import { SEASON_EMOJI } from '@/constants/common.constants'
 
-const getSeason = (month: Date): keyof typeof SEASON_EMOJI => {
-	const monthNumber = month.getMonth() + 1
-
-	if (monthNumber > 2 && monthNumber < 6) return 'spring'
-	if (monthNumber > 5 && monthNumber < 9) return 'summer'
-	if (monthNumber > 8 && monthNumber < 12) return 'autumn'
-	return 'winter'
-}
+import { getSeason } from '@/utils/common.utils'
 
 export const formatCaption: DateFormatter = month => {
 	const season = getSeason(month)

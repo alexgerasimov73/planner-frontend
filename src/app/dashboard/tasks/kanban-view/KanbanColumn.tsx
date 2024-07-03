@@ -3,8 +3,7 @@ import type { Dispatch, SetStateAction } from 'react'
 
 import type { ITaskResponse } from '@/types/task.types'
 
-import { FILTERS } from '../columns.data'
-import { filterTasks } from '../filter-tasks'
+import { FILTERS, filterTasks } from '../utils/tasks.utils'
 
 import KanbanAddCardInput from './KanbanAddCardInput'
 import KanbanCard from './KanbanCard'

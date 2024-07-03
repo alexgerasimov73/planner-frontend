@@ -1,13 +1,23 @@
-import dayjs from 'dayjs'
+import dayjs, { type Dayjs } from 'dayjs'
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter'
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
+import isoWeek from 'dayjs/plugin/isoWeek'
+import weekOfYear from 'dayjs/plugin/weekOfYear'
 
 import type { ITaskResponse } from '@/types/task.types'
 
-import { FILTERS } from './columns.data'
-
+dayjs.extend(isoWeek)
+dayjs.extend(weekOfYear)
 dayjs.extend(isSameOrAfter)
 dayjs.extend(isSameOrBefore)
+
+export const FILTERS: Record<string, Dayjs> = {
+	today: dayjs().startOf('day'),
+	tomorrow: dayjs().add(1, 'day').startOf('day'),
+	'on-this-week': dayjs().endOf('isoWeek'),
+	'on-next-week': dayjs().add(1, 'week').startOf('day'),
+	later: dayjs().add(2, 'week').startOf('day')
+}
 
 export const filterTasks = (
 	value: string,

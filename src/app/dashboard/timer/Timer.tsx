@@ -5,7 +5,8 @@ import { Pause, Play, RefreshCcw } from 'lucide-react'
 import { Loader } from '@/components/ui/Loader'
 import { Button } from '@/components/ui/buttons/Button'
 
-import { formatTime } from './format-time'
+import { formatTime } from '@/utils/common.utils'
+
 import { useCreateSession } from './hooks/useCreateSession'
 import { useDeleteSession } from './hooks/useDeleteSession'
 import { useTimer } from './hooks/useTimer'

@@ -1,4 +1,4 @@
-import { TIME_BLOCKS_URL } from '@/constants/constants'
+import { TIME_BLOCKS_URL } from '@/constants/common.constants'
 
 import type {
 	ITimeBlockResponse,

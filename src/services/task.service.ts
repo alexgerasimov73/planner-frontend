@@ -1,4 +1,4 @@
-import { TASK_URL } from '@/constants/constants'
+import { TASK_URL } from '@/constants/common.constants'
 
 import type { ITaskResponse, TTaskFormState } from '@/types/task.types'
 

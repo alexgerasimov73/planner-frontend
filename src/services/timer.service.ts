@@ -1,4 +1,4 @@
-import { TIMER_URL } from '@/constants/constants'
+import { TIMER_URL } from '@/constants/common.constants'
 
 import type {
 	ITimerSessionResponse,
