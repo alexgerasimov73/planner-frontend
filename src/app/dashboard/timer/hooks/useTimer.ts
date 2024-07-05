@@ -31,7 +31,7 @@ export function useTimer() {
 	}, [isRunning, secondsLeft])
 
 	useEffect(() => {
-		// TODO: Leave a comment.
+		// If time is up, switch between break and work intervals.
 		if (secondsLeft > 0) return
 
 		setIsWorkTime(!isWorkTime)

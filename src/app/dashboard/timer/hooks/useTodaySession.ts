@@ -17,7 +17,6 @@ export function useTodaySession({
 	setActiveRound,
 	setSecondsLeft
 }: IUseTodaySession) {
-	// TODO: Delete workInterval.
 	const { workInterval } = useLoadSettings()
 	const {
 		data: sessionsResponse,
@@ -44,7 +43,6 @@ export function useTodaySession({
 	return {
 		isLoading,
 		isSuccess,
-		sessionData: sessionsResponse?.data,
-		workInterval
+		sessionData: sessionsResponse?.data
 	}
 }

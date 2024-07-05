@@ -9,12 +9,14 @@ import { formatTime } from '@/utils/common.utils'
 
 import { useCreateSession } from './hooks/useCreateSession'
 import { useDeleteSession } from './hooks/useDeleteSession'
+import { useLoadSettings } from './hooks/useLoadSettings'
 import { useTimer } from './hooks/useTimer'
 import { useTimerActions } from './hooks/useTimerActions'
 import { useTodaySession } from './hooks/useTodaySession'
 import { TimerRounds } from './rounds/TimerRounds'
 
 export function Timer() {
+	const { workInterval } = useLoadSettings()
 	const {
 		activeRound,
 		isRunning,
@@ -24,7 +26,7 @@ export function Timer() {
 		setSecondsLeft
 	} = useTimer()
 
-	const { isLoading, sessionData, workInterval } = useTodaySession({
+	const { isLoading, sessionData } = useTodaySession({
 		setActiveRound,
 		setSecondsLeft
 	})
