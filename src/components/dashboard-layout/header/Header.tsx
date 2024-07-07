@@ -9,7 +9,7 @@ interface IHeader {
 }
 
 export default function Header({ userData }: IHeader) {
-	const userName = userData.name ?? 'Anonymous'
+	const userName = userData.name || 'Anonymous'
 
 	return (
 		<header className='h-23 flex justify-between items-center p-big-layout bg-white shadow-md'>

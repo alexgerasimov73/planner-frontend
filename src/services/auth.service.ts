@@ -3,13 +3,15 @@ import type { IAuthForm, IAuthResponse } from '@/types/auth.types'
 import { axiosClassic } from '@/api/interceptors'
 
 import { removeTokenFromStorage, saveTokenStorage } from './auth-token.service'
+import { TypeForm } from '@/app/auth/hooks/useAuth'
 
 export const authService = {
-	async main(type: 'login' | 'register', data: IAuthForm) {
+	async main(type: TypeForm, data: IAuthForm) {
 		const response = await axiosClassic.post<IAuthResponse>(
 			`/auth/${type}`,
 			data
 		)
+		console.log('response', response)
 		if (response.data.accessToken) saveTokenStorage(response.data.accessToken)
 
 		return response

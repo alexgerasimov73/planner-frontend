@@ -2,14 +2,16 @@ import { useMutation } from '@tanstack/react-query'
 import { LogOut } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 
+import { DASHBOARD_PAGES } from '@/config/pages-url.config'
+
 import { authService } from '@/services/auth.service'
 
 export default function LogoutButton() {
-	const router = useRouter()
+	const { push } = useRouter()
 	const { mutate } = useMutation({
 		mutationKey: ['logout'],
 		mutationFn: () => authService.logout(),
-		onSuccess: () => router.push('/auth')
+		onSuccess: () => push(DASHBOARD_PAGES.AUTH)
 	})
 
 	return (
