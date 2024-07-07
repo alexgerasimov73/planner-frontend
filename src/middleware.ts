@@ -6,12 +6,13 @@ import { EnumTokens } from './services/auth-token.service'
 export async function middleware(request: NextRequest) {
 	const { cookies, url } = request
 	console.log('cookies', cookies)
-	console.log('urlurl', url)
+	console.log('url', url)
 
 	const refreshToken = cookies.get(EnumTokens.REFRESH_TOKEN)?.value
 
 	const isAuthPage = url.includes('/auth')
 
+	console.log('refreshToken', refreshToken)
 	if (isAuthPage && refreshToken) {
 		console.log('I must be here!')
 
