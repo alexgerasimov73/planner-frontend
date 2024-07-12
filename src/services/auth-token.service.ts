@@ -10,13 +10,9 @@ export const getAccessToken = () => {
 }
 
 export const saveTokenStorage = (accessToken: string) => {
-	console.log('accessToken', accessToken)
-	console.log('SERVER_DOMAIN', process.env.SERVER_DOMAIN)
 	Cookies.set(EnumTokens.ACCESS_TOKEN, accessToken, {
-		// domain: 'https://planner-backend-p4ab.onrender.com',
-		sameSite: 'None',
-		partitioned: true,
-		secure: true,
+		domain: process.env.CLIENT_DOMAIN,
+		sameSite: 'strict',
 		expires: 1
 	})
 }
