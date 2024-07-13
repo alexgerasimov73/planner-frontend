@@ -17,5 +17,3 @@ export const TransparentField = forwardRef<HTMLInputElement, TTransparentField>(
 		/>
 	)
 )
-
-TransparentField.displayName = 'TransparentField'

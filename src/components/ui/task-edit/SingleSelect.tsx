@@ -14,12 +14,12 @@ interface ISingleSelect {
 	readonly onChange: (value: string) => void
 }
 
-export function SingleSelect({
+export const SingleSelect = ({
 	data,
 	isColorSelected,
 	value,
 	onChange
-}: ISingleSelect) {
+}: ISingleSelect) => {
 	const { isShow, ref, setIsShow } = useOutside(false)
 
 	const getValue = () => data.find(item => item.value === value)?.value
@@ -50,8 +50,8 @@ export function SingleSelect({
 				{getValue() ? (
 					<Badge
 						className='capitalize'
-						variant={value}
 						style={isColorSelected ? { backgroundColor: value } : {}}
+						variant={value}
 					>
 						{getValue()}
 					</Badge>
@@ -62,7 +62,7 @@ export function SingleSelect({
 
 			{value && (
 				<button
-					className='absolute top-2 right-6 opacity-30 hover:opacity-100 transition-opacity'
+					className='absolute top-2 right-6 opacity-30 transition-opacity hover:opacity-100'
 					onClick={handleValueClick}
 				>
 					<X size={14} />
@@ -71,7 +71,8 @@ export function SingleSelect({
 
 			{isShow && (
 				<div
-					className='absolute w-full p-2.5 left-0 slide bg-white z-10 shadow rounded-lg'
+					// TODO: Amend styles here.
+					className='absolute left-0 top-[calc(100% + .5rem)] w-full p-2.5 shadow rounded-lg bg-white z-10 slide'
 					style={{
 						top: 'calc(100% + .5rem)'
 					}}
@@ -79,7 +80,6 @@ export function SingleSelect({
 					{data.map(item => (
 						<button
 							key={item.value}
-							onClick={handleItemClick(item)}
 							className='block mb-4 last:mb-0 capitalize rounded-lg'
 							style={
 								isColorSelected
@@ -88,6 +88,7 @@ export function SingleSelect({
 										}
 									: {}
 							}
+							onClick={handleItemClick(item)}
 						>
 							<Badge variant={item.value}>{item.label}</Badge>
 						</button>

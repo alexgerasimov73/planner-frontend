@@ -8,7 +8,7 @@ interface IBadge {
 }
 
 const badge = tv({
-	base: 'rounded-lg w-max py-1 px-2 text-xs text-sm text-text transition',
+	base: 'w-max py-1 px-2 rounded-lg text-sm text-text transition',
 	variants: {
 		backgroundColor: {
 			gray: 'bg-secondary/15',
@@ -22,21 +22,19 @@ const badge = tv({
 	}
 })
 
-export function Badge({
+export const Badge = ({
 	children,
 	className,
 	style,
 	variant
-}: PropsWithChildren<IBadge>) {
-	return (
-		<span
-			className={badge({
-				backgroundColor: variant as 'low' | 'medium' | 'high',
-				className
-			})}
-			style={style}
-		>
-			{children}
-		</span>
-	)
-}
+}: PropsWithChildren<IBadge>) => (
+	<span
+		className={badge({
+			backgroundColor: variant as 'low' | 'medium' | 'high',
+			className
+		})}
+		style={style}
+	>
+		{children}
+	</span>
+)

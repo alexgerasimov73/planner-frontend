@@ -8,27 +8,25 @@ interface ILogo {
 	readonly isPrimaryColor?: boolean
 }
 
-export function Logo({ className, isPrimaryColor }: ILogo) {
-	return (
-		<div
+export const Logo = ({ className, isPrimaryColor }: ILogo) => (
+	<div
+		className={cn(
+			'relative flex items-baseline p-layout pointer-events-none',
+			className
+		)}
+	>
+		<Image
+			className='w-9'
+			src={PIcon}
+			alt='P'
+		/>
+		<span
 			className={cn(
-				'relative flex items-baseline p-layout pointer-events-none',
-				className
+				'absolute top-7 left-16 text-2xl font-bold tracking-widest',
+				isPrimaryColor ? 'text-primary' : 'text-white'
 			)}
 		>
-			<Image
-				className='w-9'
-				src={PIcon}
-				alt='P'
-			/>
-			<span
-				className={cn(
-					'absolute top-7 left-16 text-2xl font-bold tracking-widest',
-					isPrimaryColor ? 'text-primary' : 'text-white'
-				)}
-			>
-				lanner
-			</span>
-		</div>
-	)
-}
+			lanner
+		</span>
+	</div>
+)

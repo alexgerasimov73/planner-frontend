@@ -47,13 +47,14 @@ export const Field = forwardRef<HTMLInputElement, InputFieldProps>(
 		return (
 			<div className={`${extra}`}>
 				<label
-					className='text-sm ml-1.5 font-medium'
+					className='ml-1.5 text-sm font-medium'
 					htmlFor={id}
 				>
 					{label}
 				</label>
+
 				<input
-					className={`mt-2 flex w-full items-center justify-center rounded-lg border border-primary bg-white/0 p-3 text-base outline-none placeholder:text-gray-700 placeholder:font-normal duration-500 transition-colors hover:border-secondary focus:border-primary ${
+					className={`flex items-center justify-center w-full mt-2 p-3 rounded-lg border border-primary bg-white/0 text-base outline-none placeholder:text-gray-700 placeholder:font-normal duration-500 transition-colors hover:border-secondary focus:border-primary ${
 						disabled
 							? '!border-none !bg-gray-100 dark:!bg-white/5 dark:placeholder:!text-[rgba(255,255,255,0.15)]'
 							: state === 'error'
@@ -75,5 +76,3 @@ export const Field = forwardRef<HTMLInputElement, InputFieldProps>(
 		)
 	}
 )
-
-Field.displayName = 'field'

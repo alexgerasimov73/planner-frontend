@@ -19,11 +19,11 @@ interface IDatePicker {
 	readonly onChange: (value: string) => void
 }
 
-export function DatePicker({
+export const DatePicker = ({
 	position = 'right',
 	value,
 	onChange
-}: IDatePicker) {
+}: IDatePicker) => {
 	const [selected, setSelected] = useState<Date>()
 	const { isShow, ref, setIsShow } = useOutside(false)
 
@@ -51,18 +51,20 @@ export function DatePicker({
 			>
 				{value ? dayjs(value).format('LL') : 'Click for select'}
 			</button>
+
 			{value && (
 				<button
-					className='absolute top-2 -right-2 opacity-30 hover:opacity-100 transition-opacity'
+					className='absolute top-2 -right-2 opacity-30 transition-opacity hover:opacity-100'
 					onClick={() => onChange('')}
 				>
 					<X size={14} />
 				</button>
 			)}
+
 			{isShow && (
 				<div
 					className={cn(
-						'absolute p-2.5 slide bg-white z-10 shadow rounded-lg',
+						'absolute p-2.5 shadow rounded-lg bg-white z-10 slide',
 						position === 'left' ? '-left-4' : ' -right-4'
 					)}
 					style={{
@@ -74,9 +76,9 @@ export function DatePicker({
 						initialFocus={isShow}
 						formatters={{ formatCaption }}
 						fromYear={2024}
-						toYear={2054}
 						mode='single'
 						selected={selected}
+						toYear={2054}
 						weekStartsOn={1}
 						onSelect={handleDaySelect}
 					/>

@@ -11,12 +11,13 @@ export const formatCaption: DateFormatter = month => {
 	return (
 		<>
 			<span
-				role='img'
-				aria-label={season}
 				className='mr-2'
+				aria-label={season}
+				role='img'
 			>
 				{SEASON_EMOJI[season]}
 			</span>
+
 			{dayjs(month).format('MMMM')}
 		</>
 	)
