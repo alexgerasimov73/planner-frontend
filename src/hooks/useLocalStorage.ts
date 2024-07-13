@@ -5,7 +5,10 @@ interface IUseLocalStorage<T> {
 	readonly key: string
 }
 
-export function useLocalStorage<T>({ defaultValue, key }: IUseLocalStorage<T>) {
+export const useLocalStorage = <T>({
+	defaultValue,
+	key
+}: IUseLocalStorage<T>) => {
 	const [type, setType] = useState<T>(defaultValue)
 	const [isLoading, setIsLoading] = useState(true)
 	const isMounted = useRef(false)

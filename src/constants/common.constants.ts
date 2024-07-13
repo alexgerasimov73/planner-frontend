@@ -1,4 +1,4 @@
-import { DASHBOARD_PAGES } from '@/config/pages-url.config'
+import { DASHBOARD_PAGES } from '../config/pages-url.config'
 
 export const COLORS = {
 	bg: '#f8f9ff',
