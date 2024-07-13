@@ -9,8 +9,9 @@ interface IMenuItemProps {
 	readonly isActive: boolean
 }
 
-export default function MenuItem({ item, isActive }: IMenuItemProps) {
+export const MenuItem = ({ item, isActive }: IMenuItemProps) => {
 	console.log(item.name, isActive)
+
 	return (
 		<Link
 			className={cn(styles.item, {
