@@ -1,5 +1,7 @@
 import axios, { type CreateAxiosDefaults } from 'axios'
 
+import { JWT_EXPIRED, JWT_MUST_BE_PROVIDED } from '@/constants/common.constants'
+
 import { errorCatch } from './error'
 import {
 	getAccessToken,
@@ -35,8 +37,8 @@ axiosWithAuth.interceptors.response.use(
 
 		if (
 			(error.response.status === 401 ||
-				errorCatch(error) === 'jwt expired' ||
-				errorCatch(error) === 'jwt must be provided') &&
+				errorCatch(error) === JWT_EXPIRED ||
+				errorCatch(error) === JWT_MUST_BE_PROVIDED) &&
 			error.config &&
 			!error.config._isRetry
 		) {
@@ -45,7 +47,7 @@ axiosWithAuth.interceptors.response.use(
 				await authService.getNewTokens()
 				return axiosWithAuth.request(originalRequest)
 			} catch (error) {
-				if (errorCatch(error) === 'jwt expired') removeTokenFromStorage()
+				if (errorCatch(error) === JWT_EXPIRED) removeTokenFromStorage()
 			}
 		}
 

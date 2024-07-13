@@ -6,19 +6,15 @@ import { axiosWithAuth } from '@/api/interceptors'
 
 export const taskService = {
 	async getTasks() {
-		const response = await axiosWithAuth.get<ITaskResponse[]>(TASK_URL)
-		return response
+		return await axiosWithAuth.get<ITaskResponse[]>(TASK_URL)
 	},
 	async createTask(data: TTaskFormState) {
-		const response = await axiosWithAuth.post(TASK_URL, data)
-		return response
+		return await axiosWithAuth.post(TASK_URL, data)
 	},
 	async updateTask(id: string, data: TTaskFormState) {
-		const response = await axiosWithAuth.put(`${TASK_URL}/${id}`, data)
-		return response
+		return await axiosWithAuth.put(`${TASK_URL}/${id}`, data)
 	},
 	async deleteTask(id: string) {
-		const response = await axiosWithAuth.delete(`${TASK_URL}/${id}`)
-		return response
+		return await axiosWithAuth.delete(`${TASK_URL}/${id}`)
 	}
 }

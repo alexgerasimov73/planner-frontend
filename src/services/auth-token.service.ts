@@ -11,6 +11,10 @@ export const getAccessToken = () => {
 
 export const saveTokenStorage = (accessToken: string) => {
 	Cookies.set(EnumTokens.ACCESS_TOKEN, accessToken, {
+		// The correct settings for production are commented out below.
+		// domain: process.env.CLIENT_DOMAIN,
+		// sameSite: 'lax',
+		// These settings are for demonstration with allowed third-source cookies.
 		sameSite: 'None',
 		secure: true,
 		expires: 1

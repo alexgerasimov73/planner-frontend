@@ -1,4 +1,7 @@
-import { TIME_BLOCKS_URL } from '@/constants/common.constants'
+import {
+	TIME_BLOCKS_URL,
+	UPDATE_TIME_BLOCKS_ORDER_URL
+} from '@/constants/common.constants'
 
 import type {
 	ITimeBlockResponse,
@@ -9,27 +12,18 @@ import { axiosWithAuth } from '@/api/interceptors'
 
 export const timeBlockService = {
 	async getTimeBlocks() {
-		const response =
-			await axiosWithAuth.get<ITimeBlockResponse[]>(TIME_BLOCKS_URL)
-		return response
+		return await axiosWithAuth.get<ITimeBlockResponse[]>(TIME_BLOCKS_URL)
 	},
 	async createTimeBlock(data: TTimeBlockFormState) {
-		const response = await axiosWithAuth.post(TIME_BLOCKS_URL, data)
-		return response
+		return await axiosWithAuth.post(TIME_BLOCKS_URL, data)
 	},
 	async updateTimeBlock(id: string, data: TTimeBlockFormState) {
-		const response = await axiosWithAuth.put(`${TIME_BLOCKS_URL}/${id}`, data)
-		return response
+		return await axiosWithAuth.put(`${TIME_BLOCKS_URL}/${id}`, data)
 	},
 	async deleteTimeBlock(id: string) {
-		const response = await axiosWithAuth.delete(`${TIME_BLOCKS_URL}/${id}`)
-		return response
+		return await axiosWithAuth.delete(`${TIME_BLOCKS_URL}/${id}`)
 	},
 	async updateOrderTimeBlocks(ids: string[]) {
-		const response = await axiosWithAuth.put(
-			`${TIME_BLOCKS_URL}/update-order`,
-			{ ids }
-		)
-		return response
+		return await axiosWithAuth.put(UPDATE_TIME_BLOCKS_ORDER_URL, { ids })
 	}
 }

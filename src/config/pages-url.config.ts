@@ -3,7 +3,6 @@ class DASHBOARD {
 
 	HOME = this.root
 	AUTH = '/auth'
-	HABITS = `${this.root}/habits`
 	SETTINGS = `${this.root}/settings`
 	TASKS = `${this.root}/tasks`
 	TIMER = `${this.root}/timer`

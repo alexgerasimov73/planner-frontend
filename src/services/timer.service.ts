@@ -1,4 +1,8 @@
-import { TIMER_URL } from '@/constants/common.constants'
+import {
+	TIMER_ROUND_URL,
+	TIMER_TODAY_URL,
+	TIMER_URL
+} from '@/constants/common.constants'
 
 import type {
 	ITimerSessionResponse,
@@ -10,25 +14,18 @@ import { axiosWithAuth } from '@/api/interceptors'
 
 export const timerService = {
 	async getTodaySession() {
-		const response = await axiosWithAuth.get<ITimerSessionResponse>(
-			`${TIMER_URL}/today`
-		)
-		return response
+		return await axiosWithAuth.get<ITimerSessionResponse>(TIMER_TODAY_URL)
 	},
 	async createSessiion() {
-		const response = await axiosWithAuth.post<ITimerSessionResponse>(TIMER_URL)
-		return response
+		return await axiosWithAuth.post<ITimerSessionResponse>(TIMER_URL)
 	},
 	async updateSession(id: string, data: TTimerSessionState) {
-		const response = await axiosWithAuth.put(`${TIMER_URL}/${id}`, data)
-		return response
+		return await axiosWithAuth.put(`${TIMER_URL}/${id}`, data)
 	},
 	async deleteSession(id: string) {
-		const response = await axiosWithAuth.delete(`${TIMER_URL}/${id}`)
-		return response
+		return await axiosWithAuth.delete(`${TIMER_URL}/${id}`)
 	},
 	async updateRound(id: string, data: TTimerRoundState) {
-		const response = await axiosWithAuth.put(`${TIMER_URL}/round/${id}`, data)
-		return response
+		return await axiosWithAuth.put(`${TIMER_ROUND_URL}/${id}`, data)
 	}
 }

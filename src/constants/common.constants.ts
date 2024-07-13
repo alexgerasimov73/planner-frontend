@@ -1,3 +1,5 @@
+import { DASHBOARD_PAGES } from '@/config/pages-url.config'
+
 export const COLORS = {
 	bg: '#f8f9ff',
 	pink: '#ffcce1',
@@ -8,12 +10,19 @@ export const COLORS = {
 	yellow: '#faffc6'
 }
 
+export const JWT_EXPIRED = 'jwt expired'
+export const JWT_MUST_BE_PROVIDED = 'jwt must be provided'
 export const NO_INDEX_PAGE = { robots: { index: false, follow: false } }
 export const SITE_NAME = 'Planner'
 
+export const ACCESS_TOKEN = `${DASHBOARD_PAGES.AUTH}/login/access-token`
+export const LOGOUT = `${DASHBOARD_PAGES.AUTH}/logout`
 export const TASK_URL = '/user/tasks'
 export const TIMER_URL = '/user/timer'
+export const TIMER_ROUND_URL = `${TIMER_URL}/round`
+export const TIMER_TODAY_URL = `${TIMER_URL}/today`
 export const TIME_BLOCKS_URL = '/user/time-blocks'
+export const UPDATE_TIME_BLOCKS_ORDER_URL = `${TIME_BLOCKS_URL}/update-order`
 export const USER_URL = '/user/profile'
 
 export const SEASON_EMOJI: Record<string, string> = {
