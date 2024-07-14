@@ -36,7 +36,7 @@ export const Settings = () => {
 				<div>
 					<Field
 						id='email'
-						extra='mb-4'
+						classNames='mb-4'
 						label='Email:'
 						placeholder='Type the email here...'
 						type='email'
@@ -45,7 +45,7 @@ export const Settings = () => {
 
 					<Field
 						id='name'
-						extra='mb-4'
+						classNames='mb-4'
 						label='Name:'
 						placeholder='Type the name here...'
 						type='name'
@@ -54,7 +54,7 @@ export const Settings = () => {
 
 					<Field
 						id='password'
-						extra='mb-10'
+						classNames='mb-10'
 						label='Password:'
 						placeholder='Type the password here...'
 						type='password'
@@ -66,7 +66,7 @@ export const Settings = () => {
 					<Field
 						disableAutocomplete
 						id='workInterval'
-						extra='mb-4'
+						classNames='mb-4'
 						isNumber
 						label='Work interval (min):'
 						placeholder='Type the work interval here...'
@@ -76,7 +76,7 @@ export const Settings = () => {
 					<Field
 						disableAutocomplete
 						id='breakInterval'
-						extra='mb-4'
+						classNames='mb-4'
 						isNumber
 						label='Break interval (min):'
 						placeholder='Type the break interval here...'
@@ -86,7 +86,7 @@ export const Settings = () => {
 					<Field
 						disableAutocomplete
 						id='intervalsCount'
-						extra='mb-6'
+						classNames='mb-6'
 						isNumber
 						label='Interval count (max 10):'
 						placeholder='Type the interval count here...'

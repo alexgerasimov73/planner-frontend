@@ -8,10 +8,12 @@ import { TIME_BLOCKING_COLORS } from '@/constants/common.constants'
 
 import type { TTimeBlockFormState } from '@/types/time-block.types'
 
+import { getDataForSelect } from '@/utils/common.utils'
+
 import { useCreateTimeBlock } from './useCreateTimeBlock'
 import { useUpdateTimeBlock } from './useUpdateTimeBlock'
 
-export function TimeBlockingForm() {
+export const TimeBlockingForm = () => {
 	const { control, handleSubmit, register, reset, watch } =
 		useFormContext<TTimeBlockFormState>()
 
@@ -45,34 +47,32 @@ export function TimeBlockingForm() {
 		>
 			<Field
 				id='name'
+				classNames='mb-4'
 				disableAutocomplete
 				label='Block title:'
 				placeholder='Type the block title here...'
-				extra='mb-4'
 				{...register('name', { required: true })}
 			/>
 
 			<Field
 				id='duration'
+				classNames='mb-4'
 				disableAutocomplete
 				isNumber
 				label='Duration (min):'
 				placeholder='Type the duration here...'
-				extra='mb-4'
 				{...register('duration', { required: true, valueAsNumber: true })}
 			/>
 
 			<div>
 				<span className='inline-block mb-1.5'>Color:</span>
+
 				<Controller
 					control={control}
 					name='color'
 					render={({ field: { value, onChange } }) => (
 						<SingleSelect
-							data={TIME_BLOCKING_COLORS.map(color => ({
-								label: color,
-								value: color
-							}))}
+							data={getDataForSelect(TIME_BLOCKING_COLORS)}
 							isColorSelected
 							value={
 								value || TIME_BLOCKING_COLORS[TIME_BLOCKING_COLORS.length - 1]

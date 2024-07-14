@@ -3,7 +3,7 @@ import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
 import type { CSSProperties } from 'react'
 
-export function useTimeBlockSortable(id: UniqueIdentifier) {
+export const useTimeBlockSortable = (id: UniqueIdentifier) => {
 	const { attributes, listeners, setNodeRef, transform, transition } =
 		useSortable({ id })
 

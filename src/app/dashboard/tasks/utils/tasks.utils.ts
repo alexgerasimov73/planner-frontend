@@ -7,6 +7,8 @@ import { Dispatch, SetStateAction } from 'react'
 
 import type { ITaskResponse } from '@/types/task.types'
 
+import { getDataForSelect } from '@/utils/common.utils'
+
 dayjs.extend(isoWeek)
 dayjs.extend(weekOfYear)
 dayjs.extend(isSameOrAfter)
@@ -92,7 +94,4 @@ export const addTask =
 export const getFilteredDate = (value: string) =>
 	FILTERS[value] ? FILTERS[value].format() : undefined
 
-export const dataForTaskSelect = ['high', 'medium', 'low'].map(item => ({
-	value: item,
-	label: item
-}))
+export const dataForTaskSelect = getDataForSelect(['high', 'medium', 'low'])

@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 
 import { timeBlockService } from '@/services/time-block.service'
 
-export function useDeleteTimeBlock(id: string) {
+export const useDeleteTimeBlock = (id: string) => {
 	const queryClient = useQueryClient()
 
 	const { mutate: deleteTimeBlock, isPending: isDeletePending } = useMutation({
@@ -11,5 +11,6 @@ export function useDeleteTimeBlock(id: string) {
 		onSuccess: () =>
 			queryClient.invalidateQueries({ queryKey: ['time-blocks'] })
 	})
+
 	return { deleteTimeBlock, isDeletePending }
 }

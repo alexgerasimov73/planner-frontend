@@ -14,15 +14,15 @@ import styles from './TimeBlocking.module.scss'
 import { useTimeBlockDnD } from './hooks/useTimeBlockDnD'
 import { useTimeBlocks } from './hooks/useTimeBlocks'
 
-export function TimeBlockingList() {
+export const TimeBlockingList = () => {
 	const { isLoading, items, setItems } = useTimeBlocks()
 	const { sensors, handleDragEnd } = useTimeBlockDnD({ items, setItems })
 
 	const hoursLeft = calcHoursLeft(items)
 
-	if (isLoading) return <Loader />
-
-	return (
+	return isLoading ? (
+		<Loader />
+	) : (
 		<div>
 			<DndContext
 				collisionDetection={closestCenter}

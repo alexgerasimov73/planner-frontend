@@ -18,7 +18,7 @@ interface IUseTimeBlockDnD {
 	readonly setItems: Dispatch<SetStateAction<ITimeBlockResponse[] | undefined>>
 }
 
-export function useTimeBlockDnD({ items, setItems }: IUseTimeBlockDnD) {
+export const useTimeBlockDnD = ({ items, setItems }: IUseTimeBlockDnD) => {
 	const sensors = useSensors(
 		useSensor(PointerSensor),
 		useSensor(KeyboardSensor)

@@ -2,9 +2,9 @@ import { type KeyboardEvent, forwardRef } from 'react'
 
 interface InputFieldProps {
 	readonly id: string
+	readonly classNames?: string
 	readonly disableAutocomplete?: boolean
 	readonly disabled?: boolean
-	readonly extra?: string
 	readonly isNumber?: boolean
 	readonly label: string
 	readonly placeholder: string
@@ -17,9 +17,9 @@ export const Field = forwardRef<HTMLInputElement, InputFieldProps>(
 	(
 		{
 			id,
+			classNames,
 			disableAutocomplete,
 			disabled,
-			extra,
 			isNumber,
 			label,
 			placeholder,
@@ -45,7 +45,7 @@ export const Field = forwardRef<HTMLInputElement, InputFieldProps>(
 		}
 
 		return (
-			<div className={`${extra}`}>
+			<div className={classNames}>
 				<label
 					className='ml-1.5 text-sm font-medium'
 					htmlFor={id}

@@ -9,7 +9,7 @@ interface FunctionArguments {
 	readonly data: TTimeBlockFormState
 }
 
-export function useUpdateTimeBlock(key?: string) {
+export const useUpdateTimeBlock = (key?: string) => {
 	const queryClient = useQueryClient()
 
 	const { mutate: updataTimeBlock } = useMutation({
@@ -19,5 +19,6 @@ export function useUpdateTimeBlock(key?: string) {
 		onSuccess: () =>
 			queryClient.invalidateQueries({ queryKey: ['time-blocks'] })
 	})
+
 	return { updataTimeBlock }
 }

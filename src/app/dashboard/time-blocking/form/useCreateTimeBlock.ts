@@ -4,7 +4,7 @@ import type { TTimeBlockFormState } from '@/types/time-block.types'
 
 import { timeBlockService } from '@/services/time-block.service'
 
-export function useCreateTimeBlock() {
+export const useCreateTimeBlock = () => {
 	const queryClient = useQueryClient()
 
 	const { isPending: isCreatePending, mutate: createTimeBlock } = useMutation({
@@ -14,5 +14,6 @@ export function useCreateTimeBlock() {
 		onSuccess: () =>
 			queryClient.invalidateQueries({ queryKey: ['time-blocks'] })
 	})
+
 	return { isCreatePending, createTimeBlock }
 }

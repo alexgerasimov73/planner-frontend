@@ -16,13 +16,24 @@ interface ITimeBlock {
 	readonly item: ITimeBlockResponse
 }
 
-export function TimeBlock({ item }: ITimeBlock) {
+export const TimeBlock = ({ item }: ITimeBlock) => {
 	const { attributes, listeners, style, setNodeRef } = useTimeBlockSortable(
 		item.id
 	)
 
 	const { reset } = useFormContext<TTimeBlockFormState>()
 	const { isDeletePending, deleteTimeBlock } = useDeleteTimeBlock(item.id)
+
+	const handleEditTimeBlock = () =>
+		reset({
+			id: item.id,
+			color: item.color,
+			duration: item.duration,
+			name: item.name,
+			order: item.order
+		})
+
+	const handleDeleteTimeBlock = () => deleteTimeBlock()
 
 	return (
 		<div
@@ -46,31 +57,24 @@ export function TimeBlock({ item }: ITimeBlock) {
 					>
 						<GripVertical />
 					</button>
+
 					<div>
-						{item.name}{' '}
+						{item.name}&nbsp;
 						<i className='text-xs opacity-50'>({item.duration} min.)</i>
 					</div>
 				</div>
 
 				<div className={styles.actions}>
 					<button
-						className='opacity-70 text-white transition-opacity hover:opacity-100 mr-2'
-						onClick={() => {
-							reset({
-								id: item.id,
-								color: item.color,
-								duration: item.duration,
-								name: item.name,
-								order: item.order
-							})
-						}}
+						className='mr-2 opacity-70 text-white transition-opacity hover:opacity-100'
+						onClick={handleEditTimeBlock}
 					>
 						<Edit size={16} />
 					</button>
 
 					<button
 						className='opacity-70 text-white transition-opacity hover:opacity-100'
-						onClick={() => deleteTimeBlock()}
+						onClick={handleDeleteTimeBlock}
 					>
 						{isDeletePending ? <Loader size={16} /> : <Trash size={16} />}
 					</button>
