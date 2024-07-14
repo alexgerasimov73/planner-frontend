@@ -28,11 +28,7 @@ export const useAuth = (reset: UseFormReset<IAuthForm>) => {
 
 	const { isPending: isAuthPending, mutate } = useMutation({
 		mutationKey: ['auth'],
-		mutationFn: (data: IAuthForm) => {
-			console.log('typeForm', typeForm)
-			console.log('data', data)
-			return authService.main(typeForm, data)
-		},
+		mutationFn: (data: IAuthForm) => authService.main(typeForm, data),
 		onSuccess() {
 			toast.success('Succesfully login!')
 			reset()

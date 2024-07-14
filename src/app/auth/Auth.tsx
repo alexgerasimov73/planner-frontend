@@ -15,7 +15,7 @@ import { DASHBOARD_PAGES } from '@/config/pages-url.config'
 
 import { TypeForm, useAuth } from './hooks/useAuth'
 
-export function Auth() {
+export const Auth = () => {
 	const { prefetch } = useRouter()
 	const { register, handleSubmit, reset } = useForm<IAuthForm>({
 		mode: 'onChange'
@@ -66,6 +66,7 @@ export function Auth() {
 
 					<div className='flex items-center justify-center gap-7'>
 						<Button onClick={handleActionForm(TypeForm.login)}>Login</Button>
+
 						<Button onClick={handleActionForm(TypeForm.register)}>
 							Register
 						</Button>
