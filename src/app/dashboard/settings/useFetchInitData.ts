@@ -5,7 +5,7 @@ import type { TUserForm } from '@/types/auth.types'
 
 import { useProfile } from '@/hooks/useProfile'
 
-export function useFetchInitData(reset: UseFormReset<TUserForm>) {
+export const useFetchInitData = (reset: UseFormReset<TUserForm>) => {
 	const { data, isSuccess } = useProfile()
 
 	useEffect(() => {

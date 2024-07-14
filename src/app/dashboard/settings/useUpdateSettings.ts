@@ -5,9 +5,10 @@ import type { TUserForm } from '@/types/auth.types'
 
 import { userService } from '@/services/user.service'
 
-export function useUpdateSettings() {
+export const useUpdateSettings = () => {
 	const queryClient = useQueryClient()
-	const { isPending, mutate } = useMutation({
+
+	const { isPending: isUpdatePending, mutate: updateSettings } = useMutation({
 		mutationKey: ['update profile'],
 		mutationFn: (data: TUserForm) => userService.update(data),
 		onSuccess: () => {
@@ -16,5 +17,5 @@ export function useUpdateSettings() {
 		}
 	})
 
-	return { isPending, mutate }
+	return { isUpdatePending, updateSettings }
 }

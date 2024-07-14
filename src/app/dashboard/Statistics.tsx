@@ -8,7 +8,7 @@ import { DASHBOARD_PAGES } from '@/config/pages-url.config'
 
 import { useProfile } from '@/hooks/useProfile'
 
-export default function Statistics() {
+export const Statistics = () => {
 	const { data, isLoading } = useProfile()
 
 	return isLoading ? (
@@ -19,7 +19,7 @@ export default function Statistics() {
 				data.statistics.map(statistic => (
 					<Link
 						key={statistic.label}
-						className='rounded p-layout shadow bg-white text-center hover:-translate-y-1 transition-transform duration-100 cursor-pointer'
+						className='p-layout text-center rounded shadow bg-white transition-transform duration-100 cursor-pointer hover:-translate-y-1'
 						href={DASHBOARD_PAGES.TASKS}
 					>
 						<div className='text-xl'>{statistic.label}</div>
