@@ -1,10 +1,12 @@
 import type { DropResult } from '@hello-pangea/dnd'
 
+import { COMPLETED } from '@/constants/common.constants'
+
 import { FILTERS } from '../utils/tasks.utils'
 
 import { useUpdateTask } from './useUpdateTask'
 
-export function useTaskDnd() {
+export const useTaskDnd = () => {
 	const { updateTask } = useUpdateTask()
 
 	const onDragEnd = (result: DropResult) => {
@@ -14,7 +16,7 @@ export function useTaskDnd() {
 
 		if (destinationColumnId === result.source.droppableId) return
 
-		if (destinationColumnId === 'completed') {
+		if (destinationColumnId === COMPLETED) {
 			updateTask({
 				id: result.draggableId,
 				data: {

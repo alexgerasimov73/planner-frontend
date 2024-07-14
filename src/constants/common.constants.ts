@@ -10,10 +10,16 @@ export const COLORS = {
 	yellow: '#faffc6'
 }
 
+export const COMPLETED = 'completed'
+export const CREATED_AT = 'createdAt'
 export const JWT_EXPIRED = 'jwt expired'
 export const JWT_MUST_BE_PROVIDED = 'jwt must be provided'
+export const IS_COMPLETED = 'isCompleted'
 export const NO_INDEX_PAGE = { robots: { index: false, follow: false } }
+export const PRIORITY = 'priority'
 export const SITE_NAME = 'Planner'
+export const UNTITLED_TASK = 'Untitled task'
+export const VIEW_TYPE = 'view-type'
 
 export const ACCESS_TOKEN = `${DASHBOARD_PAGES.AUTH}/login/access-token`
 export const LOGOUT = `${DASHBOARD_PAGES.AUTH}/logout`

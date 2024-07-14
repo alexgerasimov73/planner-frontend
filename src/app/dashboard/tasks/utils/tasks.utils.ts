@@ -3,6 +3,7 @@ import isSameOrAfter from 'dayjs/plugin/isSameOrAfter'
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
 import isoWeek from 'dayjs/plugin/isoWeek'
 import weekOfYear from 'dayjs/plugin/weekOfYear'
+import { Dispatch, SetStateAction } from 'react'
 
 import type { ITaskResponse } from '@/types/task.types'
 
@@ -65,3 +66,33 @@ export const filterTasks = (
 			return []
 	}
 }
+
+export const addTask =
+	(
+		setItems: Dispatch<
+			SetStateAction<ReadonlyArray<ITaskResponse> | undefined>
+		>,
+		filterDate?: string
+	) =>
+	() =>
+		setItems(prev => {
+			if (!prev) return
+
+			return [
+				...prev,
+				{
+					id: '',
+					name: '',
+					isCompleted: false,
+					createdAt: filterDate
+				}
+			]
+		})
+
+export const getFilteredDate = (value: string) =>
+	FILTERS[value] ? FILTERS[value].format() : undefined
+
+export const dataForTaskSelect = ['high', 'medium', 'low'].map(item => ({
+	value: item,
+	label: item
+}))

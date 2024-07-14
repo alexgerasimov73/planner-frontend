@@ -1,12 +1,14 @@
 import { Draggable, Droppable } from '@hello-pangea/dnd'
 import type { Dispatch, SetStateAction } from 'react'
 
+import { COMPLETED } from '@/constants/common.constants'
+
 import type { ITaskResponse } from '@/types/task.types'
 
-import { FILTERS, filterTasks } from '../utils/tasks.utils'
+import { filterTasks, getFilteredDate } from '../utils/tasks.utils'
 
-import ListAddRowInput from './ListAddRowInput'
-import ListRow from './ListRow'
+import { ListAddRowInput } from './ListAddRowInput'
+import { ListRow } from './ListRow'
 import styles from './ListView.module.scss'
 
 interface IListRowParent {
@@ -18,12 +20,12 @@ interface IListRowParent {
 	>
 }
 
-export default function ListRowParent({
+export const ListRowParent = ({
 	items,
 	label,
 	value,
 	setItems
-}: IListRowParent) {
+}: IListRowParent) => {
 	const filteredList = filterTasks(value, items)
 
 	return (
@@ -59,7 +61,7 @@ export default function ListRowParent({
 									)}
 								</Draggable>
 							))
-						: value !== 'completed' && (
+						: value !== COMPLETED && (
 								<p className={styles.emptyRow}>
 									Looks like there are no tasks yet. Maybe it's time to create
 									the first one by clicking on the "Add task" button?
@@ -68,9 +70,9 @@ export default function ListRowParent({
 
 					{provided.placeholder}
 
-					{value !== 'completed' && !items?.some(item => !item.id) && (
+					{value !== COMPLETED && !items?.some(item => !item.id) && (
 						<ListAddRowInput
-							filterDate={FILTERS[value] ? FILTERS[value].format() : undefined}
+							filterDate={getFilteredDate(value)}
 							setItems={setItems}
 						/>
 					)}

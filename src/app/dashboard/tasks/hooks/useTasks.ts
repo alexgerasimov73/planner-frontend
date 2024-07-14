@@ -5,7 +5,7 @@ import type { ITaskResponse } from '@/types/task.types'
 
 import { taskService } from '@/services/task.service'
 
-export function useTasks() {
+export const useTasks = () => {
 	const { data } = useQuery({
 		queryKey: ['tasks'],
 		queryFn: () => taskService.getTasks()

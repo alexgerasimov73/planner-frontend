@@ -1,12 +1,14 @@
 import { Draggable, Droppable } from '@hello-pangea/dnd'
 import type { Dispatch, SetStateAction } from 'react'
 
+import { COMPLETED } from '@/constants/common.constants'
+
 import type { ITaskResponse } from '@/types/task.types'
 
-import { FILTERS, filterTasks } from '../utils/tasks.utils'
+import { filterTasks, getFilteredDate } from '../utils/tasks.utils'
 
-import KanbanAddCardInput from './KanbanAddCardInput'
-import KanbanCard from './KanbanCard'
+import { KanbanAddCardInput } from './KanbanAddCardInput'
+import { KanbanCard } from './KanbanCard'
 import styles from './KanbanView.module.scss'
 
 interface IKanbanColumn {
@@ -18,12 +20,14 @@ interface IKanbanColumn {
 	>
 }
 
-export default function KanbanColumn({
+export const KanbanColumn = ({
 	items,
 	label,
 	value,
 	setItems
-}: IKanbanColumn) {
+}: IKanbanColumn) => {
+	const filteredList = filterTasks(value, items)
+
 	return (
 		<Droppable droppableId={value}>
 			{provided => (
@@ -34,7 +38,7 @@ export default function KanbanColumn({
 					<div className={styles.column}>
 						<div className={styles.columnHeading}>{label}</div>
 
-						{filterTasks(value, items)?.map((item, index) => (
+						{filteredList?.map((item, index) => (
 							<Draggable
 								key={item.id}
 								draggableId={item.id}
@@ -58,12 +62,10 @@ export default function KanbanColumn({
 
 						{provided.placeholder}
 
-						{value !== 'completed' && !items?.some(item => !item.id) && (
+						{value !== COMPLETED && !items?.some(item => !item.id) && (
 							<KanbanAddCardInput
+								filterDate={getFilteredDate(value)}
 								setItems={setItems}
-								filterDate={
-									FILTERS[value] ? FILTERS[value].format() : undefined
-								}
 							/>
 						)}
 					</div>

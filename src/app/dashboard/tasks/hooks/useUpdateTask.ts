@@ -9,7 +9,7 @@ interface FunctionArguments {
 	readonly data: TTaskFormState
 }
 
-export function useUpdateTask(key?: string) {
+export const useUpdateTask = (key?: string) => {
 	const queryClient = useQueryClient()
 
 	const { mutate: updateTask } = useMutation({
@@ -18,5 +18,6 @@ export function useUpdateTask(key?: string) {
 			taskService.updateTask(id, data),
 		onSuccess: () => queryClient.invalidateQueries({ queryKey: ['tasks'] })
 	})
+
 	return { updateTask }
 }

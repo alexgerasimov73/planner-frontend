@@ -4,7 +4,7 @@ import type { TTaskFormState } from '@/types/task.types'
 
 import { taskService } from '@/services/task.service'
 
-export function useCreateTask(key?: string) {
+export const useCreateTask = (key?: string) => {
 	const queryClient = useQueryClient()
 
 	const { mutate: createTask } = useMutation({
@@ -12,5 +12,6 @@ export function useCreateTask(key?: string) {
 		mutationFn: (data: TTaskFormState) => taskService.createTask(data),
 		onSuccess: () => queryClient.invalidateQueries({ queryKey: ['tasks'] })
 	})
+
 	return { createTask }
 }

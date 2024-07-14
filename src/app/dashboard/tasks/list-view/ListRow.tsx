@@ -8,10 +8,17 @@ import { TransparentField } from '@/components/ui/fields/TransparentField'
 import { SingleSelect } from '@/components/ui/task-edit/SingleSelect'
 import { DatePicker } from '@/components/ui/task-edit/date-picker/DatePicker'
 
+import {
+	CREATED_AT,
+	IS_COMPLETED,
+	PRIORITY
+} from '@/constants/common.constants'
+
 import type { ITaskResponse, TTaskFormState } from '@/types/task.types'
 
 import { useDeleteTask } from '../hooks/useDeleteTask'
 import { useTaskDebounce } from '../hooks/useTaskDebounce'
+import { dataForTaskSelect } from '../utils/tasks.utils'
 
 import styles from './ListView.module.scss'
 
@@ -22,7 +29,7 @@ interface IListRow {
 	>
 }
 
-export default function ListRow({ item, setItems }: IListRow) {
+export const ListRow = ({ item, setItems }: IListRow) => {
 	const { control, register, watch } = useForm<TTaskFormState>({
 		defaultValues: {
 			createdAt: item.createdAt,
@@ -35,11 +42,15 @@ export default function ListRow({ item, setItems }: IListRow) {
 	const { deleteTask, isDeletePending } = useDeleteTask()
 
 	useTaskDebounce({ itemId: item.id, watch })
+
+	const handleDeleteTask = () =>
+		item.id ? deleteTask(item.id) : setItems(prev => prev?.slice(0, -1))
+
 	return (
 		<div
 			className={cn(
 				styles.row,
-				watch('isCompleted') ? styles.completed : '',
+				{ [styles.completed]: watch(IS_COMPLETED) },
 				'animation-opacity'
 			)}
 		>
@@ -51,7 +62,7 @@ export default function ListRow({ item, setItems }: IListRow) {
 
 					<Controller
 						control={control}
-						name='isCompleted'
+						name={IS_COMPLETED}
 						render={({ field: { value, onChange } }) => (
 							<Checkbox
 								checked={value}
@@ -70,11 +81,11 @@ export default function ListRow({ item, setItems }: IListRow) {
 			<div>
 				<Controller
 					control={control}
-					name='createdAt'
+					name={CREATED_AT}
 					render={({ field: { value, onChange } }) => (
 						<DatePicker
-							onChange={onChange}
 							value={value || ''}
+							onChange={onChange}
 						/>
 					)}
 				/>
@@ -83,13 +94,10 @@ export default function ListRow({ item, setItems }: IListRow) {
 			<div className='capitalize'>
 				<Controller
 					control={control}
-					name='priority'
+					name={PRIORITY}
 					render={({ field: { value, onChange } }) => (
 						<SingleSelect
-							data={['high', 'medium', 'low'].map(item => ({
-								value: item,
-								label: item
-							}))}
+							data={dataForTaskSelect}
 							value={value || ''}
 							onChange={onChange}
 						/>
@@ -100,9 +108,7 @@ export default function ListRow({ item, setItems }: IListRow) {
 			<div>
 				<button
 					className='opacity-50 transition-opacity hover:opacity-100'
-					onClick={() =>
-						item.id ? deleteTask(item.id) : setItems(prev => prev?.slice(0, -1))
-					}
+					onClick={handleDeleteTask}
 				>
 					{isDeletePending ? <Loader size={15} /> : <Trash size={20} />}
 				</button>

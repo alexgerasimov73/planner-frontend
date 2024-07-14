@@ -7,10 +7,10 @@ import { TASKS_COLUMNS } from '@/constants/common.constants'
 import { useTaskDnd } from '../hooks/useTaskDnd'
 import { useTasks } from '../hooks/useTasks'
 
-import ListRowParent from './ListRowParent'
+import { ListRowParent } from './ListRowParent'
 import styles from './ListView.module.scss'
 
-export default function ListView() {
+export const ListView = () => {
 	const { items, setItems } = useTasks()
 	const { onDragEnd } = useTaskDnd()
 

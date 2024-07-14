@@ -7,10 +7,10 @@ import { TASKS_COLUMNS } from '@/constants/common.constants'
 import { useTaskDnd } from '../hooks/useTaskDnd'
 import { useTasks } from '../hooks/useTasks'
 
-import KanbanColumn from './KanbanColumn'
+import { KanbanColumn } from './KanbanColumn'
 import styles from './KanbanView.module.scss'
 
-export default function KanbanView() {
+export const KanbanView = () => {
 	const { items, setItems } = useTasks()
 	const { onDragEnd } = useTaskDnd()
 

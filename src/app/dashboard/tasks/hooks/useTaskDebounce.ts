@@ -2,6 +2,8 @@ import debounce from 'lodash.debounce'
 import { useCallback, useEffect } from 'react'
 import { UseFormWatch } from 'react-hook-form'
 
+import { UNTITLED_TASK } from '@/constants/common.constants'
+
 import type { TTaskFormState } from '@/types/task.types'
 
 import { useCreateTask } from './useCreateTask'
@@ -12,13 +14,13 @@ interface IUseTaskDebounce {
 	readonly watch: UseFormWatch<TTaskFormState>
 }
 
-export function useTaskDebounce({ itemId, watch }: IUseTaskDebounce) {
+export const useTaskDebounce = ({ itemId, watch }: IUseTaskDebounce) => {
 	const { createTask } = useCreateTask()
 	const { updateTask } = useUpdateTask()
 
 	const debounceCreateTask = useCallback(
 		debounce((formatData: TTaskFormState) => {
-			const name = formatData.name || 'Untitled task'
+			const name = formatData.name || UNTITLED_TASK
 			createTask({ ...formatData, name })
 		}, 400),
 		[debounce]
@@ -43,5 +45,5 @@ export function useTaskDebounce({ itemId, watch }: IUseTaskDebounce) {
 		})
 
 		return () => unsubscribe()
-	}, [debounceCreateTask, debounceUpdateTask, watch()])
+	}, [debounceCreateTask, debounceUpdateTask, watch])
 }
