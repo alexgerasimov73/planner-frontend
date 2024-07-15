@@ -5,7 +5,7 @@ import type { ITimerRoundResponse } from '@/types/timer.types'
 import { useLoadSettings } from './useLoadSettings'
 import { useUpdateRound } from './useUpdateRound'
 
-export function useTimer() {
+export const useTimer = () => {
 	const { breakInterval, workInterval } = useLoadSettings()
 	const { updateRound } = useUpdateRound()
 	const [activeRound, setActiveRound] = useState<ITimerRoundResponse>()

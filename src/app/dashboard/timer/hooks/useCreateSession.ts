@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 
 import { timerService } from '@/services/timer.service'
 
-export function useCreateSession() {
+export const useCreateSession = () => {
 	const queryClient = useQueryClient()
 
 	const { isPending: isCreatePending, mutate: createSession } = useMutation({
@@ -11,5 +11,6 @@ export function useCreateSession() {
 		onSuccess: () =>
 			queryClient.invalidateQueries({ queryKey: ['get today session'] })
 	})
+
 	return { isCreatePending, createSession }
 }

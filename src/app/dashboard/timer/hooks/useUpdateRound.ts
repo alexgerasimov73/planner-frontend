@@ -9,7 +9,7 @@ interface MutationFunctionInterface {
 	readonly data: TTimerRoundState
 }
 
-export function useUpdateRound() {
+export const useUpdateRound = () => {
 	const queryClient = useQueryClient()
 
 	const { isPending: isUpdateRoundPending, mutate: updateRound } = useMutation({
@@ -19,5 +19,6 @@ export function useUpdateRound() {
 		onSuccess: () =>
 			queryClient.invalidateQueries({ queryKey: ['get today session'] })
 	})
+
 	return { isUpdateRoundPending, updateRound }
 }

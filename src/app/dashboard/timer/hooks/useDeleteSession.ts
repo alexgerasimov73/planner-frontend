@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 
 import { timerService } from '@/services/timer.service'
 
-export function useDeleteSession(onDeleteSuccess: () => void) {
+export const useDeleteSession = (onDeleteSuccess: () => void) => {
 	const queryClient = useQueryClient()
 
 	const { isPending: isDeletePending, mutate: deleteSession } = useMutation({
@@ -13,5 +13,6 @@ export function useDeleteSession(onDeleteSuccess: () => void) {
 			onDeleteSuccess()
 		}
 	})
+
 	return { isDeletePending, deleteSession }
 }

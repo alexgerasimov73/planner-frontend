@@ -1,6 +1,6 @@
 import { useProfile } from '@/hooks/useProfile'
 
-export function useLoadSettings() {
+export const useLoadSettings = () => {
 	const { data } = useProfile()
 
 	const breakInterval = data?.user.breakInterval || 10

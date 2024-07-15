@@ -9,14 +9,14 @@ type TUseTimerActions = ITimerState & {
 	readonly rounds?: ITimerRoundResponse[]
 }
 
-export function useTimerActions({
+export const useTimerActions = ({
 	activeRound,
 	rounds,
 	secondsLeft,
 	setActiveRound,
 	setIsRunning,
 	setSecondsLeft
-}: TUseTimerActions) {
+}: TUseTimerActions) => {
 	const { workInterval } = useLoadSettings()
 	const { isUpdateRoundPending, updateRound } = useUpdateRound()
 

@@ -15,7 +15,7 @@ import { useTimerActions } from './hooks/useTimerActions'
 import { useTodaySession } from './hooks/useTodaySession'
 import { TimerRounds } from './rounds/TimerRounds'
 
-export function Timer() {
+export const Timer = () => {
 	const { workInterval } = useLoadSettings()
 	const {
 		activeRound,
@@ -77,7 +77,7 @@ export function Timer() {
 						prevRoundHandler={prevRoundHandler}
 					/>
 					<button
-						className='mt-6 opacity-70 transition-opacity hover:opacity-100 '
+						className='mt-6 opacity-70 transition-opacity hover:opacity-100'
 						disabled={isUpdateRoundPending}
 						onClick={isRunning ? pauseHandler : playHandler}
 					>
@@ -85,7 +85,7 @@ export function Timer() {
 					</button>
 
 					<button
-						className='absolute top-0 right-0 opacity-40 hover:opacity-90 transition-opacity '
+						className='absolute top-0 right-0 opacity-40 transition-opacity hover:opacity-90'
 						disabled={isDeletePending}
 						onClick={handleDeleteSession}
 					>

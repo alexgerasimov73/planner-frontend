@@ -12,23 +12,28 @@ interface ITimerRounds {
 	readonly prevRoundHandler: () => void
 }
 
-export function TimerRounds({
+type TDirection = 'previous' | 'next'
+
+export const TimerRounds = ({
 	activeRound,
 	rounds,
 	nextRoundHandler,
 	prevRoundHandler
-}: ITimerRounds) {
-	const isCanPrevRound = rounds
-		? rounds.some(round => round.isCompleted)
-		: false
-	const isCanNextRound = rounds ? !rounds[rounds.length - 1].isCompleted : false
+}: ITimerRounds) => {
+	const hasPrevRound = rounds ? rounds.some(round => round.isCompleted) : false
+	const hasNextRound = rounds ? !rounds[rounds.length - 1].isCompleted : false
+
+	const handleChangeRound = (direction: TDirection) => () => {
+		if (direction === 'previous' && hasPrevRound) return prevRoundHandler()
+		if (direction === 'next' && hasNextRound) return nextRoundHandler()
+	}
 
 	return (
 		<div className={styles.container}>
 			<button
 				className={styles.button}
-				disabled={!isCanPrevRound}
-				onClick={() => (isCanPrevRound ? prevRoundHandler() : false)}
+				disabled={!hasPrevRound}
+				onClick={handleChangeRound('previous')}
 			>
 				<ChevronLeft size={23} />
 			</button>
@@ -49,8 +54,8 @@ export function TimerRounds({
 
 			<button
 				className={styles.button}
-				disabled={!isCanNextRound}
-				onClick={() => (isCanNextRound ? nextRoundHandler() : false)}
+				disabled={!hasNextRound}
+				onClick={handleChangeRound('next')}
 			>
 				<ChevronRight size={23} />
 			</button>

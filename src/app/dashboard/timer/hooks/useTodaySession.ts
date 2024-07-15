@@ -13,10 +13,10 @@ interface IUseTodaySession {
 	readonly setSecondsLeft: Dispatch<SetStateAction<number>>
 }
 
-export function useTodaySession({
+export const useTodaySession = ({
 	setActiveRound,
 	setSecondsLeft
-}: IUseTodaySession) {
+}: IUseTodaySession) => {
 	const { workInterval } = useLoadSettings()
 	const {
 		data: sessionsResponse,

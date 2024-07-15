@@ -48,7 +48,7 @@ export const Auth = () => {
 				>
 					<Field
 						id='email'
-						extra='mb-4'
+						classNames='mb-4'
 						label='Email:'
 						placeholder='Type the email here...'
 						type='email'
@@ -57,7 +57,7 @@ export const Auth = () => {
 
 					<Field
 						id='password'
-						extra='mb-6'
+						classNames='mb-6'
 						label='Password:'
 						placeholder='Type the password here...'
 						type='password'
