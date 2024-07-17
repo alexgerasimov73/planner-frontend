@@ -42,8 +42,7 @@ export const TimeBlock = ({ item }: ITimeBlock) => {
 			<div
 				className='relative flex items-center justify-between mb-3 p-4 rounded text-sm'
 				style={{
-					backgroundColor:
-						item.color || TIME_BLOCKING_COLORS[TIME_BLOCKING_COLORS.length - 1],
+					backgroundColor: item.color || TIME_BLOCKING_COLORS.at(-1),
 					height: `${item.duration}px`
 				}}
 			>

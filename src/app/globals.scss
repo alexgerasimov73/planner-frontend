@@ -21,6 +21,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+	.top-calc {
+		top: calc(100% + 0.7rem);
+	}
+}
+
 :root {
 	--font-color: #191919;
 	--background-color: #f8f9ff;

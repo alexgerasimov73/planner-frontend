@@ -70,13 +70,7 @@ export const SingleSelect = ({
 			)}
 
 			{isShow && (
-				<div
-					// TODO: Amend styles here.
-					className='absolute left-0 top-[calc(100% + .5rem)] w-full p-2.5 shadow rounded-lg bg-white z-10 slide'
-					style={{
-						top: 'calc(100% + .5rem)'
-					}}
-				>
+				<div className='absolute left-0 top-calc w-full p-2.5 shadow rounded-lg bg-white z-10 slide'>
 					{data.map(item => (
 						<button
 							key={item.value}
