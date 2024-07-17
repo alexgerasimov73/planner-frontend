@@ -108,14 +108,12 @@ export const KanbanCard = ({ item, setItems }: IKanbanCard) => {
 				/>
 			</div>
 
-			<div className={styles.cardActions}>
-				<button
-					className='opacity-50 transition-opacity hover:opacity-100'
-					onClick={handleDeleteTask}
-				>
-					{isDeletePending ? <Loader size={15} /> : <Trash size={15} />}
-				</button>
-			</div>
+			<button
+				className={styles.trash}
+				onClick={handleDeleteTask}
+			>
+				{isDeletePending ? <Loader size={15} /> : <Trash size={15} />}
+			</button>
 		</div>
 	)
 }

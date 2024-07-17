@@ -4,8 +4,8 @@ import { FormProvider, useForm } from 'react-hook-form'
 
 import type { TTimeBlockFormState } from '@/types/time-block.types'
 
+import { TimeBlockingForm } from './TimeBlockingForm'
 import { TimeBlockingList } from './TimeBlockingList'
-import { TimeBlockingForm } from './form/TimeBlockingForm'
 
 export const TimeBlocking = () => {
 	const methods = useForm<TTimeBlockFormState>()

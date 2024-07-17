@@ -1,35 +1,16 @@
-.container {
-	@apply flex items-center justify-center gap-2;
-}
-
-.roundsContainer {
-	@apply flex gap-3 items-center justify-center mt-1;
-}
-
-.button {
-	@apply opacity-20 hover:opacity-100 disabled:opacity-20 transition-opacity mt-1;
-}
-
 .round {
-	@apply rounded-md border border-primary w-5 h-5 relative;
+	@apply relative w-5 h-5 rounded-md border border-primary;
 
 	&::before {
-		@apply bg-primary rounded transition-all duration-300;
+		@apply absolute top-0 left-0 w-0 h-full rounded bg-primary transition-all duration-300;
 		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 0%;
-		height: 100%;
 	}
 
 	&.active::before {
-		@apply duration-1000;
-		width: 40%;
+		@apply duration-1000 w-40p;
 	}
 
 	&.completed::before {
-		@apply rounded;
-		width: 100%;
+		@apply rounded w-full;
 	}
 }

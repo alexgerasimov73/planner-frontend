@@ -18,7 +18,7 @@ export const DashboardLayout = ({ children }: PropsWithChildren) => {
 
 			<main className='relative max-h-screen overflow-x-hidden'>
 				{isLoading || !data ? (
-					<div className='flex justify-center items-center h-1/2'>
+					<div className='flex-center h-1/2'>
 						<Loader />
 					</div>
 				) : (

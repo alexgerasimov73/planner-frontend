@@ -5,6 +5,8 @@ import type { ITaskResponse } from '@/types/task.types'
 
 import { addTask } from '../utils/tasks.utils'
 
+import styles from './KanbanView.module.scss'
+
 interface IKanbanAddCardInput {
 	readonly filterDate?: string
 	readonly setItems: Dispatch<
@@ -18,7 +20,7 @@ export const KanbanAddCardInput = ({
 }: IKanbanAddCardInput) => (
 	<div className='mt-5'>
 		<button
-			className='flex items-center gap-2 py-2 px-3 border rounded-lg border-primary italic text-sm hover:border-secondary hover:text-secondary active:border-secondary/75'
+			className={styles.addCard}
 			onClick={addTask(setItems, filterDate)}
 		>
 			<PlusSquare size={15} /> Add task

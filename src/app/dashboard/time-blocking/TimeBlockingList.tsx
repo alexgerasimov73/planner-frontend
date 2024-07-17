@@ -10,7 +10,6 @@ import { Loader } from '@/components/ui/Loader'
 import { calcHoursLeft } from '@/utils/common.utils'
 
 import { TimeBlock } from './TimeBlock'
-import styles from './TimeBlocking.module.scss'
 import { useTimeBlockDnD } from './hooks/useTimeBlockDnD'
 import { useTimeBlocks } from './hooks/useTimeBlocks'
 
@@ -30,7 +29,7 @@ export const TimeBlockingList = () => {
 				sensors={sensors}
 				onDragEnd={handleDragEnd}
 			>
-				<div className={styles.list}>
+				<div>
 					<SortableContext
 						items={items || []}
 						strategy={verticalListSortingStrategy}

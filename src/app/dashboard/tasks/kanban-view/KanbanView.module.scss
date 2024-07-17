@@ -1,17 +1,14 @@
 .board {
-	@apply grid grid-flow-col gap-8 w-full;
-	overflow-x: auto;
+	@apply grid grid-flow-col gap-8 w-full overflow-x-auto;
 
 	.column {
-		@apply w-[17rem];
-		white-space: nowrap;
-		min-height: 79vh;
+		@apply w-[17rem] min-h-[80vh] whitespace-nowrap;
 
 		.card {
 			@apply relative mt-5 p-4 shadow rounded bg-white;
 
 			&.completed {
-				@apply italic line-through opacity-50;
+				@apply opacity-50 italic line-through;
 			}
 
 			.cardHeader {
@@ -24,8 +21,7 @@
 
 			.cardBody {
 				> div {
-					@apply mb-2.5 w-max;
-					min-width: 6rem;
+					@apply min-w-[6rem] mb-2.5 w-max;
 
 					> button:last-child {
 						@apply opacity-15;
@@ -33,15 +29,19 @@
 				}
 			}
 
-			.cardActions {
-				@apply absolute bottom-1 right-1.5 opacity-40;
+			.trash {
+				@apply absolute bottom-2 right-1.5 opacity-40 transition-opacity hover:opacity-100;
 			}
 		}
+	}
+
+	.addCard {
+		@apply flex items-center gap-2 py-2 px-3 border rounded-lg border-primary italic text-sm hover:border-secondary hover:text-secondary active:border-secondary/75;
 	}
 }
 
 .grip {
-	@apply opacity-20 transition-opacity -ml-1 -mr-0.5 absolute top-2 right-1.5;
+	@apply absolute top-2 right-1.5 -ml-1 -mr-0.5 opacity-20 transition-opacity;
 
 	&:hover,
 	&:active {

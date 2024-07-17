@@ -19,7 +19,7 @@ export const Header = ({ userData }: IHeader) => {
 				className='flex items-center gap-3'
 				href={DASHBOARD_PAGES.SETTINGS}
 			>
-				<span className='text-sm opacity-40'>{userData.email}</span>
+				<span className='opacity-40 text-sm'>{userData.email}</span>
 
 				<img
 					className='rounded-full border border-primary'

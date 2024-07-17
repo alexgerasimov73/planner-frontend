@@ -2,7 +2,7 @@ import { type KeyboardEvent, forwardRef } from 'react'
 
 interface InputFieldProps {
 	readonly id: string
-	readonly classNames?: string
+	readonly className?: string
 	readonly disableAutocomplete?: boolean
 	readonly disabled?: boolean
 	readonly isNumber?: boolean
@@ -17,7 +17,7 @@ export const Field = forwardRef<HTMLInputElement, InputFieldProps>(
 	(
 		{
 			id,
-			classNames,
+			className,
 			disableAutocomplete,
 			disabled,
 			isNumber,
@@ -45,7 +45,7 @@ export const Field = forwardRef<HTMLInputElement, InputFieldProps>(
 		}
 
 		return (
-			<div className={classNames}>
+			<div className={className}>
 				<label
 					className='ml-1.5 text-sm font-medium'
 					htmlFor={id}
@@ -54,14 +54,12 @@ export const Field = forwardRef<HTMLInputElement, InputFieldProps>(
 				</label>
 
 				<input
-					className={`flex items-center justify-center w-full mt-2 p-3 rounded-lg border border-primary bg-white/0 text-base outline-none placeholder:text-gray-700 placeholder:font-normal duration-500 transition-colors hover:border-secondary focus:border-primary ${
+					className={`flex-center w-full mt-2 p-3 rounded-lg border border-primary bg-white/0 text-base outline-none placeholder:text-gray-700 placeholder:font-normal duration-500 transition-colors hover:border-secondary focus:border-primary ${
 						disabled
 							? '!border-none !bg-gray-100 dark:!bg-white/5 dark:placeholder:!text-[rgba(255,255,255,0.15)]'
 							: state === 'error'
 								? 'border-red-500 text-red-500 placeholder:text-red-500 dark:!border-red-400 dark:!text-red-400 dark:placeholder:!text-red-400'
-								: state === 'success'
-									? 'border-green-500 text-green-500 placeholder:text-green-500 dark:!border-green-400 dark:!text-green-400 dark:placeholder:!text-green-400'
-									: ''
+								: ''
 					}`}
 					autoComplete={disableAutocomplete ? 'off' : ''}
 					id={id}

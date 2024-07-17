@@ -8,7 +8,6 @@ import type {
 	TTimeBlockFormState
 } from '@/types/time-block.types'
 
-import styles from './TimeBlocking.module.scss'
 import { useDeleteTimeBlock } from './hooks/useDeleteTimeBlock'
 import { useTimeBlockSortable } from './hooks/useTimeBlockSortable'
 
@@ -41,7 +40,7 @@ export const TimeBlock = ({ item }: ITimeBlock) => {
 			style={style}
 		>
 			<div
-				className={styles.block}
+				className='relative flex items-center justify-between mb-3 p-4 rounded text-sm'
 				style={{
 					backgroundColor:
 						item.color || TIME_BLOCKING_COLORS[TIME_BLOCKING_COLORS.length - 1],
@@ -50,7 +49,7 @@ export const TimeBlock = ({ item }: ITimeBlock) => {
 			>
 				<div className='flex items-center text-white'>
 					<button
-						className={styles.grip}
+						className='-ml-1 mr-0.5 transition-opacity hover:opacity-50 active:opacity-50'
 						{...attributes}
 						{...listeners}
 						aria-describedby='time-block'
@@ -64,7 +63,7 @@ export const TimeBlock = ({ item }: ITimeBlock) => {
 					</div>
 				</div>
 
-				<div className={styles.actions}>
+				<div>
 					<button
 						className='mr-2 opacity-70 text-white transition-opacity hover:opacity-100'
 						onClick={handleEditTimeBlock}

@@ -10,8 +10,8 @@ import type { TTimeBlockFormState } from '@/types/time-block.types'
 
 import { getDataForSelect } from '@/utils/common.utils'
 
-import { useCreateTimeBlock } from './useCreateTimeBlock'
-import { useUpdateTimeBlock } from './useUpdateTimeBlock'
+import { useCreateTimeBlock } from './hooks/useCreateTimeBlock'
+import { useUpdateTimeBlock } from './hooks/useUpdateTimeBlock'
 
 export const TimeBlockingForm = () => {
 	const { control, handleSubmit, register, reset, watch } =
@@ -47,7 +47,7 @@ export const TimeBlockingForm = () => {
 		>
 			<Field
 				id='name'
-				classNames='mb-4'
+				className='mb-4'
 				disableAutocomplete
 				label='Block title:'
 				placeholder='Type the block title here...'
@@ -56,7 +56,7 @@ export const TimeBlockingForm = () => {
 
 			<Field
 				id='duration'
-				classNames='mb-4'
+				className='mb-4'
 				disableAutocomplete
 				isNumber
 				label='Duration (min):'

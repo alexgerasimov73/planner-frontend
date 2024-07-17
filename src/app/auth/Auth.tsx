@@ -28,7 +28,7 @@ export const Auth = () => {
 	const handleActionForm = (typeForm: TypeForm) => () => setTypeForm(typeForm)
 
 	return (
-		<div className='relative flex flex-col items-center justify-center  min-h-screen'>
+		<div className='relative flex-center flex-col min-h-screen'>
 			<Logo
 				className='!absolute top-5 left-5'
 				isPrimaryColor
@@ -38,7 +38,7 @@ export const Auth = () => {
 			<p>or register</p>
 
 			{isAuthPending ? (
-				<div className='flex items-center justify-center w-1/3 h-80'>
+				<div className='flex-center w-1/3 h-80'>
 					<Loader />
 				</div>
 			) : (
@@ -48,7 +48,7 @@ export const Auth = () => {
 				>
 					<Field
 						id='email'
-						classNames='mb-4'
+						className='mb-4'
 						label='Email:'
 						placeholder='Type the email here...'
 						type='email'
@@ -57,14 +57,14 @@ export const Auth = () => {
 
 					<Field
 						id='password'
-						classNames='mb-6'
+						className='mb-6'
 						label='Password:'
 						placeholder='Type the password here...'
 						type='password'
 						{...register('password', { required: 'Password is required!' })}
 					/>
 
-					<div className='flex items-center justify-center gap-7'>
+					<div className='flex-center gap-7'>
 						<Button onClick={handleActionForm(TypeForm.login)}>Login</Button>
 
 						<Button onClick={handleActionForm(TypeForm.register)}>

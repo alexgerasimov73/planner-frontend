@@ -36,7 +36,7 @@ export const KanbanColumn = ({
 					{...provided.droppableProps}
 				>
 					<div className={styles.column}>
-						<div className={styles.columnHeading}>{label}</div>
+						<div>{label}</div>
 
 						{filteredList?.map((item, index) => (
 							<Draggable

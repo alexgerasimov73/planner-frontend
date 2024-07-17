@@ -14,7 +14,7 @@ export const SwitcherView = ({ type, setType }: ISwitcherView) => {
 	return (
 		<div className='flex items-center gap-4 mb-5'>
 			<button
-				className={cn('flex items-center gap-1', {
+				className={cn('flex-center gap-1', {
 					'opacity-40': type === TasksRepresentation.kanban
 				})}
 				onClick={handleSwitchType(TasksRepresentation.list)}
@@ -24,7 +24,7 @@ export const SwitcherView = ({ type, setType }: ISwitcherView) => {
 			</button>
 
 			<button
-				className={cn('flex items-center gap-1', {
+				className={cn('flex-center gap-1', {
 					'opacity-40': type === TasksRepresentation.list
 				})}
 				onClick={handleSwitchType(TasksRepresentation.kanban)}

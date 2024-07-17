@@ -9,10 +9,10 @@
 	.parentsWrapper .row,
 	.parentsWrapper .emptyRow,
 	.parentsWrapper .colHeading {
-		@apply border-t border-primary text-left w-auto whitespace-nowrap;
+		@apply w-auto border-t border-primary text-left whitespace-nowrap;
 
 		> div {
-			@apply border-r border-primary py-2 px-4;
+			@apply py-2 px-4 border-r border-primary;
 
 			&:last-child {
 				@apply border-0;
@@ -25,20 +25,24 @@
 			@apply bg-primary/15;
 
 			> div {
-				@apply font-semibold text-xl py-3;
+				@apply py-3 font-semibold text-xl;
 			}
 		}
 
 		.addRow {
 			@apply py-2 border-t border-primary;
+
+			> button {
+				@apply flex items-center gap-2 py-2 px-3 border rounded-lg border-primary italic text-sm hover:border-secondary hover:text-secondary active:border-secondary/75;
+			}
 		}
 
 		.row {
-			@apply font-normal grid grid-cols-[1.4fr_.4fr_.4fr_.1fr] relative;
+			@apply relative grid grid-cols-[1.4fr_.4fr_.4fr_.1fr] font-normal;
 
 			&.completed {
 				> div > span > input {
-					@apply italic line-through opacity-50;
+					@apply opacity-50 italic line-through;
 				}
 			}
 
@@ -48,7 +52,7 @@
 
 			> div > span {
 				.grip {
-					@apply opacity-20 transition-opacity -ml-3 -mr-1;
+					@apply -ml-3 -mr-1 opacity-20 transition-opacity;
 
 					&:hover,
 					&:active {

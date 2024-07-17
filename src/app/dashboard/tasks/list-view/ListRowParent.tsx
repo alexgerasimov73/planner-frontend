@@ -36,7 +36,7 @@ export const ListRowParent = ({
 					{...provided.droppableProps}
 				>
 					<div className={styles.colHeading}>
-						<div className='w-full'>{label}</div>
+						<div>{label}</div>
 					</div>
 
 					{filteredList?.length

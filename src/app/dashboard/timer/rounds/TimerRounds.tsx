@@ -29,16 +29,16 @@ export const TimerRounds = ({
 	}
 
 	return (
-		<div className={styles.container}>
+		<div className='flex-center gap-2'>
 			<button
-				className={styles.button}
+				className='mt-1 opacity-20 transition-opacity hover:opacity-100 disabled:opacity-20'
 				disabled={!hasPrevRound}
 				onClick={handleChangeRound('previous')}
 			>
 				<ChevronLeft size={23} />
 			</button>
 
-			<div className={styles.roundsContainer}>
+			<div className='flex-center gap-3 mt-1'>
 				{rounds &&
 					rounds.map((round, index) => (
 						<div

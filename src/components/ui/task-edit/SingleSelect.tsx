@@ -80,7 +80,7 @@ export const SingleSelect = ({
 					{data.map(item => (
 						<button
 							key={item.value}
-							className='block mb-4 last:mb-0 capitalize rounded-lg'
+							className='block mb-4 capitalize rounded-lg last:mb-0'
 							style={
 								isColorSelected
 									? {
