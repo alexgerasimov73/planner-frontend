@@ -1,9 +1,10 @@
 import cn from 'clsx'
 import { X } from 'lucide-react'
+import { useRef, useState } from 'react'
 
 import type { IOption } from '@/types/common.types'
 
-import { useOutside } from '@/hooks/useOutside'
+import { useOutsideClick } from '@/hooks/useOutsideClick'
 
 import { Badge } from '../Badge'
 
@@ -20,13 +21,18 @@ export const SingleSelect = ({
 	value,
 	onChange
 }: ISingleSelect) => {
-	const { isShow, ref, setIsShow } = useOutside(false)
+	const [isOpened, setIsOpened] = useState(false)
+	const ref = useRef(null)
+
+	const handleCloseSelect = () => setIsOpened(false)
+
+	useOutsideClick(ref, handleCloseSelect, isOpened)
 
 	const getValue = () => data.find(item => item.value === value)?.value
 
 	const handleSelectClick = (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault()
-		setIsShow(!isShow)
+		setIsOpened(!isOpened)
 	}
 
 	const handleValueClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -38,7 +44,7 @@ export const SingleSelect = ({
 		(item: IOption) => (e: React.MouseEvent<HTMLButtonElement>) => {
 			e.preventDefault()
 			onChange(item.value)
-			setIsShow(false)
+			handleCloseSelect()
 		}
 
 	return (
@@ -69,7 +75,7 @@ export const SingleSelect = ({
 				</button>
 			)}
 
-			{isShow && (
+			{isOpened && (
 				<div className='absolute left-0 top-calc w-full p-2.5 shadow rounded-lg bg-white z-10 slide'>
 					{data.map(item => (
 						<button

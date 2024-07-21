@@ -2,11 +2,11 @@ import cn from 'clsx'
 import dayjs from 'dayjs'
 import LocalizedFormat from 'dayjs/plugin/localizedFormat'
 import { X } from 'lucide-react'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { DayPicker, type SelectSingleEventHandler } from 'react-day-picker'
 import 'react-day-picker/dist/style.css'
 
-import { useOutside } from '@/hooks/useOutside'
+import { useOutsideClick } from '@/hooks/useOutsideClick'
 
 import './DatePicker.scss'
 import { formatCaption } from './DatePickerCaption'
@@ -25,7 +25,12 @@ export const DatePicker = ({
 	onChange
 }: IDatePicker) => {
 	const [selected, setSelected] = useState<Date>()
-	const { isShow, ref, setIsShow } = useOutside(false)
+	const [isOpened, setIsOpened] = useState(false)
+	const ref = useRef(null)
+
+	const handleCloseSelect = () => setIsOpened(false)
+
+	useOutsideClick(ref, handleCloseSelect, isOpened)
 
 	const handleDaySelect: SelectSingleEventHandler = date => {
 		const ISODate = date?.toISOString()
@@ -34,13 +39,13 @@ export const DatePicker = ({
 
 		if (ISODate) {
 			onChange(ISODate)
-			setIsShow(false)
+			handleCloseSelect()
 		} else {
 			onChange('')
 		}
 	}
 
-	const handleToggleShow = () => setIsShow(!isShow)
+	const handleToggleShow = () => setIsOpened(!isOpened)
 
 	const handleReset = () => onChange('')
 
@@ -65,7 +70,7 @@ export const DatePicker = ({
 				</button>
 			)}
 
-			{isShow && (
+			{isOpened && (
 				<div
 					className={cn(
 						'absolute top-calc p-2.5 shadow rounded-lg bg-white z-10 slide',
@@ -74,7 +79,7 @@ export const DatePicker = ({
 				>
 					<DayPicker
 						defaultMonth={selected}
-						initialFocus={isShow}
+						initialFocus={isOpened}
 						formatters={{ formatCaption }}
 						fromYear={2024}
 						mode='single'
