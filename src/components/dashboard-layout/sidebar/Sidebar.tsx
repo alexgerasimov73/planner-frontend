@@ -1,4 +1,5 @@
 import { usePathname } from 'next/navigation'
+import { memo } from 'react'
 
 import { Logo } from '@/components/ui/Logo'
 
@@ -6,9 +7,8 @@ import { LogoutButton } from './LogoutButton'
 import { MenuItem } from './MenuItem'
 import { MENU } from './menu.data'
 
-export const Sidebar = () => {
+export const Sidebar = memo(() => {
 	const pathname = usePathname()
-	console.log('Sidebar')
 
 	return (
 		<aside className='flex flex-col justify-between h-full bg-primary'>
@@ -29,4 +29,4 @@ export const Sidebar = () => {
 			<LogoutButton />
 		</aside>
 	)
-}
+})

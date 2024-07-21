@@ -1,5 +1,6 @@
 import cn from 'clsx'
 import Link from 'next/link'
+import { memo } from 'react'
 
 import styles from './MenuItem.module.scss'
 import type { IMenuItem } from './menu.interface'
@@ -9,18 +10,14 @@ interface IMenuItemProps {
 	readonly isActive: boolean
 }
 
-export const MenuItem = ({ item, isActive }: IMenuItemProps) => {
-	console.log(item.name, isActive)
-
-	return (
-		<Link
-			className={cn(styles.item, {
-				[styles.active]: isActive
-			})}
-			href={item.link}
-		>
-			<item.icon />
-			<span>{item.name}</span>
-		</Link>
-	)
-}
+export const MenuItem = memo(({ item, isActive }: IMenuItemProps) => (
+	<Link
+		className={cn(styles.item, {
+			[styles.active]: isActive
+		})}
+		href={item.link}
+	>
+		<item.icon />
+		<span>{item.name}</span>
+	</Link>
+))
