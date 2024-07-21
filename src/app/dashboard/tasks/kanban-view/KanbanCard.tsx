@@ -1,6 +1,6 @@
 import cn from 'clsx'
 import { GripVertical, Loader, Trash } from 'lucide-react'
-import type { Dispatch, SetStateAction } from 'react'
+import { type Dispatch, type SetStateAction, memo } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 
 import { Checkbox } from '@/components/ui/checkbox/Checkbox'
@@ -29,7 +29,7 @@ interface IKanbanCard {
 	>
 }
 
-export const KanbanCard = ({ item, setItems }: IKanbanCard) => {
+export const KanbanCard = memo(({ item, setItems }: IKanbanCard) => {
 	const { control, register, watch } = useForm<TTaskFormState>({
 		defaultValues: {
 			createdAt: item.createdAt,
@@ -116,4 +116,4 @@ export const KanbanCard = ({ item, setItems }: IKanbanCard) => {
 			</button>
 		</div>
 	)
-}
+})

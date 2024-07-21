@@ -1,5 +1,5 @@
 import { PlusSquare } from 'lucide-react'
-import type { Dispatch, SetStateAction } from 'react'
+import { type Dispatch, type SetStateAction, memo } from 'react'
 
 import type { ITaskResponse } from '@/types/task.types'
 
@@ -14,16 +14,15 @@ interface IKanbanAddCardInput {
 	>
 }
 
-export const KanbanAddCardInput = ({
-	filterDate,
-	setItems
-}: IKanbanAddCardInput) => (
-	<div className='mt-5'>
-		<button
-			className={styles.addCard}
-			onClick={addTask(setItems, filterDate)}
-		>
-			<PlusSquare size={15} /> Add task
-		</button>
-	</div>
+export const KanbanAddCardInput = memo(
+	({ filterDate, setItems }: IKanbanAddCardInput) => (
+		<div className='mt-5'>
+			<button
+				className={styles.addCard}
+				onClick={addTask(setItems, filterDate)}
+			>
+				<PlusSquare size={15} /> Add task
+			</button>
+		</div>
+	)
 )

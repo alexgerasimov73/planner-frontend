@@ -1,6 +1,6 @@
 import cn from 'clsx'
 import { GripVertical, Loader, Trash } from 'lucide-react'
-import type { Dispatch, SetStateAction } from 'react'
+import { type Dispatch, type SetStateAction, memo } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 
 import { Checkbox } from '@/components/ui/checkbox/Checkbox'
@@ -29,7 +29,7 @@ interface IListRow {
 	>
 }
 
-export const ListRow = ({ item, setItems }: IListRow) => {
+export const ListRow = memo(({ item, setItems }: IListRow) => {
 	const { control, register, watch } = useForm<TTaskFormState>({
 		defaultValues: {
 			createdAt: item.createdAt,
@@ -115,4 +115,4 @@ export const ListRow = ({ item, setItems }: IListRow) => {
 			</div>
 		</div>
 	)
-}
+})
