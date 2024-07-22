@@ -23,52 +23,50 @@ export const KanbanColumn = ({
 	label,
 	value,
 	setItems
-}: IKanbanColumn) => {
-	return (
-		<Droppable droppableId={value}>
-			{provided => (
-				<div
-					ref={provided.innerRef}
-					{...provided.droppableProps}
-				>
-					<div className={styles.column}>
-						<div>{label}</div>
+}: IKanbanColumn) => (
+	<Droppable droppableId={value}>
+		{provided => (
+			<div
+				ref={provided.innerRef}
+				{...provided.droppableProps}
+			>
+				<div className={styles.column}>
+					<div>{label}</div>
 
-						{items.map((item, index) => (
-							<Draggable
-								key={item.id}
-								draggableId={item.id}
-								index={index}
-							>
-								{provided => (
-									<div
-										ref={provided.innerRef}
-										{...provided.draggableProps}
-										{...provided.dragHandleProps}
-									>
-										<KanbanCard
-											key={item.id}
-											column={value}
-											item={item}
-											setItems={setItems}
-										/>
-									</div>
-								)}
-							</Draggable>
-						))}
+					{items.map((item, index) => (
+						<Draggable
+							key={item.id}
+							draggableId={item.id}
+							index={index}
+						>
+							{provided => (
+								<div
+									ref={provided.innerRef}
+									{...provided.draggableProps}
+									{...provided.dragHandleProps}
+								>
+									<KanbanCard
+										key={item.id}
+										column={value}
+										item={item}
+										setItems={setItems}
+									/>
+								</div>
+							)}
+						</Draggable>
+					))}
 
-						{provided.placeholder}
+					{provided.placeholder}
 
-						{value !== COMPLETED && !items.some(item => !item.id) && (
-							<KanbanAddCardInput
-								column={value}
-								filterDate={getFilteredDate(value)}
-								setItems={setItems}
-							/>
-						)}
-					</div>
+					{value !== COMPLETED && !items.some(item => !item.id) && (
+						<KanbanAddCardInput
+							column={value}
+							filterDate={getFilteredDate(value)}
+							setItems={setItems}
+						/>
+					)}
 				</div>
-			)}
-		</Droppable>
-	)
-}
+			</div>
+		)}
+	</Droppable>
+)

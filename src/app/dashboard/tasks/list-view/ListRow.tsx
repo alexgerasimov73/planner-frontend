@@ -45,7 +45,10 @@ export const ListRow = memo(({ column, item, setItems }: IListRow) => {
 	const handleDeleteTask = () =>
 		item.id
 			? deleteTask(item.id)
-			: setItems(prev => ({ ...prev, [column]: prev.column.slice(0, -1) }))
+			: setItems(prev => ({
+					...prev,
+					[column]: prev[column].slice(0, -1)
+				}))
 
 	return (
 		<div

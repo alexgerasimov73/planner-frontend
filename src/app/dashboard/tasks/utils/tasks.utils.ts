@@ -34,9 +34,7 @@ export const initialTasks: Record<string, ITaskResponse[]> = {
 export const categorizeTasks = (
 	tasks: ReadonlyArray<ITaskResponse> | undefined
 ) => {
-	// console.log(initialTasks)
 	const categorizedTasks = deepCloneObject(initialTasks)
-	console.log('categorizedTasks', categorizedTasks)
 
 	tasks?.forEach(task => {
 		if (task.isCompleted) {

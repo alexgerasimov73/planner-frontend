@@ -1,4 +1,4 @@
-import axios, { type CreateAxiosDefaults } from 'axios'
+import axios, { AxiosError, type CreateAxiosDefaults } from 'axios'
 
 import { JWT_EXPIRED, JWT_MUST_BE_PROVIDED } from '@/constants/common.constants'
 
@@ -47,7 +47,8 @@ axiosWithAuth.interceptors.response.use(
 				await authService.getNewTokens()
 				return axiosWithAuth.request(originalRequest)
 			} catch (error) {
-				if (errorCatch(error) === JWT_EXPIRED) removeTokenFromStorage()
+				if (error instanceof AxiosError && errorCatch(error) === JWT_EXPIRED)
+					removeTokenFromStorage()
 			}
 		}
 

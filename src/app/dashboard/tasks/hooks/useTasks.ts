@@ -20,7 +20,6 @@ export const useTasks = () => {
 		const newData = categorizeTasks(data?.data)
 		setItems(newData)
 	}, [data?.data])
-	console.log('items', items)
 
 	return { items, setItems }
 }
