@@ -1,3 +1,13 @@
+import { AxiosError } from 'axios'
+
+interface IAxiosErrorData {
+	readonly error: string
+	readonly message: string
+	readonly statusCode: number
+}
+
+export type TAxiosError = AxiosError<IAxiosErrorData>
+
 export interface IBase {
 	readonly createdAt?: string
 	readonly id: string

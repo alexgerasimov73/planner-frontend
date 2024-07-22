@@ -1,21 +1,15 @@
 import { useMutation } from '@tanstack/react-query'
-import { AxiosError } from 'axios'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { UseFormReset } from 'react-hook-form'
 import { toast } from 'sonner'
 
 import type { IAuthForm } from '@/types/auth.types'
+import { TAxiosError } from '@/types/common.types'
 
 import { DASHBOARD_PAGES } from '@/config/pages-url.config'
 
 import { authService } from '@/services/auth.service'
-
-interface AxiosErrorData {
-	readonly error: string
-	readonly message: string
-	readonly statusCode: number
-}
 
 export enum TypeForm {
 	login = 'login',
@@ -34,7 +28,7 @@ export const useAuth = (reset: UseFormReset<IAuthForm>) => {
 			reset()
 			push(DASHBOARD_PAGES.HOME)
 		},
-		onError(err: AxiosError<AxiosErrorData>) {
+		onError(err: TAxiosError) {
 			toast.error(`An error has occured: ${err.response?.data.message}`)
 		}
 	})
