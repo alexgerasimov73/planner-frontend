@@ -33,3 +33,23 @@ export const getDataForSelect = (data: string[]) =>
 		value: item,
 		label: item
 	}))
+
+export const deepCloneObject = <T>(obj: T): T => {
+	if (obj === null || typeof obj !== 'object') {
+		return obj
+	}
+
+	if (Array.isArray(obj)) {
+		return obj.map(item => deepCloneObject(item)) as unknown as T
+	}
+
+	const clonedObj = {} as T
+
+	for (const key in obj) {
+		if (obj.hasOwnProperty(key)) {
+			;(clonedObj as any)[key] = deepCloneObject((obj as any)[key])
+		}
+	}
+
+	return clonedObj
+}

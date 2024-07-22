@@ -7,7 +7,7 @@ import { Dispatch, SetStateAction } from 'react'
 
 import type { ITaskResponse } from '@/types/task.types'
 
-import { getDataForSelect } from '@/utils/common.utils'
+import { deepCloneObject, getDataForSelect } from '@/utils/common.utils'
 
 dayjs.extend(isoWeek)
 dayjs.extend(weekOfYear)
@@ -22,67 +22,52 @@ export const FILTERS: Record<string, Dayjs> = {
 	later: dayjs().add(2, 'week').startOf('day')
 }
 
-export const filterTasks = (
-	value: string,
+export const initialTasks: Record<string, ITaskResponse[]> = {
+	today: [],
+	tomorrow: [],
+	'on-this-week': [],
+	'on-next-week': [],
+	later: [],
+	completed: []
+}
+
+export const categorizeTasks = (
 	tasks: ReadonlyArray<ITaskResponse> | undefined
 ) => {
-	switch (value) {
-		case 'today':
-			return tasks?.filter(
-				item =>
-					dayjs(item.createdAt).isSame(FILTERS.today, 'day') &&
-					!item.isCompleted
-			)
-		case 'tomorrow':
-			return tasks?.filter(
-				item =>
-					dayjs(item.createdAt).isSame(FILTERS.tomorrow, 'day') &&
-					!item.isCompleted
-			)
-		case 'on-this-week':
-			return tasks?.filter(
-				item =>
-					!dayjs(item.createdAt).isSame(FILTERS.today, 'day') &&
-					!dayjs(item.createdAt).isSame(FILTERS.tomorrow, 'day') &&
-					dayjs(item.createdAt).isSameOrBefore(FILTERS['on-this-week']) &&
-					!item.isCompleted
-			)
-		case 'on-next-week':
-			return tasks?.filter(
-				item =>
-					!dayjs(item.createdAt).isSame(FILTERS.tomorrow, 'day') &&
-					dayjs(item.createdAt).isAfter(FILTERS['on-this-week']) &&
-					dayjs(item.createdAt).isSameOrBefore(FILTERS['on-next-week']) &&
-					!item.isCompleted
-			)
-		case 'later':
-			return tasks?.filter(
-				item =>
-					(dayjs(item.createdAt).isAfter(FILTERS['on-next-week']) ||
-						!item.createdAt) &&
-					!item.isCompleted
-			)
-		case 'completed':
-			return tasks?.filter(task => task.isCompleted)
+	// console.log(initialTasks)
+	const categorizedTasks = deepCloneObject(initialTasks)
+	console.log('categorizedTasks', categorizedTasks)
 
-		default:
-			return []
-	}
+	tasks?.forEach(task => {
+		if (task.isCompleted) {
+			categorizedTasks.completed.push(task)
+		} else if (dayjs(task.createdAt).isSame(FILTERS.today, 'day')) {
+			categorizedTasks.today.push(task)
+		} else if (dayjs(task.createdAt).isSame(FILTERS.tomorrow, 'day')) {
+			categorizedTasks.tomorrow.push(task)
+		} else if (dayjs(task.createdAt).isSameOrBefore(FILTERS['on-this-week'])) {
+			categorizedTasks['on-this-week'].push(task)
+		} else if (dayjs(task.createdAt).isSameOrBefore(FILTERS['on-next-week'])) {
+			categorizedTasks['on-next-week'].push(task)
+		} else {
+			categorizedTasks.later.push(task)
+		}
+	})
+
+	return categorizedTasks
 }
 
 export const addTask =
 	(
-		setItems: Dispatch<
-			SetStateAction<ReadonlyArray<ITaskResponse> | undefined>
-		>,
+		column: string,
+		setItems: Dispatch<SetStateAction<Record<string, ITaskResponse[]>>>,
 		filterDate?: string
 	) =>
 	() =>
-		setItems(prev => {
-			if (!prev) return
-
-			return [
-				...prev,
+		setItems(prev => ({
+			...prev,
+			[column]: [
+				...prev[column],
 				{
 					id: '',
 					name: '',
@@ -90,7 +75,7 @@ export const addTask =
 					createdAt: filterDate
 				}
 			]
-		})
+		}))
 
 export const getFilteredDate = (value: string) =>
 	FILTERS[value] ? FILTERS[value].format() : undefined

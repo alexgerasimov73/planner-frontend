@@ -5,19 +5,17 @@ import { COMPLETED } from '@/constants/common.constants'
 
 import type { ITaskResponse } from '@/types/task.types'
 
-import { filterTasks, getFilteredDate } from '../utils/tasks.utils'
+import { getFilteredDate } from '../utils/tasks.utils'
 
 import { ListAddRowInput } from './ListAddRowInput'
 import { ListRow } from './ListRow'
 import styles from './ListView.module.scss'
 
 interface IListRowParent {
-	readonly items?: ReadonlyArray<ITaskResponse>
+	readonly items: ReadonlyArray<ITaskResponse>
 	readonly label: string
 	readonly value: string
-	readonly setItems: Dispatch<
-		SetStateAction<ReadonlyArray<ITaskResponse> | undefined>
-	>
+	readonly setItems: Dispatch<SetStateAction<Record<string, ITaskResponse[]>>>
 }
 
 export const ListRowParent = ({
@@ -26,8 +24,6 @@ export const ListRowParent = ({
 	value,
 	setItems
 }: IListRowParent) => {
-	const filteredList = filterTasks(value, items)
-
 	return (
 		<Droppable droppableId={value}>
 			{provided => (
@@ -39,8 +35,8 @@ export const ListRowParent = ({
 						<div>{label}</div>
 					</div>
 
-					{filteredList?.length
-						? filteredList.map((item, index) => (
+					{items.length
+						? items.map((item, index) => (
 								<Draggable
 									key={item.id}
 									draggableId={item.id || String(index)}
@@ -54,6 +50,7 @@ export const ListRowParent = ({
 										>
 											<ListRow
 												key={item.id}
+												column={value}
 												item={item}
 												setItems={setItems}
 											/>
@@ -70,8 +67,9 @@ export const ListRowParent = ({
 
 					{provided.placeholder}
 
-					{value !== COMPLETED && !items?.some(item => !item.id) && (
+					{value !== COMPLETED && !items.some(item => !item.id) && (
 						<ListAddRowInput
+							column={value}
 							filterDate={getFilteredDate(value)}
 							setItems={setItems}
 						/>

@@ -23,13 +23,12 @@ import { dataForTaskSelect } from '../utils/tasks.utils'
 import styles from './KanbanView.module.scss'
 
 interface IKanbanCard {
+	readonly column: string
 	readonly item: ITaskResponse
-	readonly setItems: Dispatch<
-		SetStateAction<ReadonlyArray<ITaskResponse> | undefined>
-	>
+	readonly setItems: Dispatch<SetStateAction<Record<string, ITaskResponse[]>>>
 }
 
-export const KanbanCard = memo(({ item, setItems }: IKanbanCard) => {
+export const KanbanCard = memo(({ column, item, setItems }: IKanbanCard) => {
 	const { control, register, watch } = useForm<TTaskFormState>({
 		defaultValues: {
 			createdAt: item.createdAt,
@@ -44,7 +43,9 @@ export const KanbanCard = memo(({ item, setItems }: IKanbanCard) => {
 	useTaskDebounce({ itemId: item.id, watch })
 
 	const handleDeleteTask = () =>
-		item.id ? deleteTask(item.id) : setItems(prev => prev?.slice(0, -1))
+		item.id
+			? deleteTask(item.id)
+			: setItems(prev => ({ ...prev, [column]: prev.column.slice(0, -1) }))
 
 	return (
 		<div

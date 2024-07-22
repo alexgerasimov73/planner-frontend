@@ -8,16 +8,15 @@ import { addTask } from '../utils/tasks.utils'
 import styles from './ListView.module.scss'
 
 interface IListAddRowInput {
+	readonly column: string
 	readonly filterDate?: string
-	readonly setItems: Dispatch<
-		SetStateAction<ReadonlyArray<ITaskResponse> | undefined>
-	>
+	readonly setItems: Dispatch<SetStateAction<Record<string, ITaskResponse[]>>>
 }
 
 export const ListAddRowInput = memo(
-	({ filterDate, setItems }: IListAddRowInput) => (
+	({ column, filterDate, setItems }: IListAddRowInput) => (
 		<div className={styles.addRow}>
-			<button onClick={addTask(setItems, filterDate)}>
+			<button onClick={addTask(column, setItems, filterDate)}>
 				<PlusSquare size={15} /> Add task
 			</button>
 		</div>

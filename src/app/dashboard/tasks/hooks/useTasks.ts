@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react'
 
 import type { ITaskResponse } from '@/types/task.types'
 
+import { categorizeTasks, initialTasks } from '../utils/tasks.utils'
+
 import { taskService } from '@/services/task.service'
 
 export const useTasks = () => {
@@ -11,11 +13,14 @@ export const useTasks = () => {
 		queryFn: () => taskService.getTasks()
 	})
 
-	const [items, setItems] = useState<ReadonlyArray<ITaskResponse> | undefined>(
-		data?.data
-	)
+	const [items, setItems] =
+		useState<Record<string, ITaskResponse[]>>(initialTasks)
 
-	useEffect(() => setItems(data?.data), [data?.data])
+	useEffect(() => {
+		const newData = categorizeTasks(data?.data)
+		setItems(newData)
+	}, [data?.data])
+	console.log('items', items)
 
 	return { items, setItems }
 }

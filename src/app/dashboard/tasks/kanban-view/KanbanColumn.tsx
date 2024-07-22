@@ -5,19 +5,17 @@ import { COMPLETED } from '@/constants/common.constants'
 
 import type { ITaskResponse } from '@/types/task.types'
 
-import { filterTasks, getFilteredDate } from '../utils/tasks.utils'
+import { getFilteredDate } from '../utils/tasks.utils'
 
 import { KanbanAddCardInput } from './KanbanAddCardInput'
 import { KanbanCard } from './KanbanCard'
 import styles from './KanbanView.module.scss'
 
 interface IKanbanColumn {
-	readonly items?: ReadonlyArray<ITaskResponse>
+	readonly items: ReadonlyArray<ITaskResponse>
 	readonly label: string
 	readonly value: string
-	readonly setItems: Dispatch<
-		SetStateAction<ReadonlyArray<ITaskResponse> | undefined>
-	>
+	readonly setItems: Dispatch<SetStateAction<Record<string, ITaskResponse[]>>>
 }
 
 export const KanbanColumn = ({
@@ -26,8 +24,6 @@ export const KanbanColumn = ({
 	value,
 	setItems
 }: IKanbanColumn) => {
-	const filteredList = filterTasks(value, items)
-
 	return (
 		<Droppable droppableId={value}>
 			{provided => (
@@ -38,7 +34,7 @@ export const KanbanColumn = ({
 					<div className={styles.column}>
 						<div>{label}</div>
 
-						{filteredList?.map((item, index) => (
+						{items.map((item, index) => (
 							<Draggable
 								key={item.id}
 								draggableId={item.id}
@@ -52,6 +48,7 @@ export const KanbanColumn = ({
 									>
 										<KanbanCard
 											key={item.id}
+											column={value}
 											item={item}
 											setItems={setItems}
 										/>
@@ -62,8 +59,9 @@ export const KanbanColumn = ({
 
 						{provided.placeholder}
 
-						{value !== COMPLETED && !items?.some(item => !item.id) && (
+						{value !== COMPLETED && !items.some(item => !item.id) && (
 							<KanbanAddCardInput
+								column={value}
 								filterDate={getFilteredDate(value)}
 								setItems={setItems}
 							/>

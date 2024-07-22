@@ -20,7 +20,7 @@ export const KanbanView = () => {
 				{TASKS_COLUMNS.map(column => (
 					<KanbanColumn
 						key={column.value}
-						items={items}
+						items={items[column.value]}
 						label={column.label}
 						value={column.value}
 						setItems={setItems}

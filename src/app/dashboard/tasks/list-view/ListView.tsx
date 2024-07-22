@@ -28,7 +28,7 @@ export const ListView = () => {
 					{TASKS_COLUMNS.map(column => (
 						<ListRowParent
 							key={column.value}
-							items={items}
+							items={items[column.value]}
 							label={column.label}
 							value={column.value}
 							setItems={setItems}

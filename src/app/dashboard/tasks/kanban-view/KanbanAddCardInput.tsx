@@ -8,18 +8,17 @@ import { addTask } from '../utils/tasks.utils'
 import styles from './KanbanView.module.scss'
 
 interface IKanbanAddCardInput {
+	readonly column: string
 	readonly filterDate?: string
-	readonly setItems: Dispatch<
-		SetStateAction<ReadonlyArray<ITaskResponse> | undefined>
-	>
+	readonly setItems: Dispatch<SetStateAction<Record<string, ITaskResponse[]>>>
 }
 
 export const KanbanAddCardInput = memo(
-	({ filterDate, setItems }: IKanbanAddCardInput) => (
+	({ column, filterDate, setItems }: IKanbanAddCardInput) => (
 		<div className='mt-5'>
 			<button
 				className={styles.addCard}
-				onClick={addTask(setItems, filterDate)}
+				onClick={addTask(column, setItems, filterDate)}
 			>
 				<PlusSquare size={15} /> Add task
 			</button>
