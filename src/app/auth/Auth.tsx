@@ -1,7 +1,8 @@
 'use client'
 
+import cn from 'clsx'
 import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 import { Logo } from '@/components/ui/Logo'
 import { Button } from '@/components/ui/buttons/Button'
@@ -14,11 +15,18 @@ import { TypeForm } from './hooks/useAuth'
 
 export const Auth = () => {
 	const { prefetch } = useRouter()
+	const [isRegister, setIsRegister] = useState(false)
 
 	useEffect(() => prefetch(DASHBOARD_PAGES.HOME), [prefetch])
 
+	const toggleAuth = () => setIsRegister(isRegister => !isRegister)
+
 	return (
-		<div className={styles.container}>
+		<div
+			className={cn(styles.container, {
+				[styles.registerActive]: isRegister
+			})}
+		>
 			<Logo
 				className={styles.logo}
 				isPrimaryColor
@@ -38,27 +46,27 @@ export const Auth = () => {
 				<AuthForm type={TypeForm.register} />
 			</div>
 
-			<div className='overlayWrapper'>
-				<div className='overlay'>
-					<div className='overlayLogin'>
+			<div className={styles.overlayWrapper}>
+				<div className={styles.overlay}>
+					<div className={styles.overlayLogin}>
 						<h1>Welcome Back!</h1>
 						<p>
 							To keep connected with us please login with your personal info
 						</p>
 						<Button
 							className={styles.overlayButton}
-							onClick={() => {}}
+							onClick={toggleAuth}
 						>
 							Login
 						</Button>
 					</div>
 
-					<div className='overlayLogin'>
+					<div className={styles.overlayRegistration}>
 						<h1>Hello, Friend!</h1>
 						<p>Enter your personal details and start journey with us</p>
 						<Button
 							className={styles.overlayButton}
-							onClick={() => {}}
+							onClick={toggleAuth}
 						>
 							Register
 						</Button>

@@ -9,6 +9,7 @@
 	.login,
 	.registration {
 		@apply absolute top-0 left-0 w-50p h-screen flex items-center justify-center flex-col;
+		transition: all 0.6s ease-in-out;
 	}
 
 	.registration {
@@ -28,6 +29,78 @@
 
 		&::first-letter {
 			@apply uppercase;
+		}
+	}
+
+	.overlayWrapper {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		width: 50%;
+		height: 100%;
+		overflow: hidden;
+		transition: transform 0.6s ease-in-out;
+		z-index: 3;
+	}
+
+	.overlay {
+		@apply bg-primary;
+
+		position: relative;
+		left: -100%;
+		height: 100%;
+		width: 200%;
+		color: #fff;
+		transform: translateY(0);
+		transition: transform 0.6s ease-in-out;
+	}
+
+	.overlayLogin,
+	.overlayRegistration {
+		@apply absolute top-0 w-50p h-screen flex items-center justify-center flex-col gap-6;
+
+		transform: translateY(0);
+		transition: transform 0.6s ease-in-out;
+	}
+
+	.overlayRegistration {
+		right: 0;
+		transform: translateY(0);
+	}
+
+	.overlayLogin {
+		transform: translateY(-20%);
+	}
+
+	.overlayButton {
+		@apply border-2 border-white;
+	}
+
+	&.registerActive {
+		.login {
+			transform: translateY(100%);
+		}
+
+		.registration {
+			transform: translateX(100%);
+			opacity: 1;
+			z-index: 5;
+		}
+
+		.overlayWrapper {
+			transform: translateX(-100%);
+		}
+
+		.overlay {
+			transform: translateX(50%);
+		}
+
+		.overlayLogin {
+			transform: translateY(0);
+		}
+
+		.overlayRegistration {
+			transform: translateY(20%);
 		}
 	}
 }
