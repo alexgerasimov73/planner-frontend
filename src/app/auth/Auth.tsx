@@ -13,6 +13,7 @@ import type { IAuthForm } from '@/types/auth.types'
 
 import { DASHBOARD_PAGES } from '@/config/pages-url.config'
 
+import styles from './Auth.module.scss'
 import { TypeForm, useAuth } from './hooks/useAuth'
 
 export const Auth = () => {
@@ -28,9 +29,9 @@ export const Auth = () => {
 	const handleActionForm = (typeForm: TypeForm) => () => setTypeForm(typeForm)
 
 	return (
-		<div className='relative flex-center flex-col min-h-screen'>
+		<div className={styles.container}>
 			<Logo
-				className='!absolute top-5 left-5'
+				className={styles.logo}
 				isPrimaryColor
 			/>
 			<h1>Welcome back</h1>
@@ -38,12 +39,12 @@ export const Auth = () => {
 			<p>or register</p>
 
 			{isAuthPending ? (
-				<div className='flex-center w-1/3 h-80'>
+				<div className={styles.loader}>
 					<Loader />
 				</div>
 			) : (
 				<form
-					className='w-1/3 min-h-80 p-layout'
+					className={styles.form}
 					onSubmit={handleSubmit(onSubmit)}
 				>
 					<Field
@@ -64,7 +65,7 @@ export const Auth = () => {
 						{...register('password', { required: 'Password is required!' })}
 					/>
 
-					<div className='flex-center gap-7'>
+					<div className={styles.formButton}>
 						<Button onClick={handleActionForm(TypeForm.login)}>Login</Button>
 
 						<Button onClick={handleActionForm(TypeForm.register)}>
