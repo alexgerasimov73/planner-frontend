@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 
 import { Logo } from '@/components/ui/Logo'
+import { Button } from '@/components/ui/buttons/Button'
 
 import { DASHBOARD_PAGES } from '@/config/pages-url.config'
 
@@ -25,7 +26,7 @@ export const Auth = () => {
 
 			<div className={styles.login}>
 				<h1>Login</h1>
-				<p>into your account</p>
+				<p>use your account</p>
 
 				<AuthForm type={TypeForm.login} />
 			</div>
@@ -37,8 +38,33 @@ export const Auth = () => {
 				<AuthForm type={TypeForm.register} />
 			</div>
 
-			{/* <h1>Welcome back</h1>
-			<p>or register</p> */}
+			<div className='overlayWrapper'>
+				<div className='overlay'>
+					<div className='overlayLogin'>
+						<h1>Welcome Back!</h1>
+						<p>
+							To keep connected with us please login with your personal info
+						</p>
+						<Button
+							className={styles.overlayButton}
+							onClick={() => {}}
+						>
+							Login
+						</Button>
+					</div>
+
+					<div className='overlayLogin'>
+						<h1>Hello, Friend!</h1>
+						<p>Enter your personal details and start journey with us</p>
+						<Button
+							className={styles.overlayButton}
+							onClick={() => {}}
+						>
+							Register
+						</Button>
+					</div>
+				</div>
+			</div>
 		</div>
 	)
 }
