@@ -11,7 +11,12 @@ import { useFetchInitData } from './useFetchInitData'
 import { useUpdateSettings } from './useUpdateSettings'
 
 export const Settings = () => {
-	const { handleSubmit, register, reset } = useForm<TUserForm>({
+	const {
+		formState: { errors },
+		handleSubmit,
+		register,
+		reset
+	} = useForm<TUserForm>({
 		mode: 'onChange'
 	})
 	const { isUpdatePending, updateSettings } = useUpdateSettings()
@@ -37,6 +42,7 @@ export const Settings = () => {
 					<Field
 						id='email'
 						className='mb-4'
+						error={!!errors.email}
 						label='Email:'
 						placeholder='Type the email here...'
 						type='email'
@@ -46,6 +52,7 @@ export const Settings = () => {
 					<Field
 						id='name'
 						className='mb-4'
+						error={!!errors.name}
 						label='Name:'
 						placeholder='Type the name here...'
 						type='name'
@@ -67,30 +74,33 @@ export const Settings = () => {
 						disableAutocomplete
 						id='workInterval'
 						className='mb-4'
+						error={!!errors.workInterval}
 						isNumber
 						label='Work interval (min):'
 						placeholder='Type the work interval here...'
-						{...register('workInterval', { valueAsNumber: true })}
+						{...register('workInterval', { valueAsNumber: true, max: 59 })}
 					/>
 
 					<Field
 						disableAutocomplete
 						id='breakInterval'
 						className='mb-4'
+						error={!!errors.breakInterval}
 						isNumber
 						label='Break interval (min):'
 						placeholder='Type the break interval here...'
-						{...register('breakInterval', { valueAsNumber: true })}
+						{...register('breakInterval', { valueAsNumber: true, max: 59 })}
 					/>
 
 					<Field
 						disableAutocomplete
 						id='intervalsCount'
 						className='mb-6'
+						error={!!errors.intervalsCount}
 						isNumber
 						label='Interval count (max 10):'
 						placeholder='Type the interval count here...'
-						{...register('intervalsCount', { valueAsNumber: true })}
+						{...register('intervalsCount', { valueAsNumber: true, max: 10 })}
 					/>
 				</div>
 			</div>

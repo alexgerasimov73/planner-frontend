@@ -14,7 +14,12 @@ interface IAuthFormProps {
 }
 
 export const AuthForm = ({ type }: IAuthFormProps) => {
-	const { register, handleSubmit, reset } = useForm<IAuthForm>({
+	const {
+		formState: { errors },
+		register,
+		handleSubmit,
+		reset
+	} = useForm<IAuthForm>({
 		mode: 'onChange'
 	})
 	const { isAuthPending, mutate, setTypeForm } = useAuth(reset)
@@ -32,8 +37,9 @@ export const AuthForm = ({ type }: IAuthFormProps) => {
 			onSubmit={handleSubmit(onSubmit)}
 		>
 			<Field
-				id='email'
+				id={`email-${type}`}
 				className='mb-4'
+				error={!!errors.email}
 				label='Email:'
 				placeholder='Type the email here...'
 				type='email'
@@ -41,12 +47,16 @@ export const AuthForm = ({ type }: IAuthFormProps) => {
 			/>
 
 			<Field
-				id='password'
+				id={`password-${type}`}
 				className='mb-6'
+				error={!!errors.password}
 				label='Password:'
 				placeholder='Type the password here...'
 				type='password'
-				{...register('password', { required: 'Password is required!' })}
+				{...register('password', {
+					required: 'Password is required!',
+					minLength: 5
+				})}
 			/>
 
 			<Button

@@ -14,8 +14,14 @@ import { useCreateTimeBlock } from './hooks/useCreateTimeBlock'
 import { useUpdateTimeBlock } from './hooks/useUpdateTimeBlock'
 
 export const TimeBlockingForm = () => {
-	const { control, handleSubmit, register, reset, watch } =
-		useFormContext<TTimeBlockFormState>()
+	const {
+		control,
+		formState: { errors },
+		handleSubmit,
+		register,
+		reset,
+		watch
+	} = useFormContext<TTimeBlockFormState>()
 
 	const existedId = watch('id')
 	const { isCreatePending, createTimeBlock } = useCreateTimeBlock()
@@ -48,6 +54,7 @@ export const TimeBlockingForm = () => {
 			<Field
 				id='name'
 				className='mb-4'
+				error={!!errors.name}
 				disableAutocomplete
 				label='Block title:'
 				placeholder='Type the block title here...'
@@ -57,6 +64,7 @@ export const TimeBlockingForm = () => {
 			<Field
 				id='duration'
 				className='mb-4'
+				error={!!errors.duration}
 				disableAutocomplete
 				isNumber
 				label='Duration (min):'

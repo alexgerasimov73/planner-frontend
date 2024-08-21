@@ -5,10 +5,10 @@ interface InputFieldProps {
 	readonly className?: string
 	readonly disableAutocomplete?: boolean
 	readonly disabled?: boolean
+	readonly error?: boolean
 	readonly isNumber?: boolean
 	readonly label: string
 	readonly placeholder: string
-	readonly state?: 'error' | 'success'
 	readonly type?: string
 	readonly variant?: string
 }
@@ -23,7 +23,7 @@ export const Field = forwardRef<HTMLInputElement, InputFieldProps>(
 			isNumber,
 			label,
 			placeholder,
-			state,
+			error,
 			type,
 			variant,
 			...rest
@@ -57,7 +57,7 @@ export const Field = forwardRef<HTMLInputElement, InputFieldProps>(
 					className={`flex-center w-full mt-2 p-3 rounded-lg border border-primary bg-white/0 text-base outline-none placeholder:text-gray-700 placeholder:font-normal duration-500 transition-colors hover:border-secondary focus:border-primary ${
 						disabled
 							? '!border-none !bg-gray-100 dark:!bg-white/5 dark:placeholder:!text-[rgba(255,255,255,0.15)]'
-							: state === 'error'
+							: error
 								? 'border-red-500 text-red-500 placeholder:text-red-500 dark:!border-red-400 dark:!text-red-400 dark:placeholder:!text-red-400'
 								: ''
 					}`}
