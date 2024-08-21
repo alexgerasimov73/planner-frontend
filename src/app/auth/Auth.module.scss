@@ -1,19 +1,21 @@
 .container {
-	@apply relative min-h-screen;
-	overflow: hidden;
+	@apply relative min-h-screen overflow-hidden;
 
 	.logo {
-		@apply absolute top-5 left-5;
+		@apply absolute top-5 left-5 z-50;
 	}
 
 	.login,
 	.registration {
-		@apply absolute top-0 left-0 w-50p h-screen flex items-center justify-center flex-col;
-		transition: all 0.6s ease-in-out;
+		@apply absolute top-0 left-0 w-50p h-screen flex items-center justify-center flex-col transition-all duration-700 ease-in-out;
+	}
+
+	.login {
+		@apply z-10;
 	}
 
 	.registration {
-		@apply opacity-0;
+		@apply opacity-0 pointer-events-none;
 	}
 
 	.loader {
@@ -21,11 +23,11 @@
 	}
 
 	.form {
-		@apply w-2/3 min-h-80 p-layout;
+		@apply w-2/3;
 	}
 
 	.formButton {
-		@apply block w-1/2 m-auto mt-8;
+		@apply block w-1/2 h-12 m-auto mt-8;
 
 		&::first-letter {
 			@apply uppercase;
@@ -33,74 +35,53 @@
 	}
 
 	.overlayWrapper {
-		position: absolute;
-		top: 0;
-		left: 50%;
-		width: 50%;
-		height: 100%;
-		overflow: hidden;
-		transition: transform 0.6s ease-in-out;
-		z-index: 3;
+		@apply absolute top-0 left-1/2 w-1/2 h-full overflow-hidden z-40 transition-all duration-700 ease-in-out;
 	}
 
 	.overlay {
-		@apply bg-primary;
-
-		position: relative;
-		left: -100%;
-		height: 100%;
-		width: 200%;
-		color: #fff;
-		transform: translateY(0);
-		transition: transform 0.6s ease-in-out;
+		@apply relative h-full w-svw -left-full bg-primary text-white translate-y-0 transition-all duration-700 ease-in-out;
 	}
 
 	.overlayLogin,
 	.overlayRegistration {
-		@apply absolute top-0 w-50p h-screen flex items-center justify-center flex-col gap-6;
-
-		transform: translateY(0);
-		transition: transform 0.6s ease-in-out;
+		@apply absolute top-0 w-50p h-screen flex items-center justify-center flex-col translate-y-0 transition-all duration-700 ease-in-out;
 	}
 
 	.overlayRegistration {
-		right: 0;
-		transform: translateY(0);
+		@apply right-0 translate-y-0;
 	}
 
 	.overlayLogin {
-		transform: translateY(-20%);
+		@apply -translate-y-1/4;
 	}
 
 	.overlayButton {
-		@apply border-2 border-white;
+		@apply flex items-end justify-center gap-4 w-1/3 h-12 mt-56 border-2 border-white;
 	}
 
 	&.registerActive {
 		.login {
-			transform: translateY(100%);
+			@apply translate-y-full;
 		}
 
 		.registration {
-			transform: translateX(100%);
-			opacity: 1;
-			z-index: 5;
+			@apply opacity-100 pointer-events-auto translate-x-full z-10;
 		}
 
 		.overlayWrapper {
-			transform: translateX(-100%);
+			@apply -translate-x-full;
 		}
 
 		.overlay {
-			transform: translateX(50%);
+			@apply translate-x-1/2;
 		}
 
 		.overlayLogin {
-			transform: translateY(0);
+			@apply translate-y-0;
 		}
 
 		.overlayRegistration {
-			transform: translateY(20%);
+			@apply translate-y-1/4;
 		}
 	}
 }

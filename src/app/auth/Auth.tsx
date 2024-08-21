@@ -1,6 +1,7 @@
 'use client'
 
 import cn from 'clsx'
+import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
@@ -29,18 +30,18 @@ export const Auth = () => {
 		>
 			<Logo
 				className={styles.logo}
-				isPrimaryColor
+				isPrimaryColor={!isRegister}
 			/>
 
 			<div className={styles.login}>
-				<h1>Login</h1>
+				<h1 className='text-5xl'>Login</h1>
 				<p>use your account</p>
 
 				<AuthForm type={TypeForm.login} />
 			</div>
 
 			<div className={styles.registration}>
-				<h1>Create Account</h1>
+				<h1 className='text-5xl'>Create Account</h1>
 				<p>use your email for registration</p>
 
 				<AuthForm type={TypeForm.register} />
@@ -49,7 +50,7 @@ export const Auth = () => {
 			<div className={styles.overlayWrapper}>
 				<div className={styles.overlay}>
 					<div className={styles.overlayLogin}>
-						<h1>Welcome Back!</h1>
+						<h1 className='text-5xl'>Welcome Back!</h1>
 						<p>
 							To keep connected with us please login with your personal info
 						</p>
@@ -57,18 +58,20 @@ export const Auth = () => {
 							className={styles.overlayButton}
 							onClick={toggleAuth}
 						>
-							Login
+							<ArrowLeft />
+							To login
 						</Button>
 					</div>
 
 					<div className={styles.overlayRegistration}>
-						<h1>Hello, Friend!</h1>
+						<h1 className='text-5xl'>Hello, Friend!</h1>
 						<p>Enter your personal details and start journey with us</p>
 						<Button
 							className={styles.overlayButton}
 							onClick={toggleAuth}
 						>
-							Register
+							To registration
+							<ArrowRight />
 						</Button>
 					</div>
 				</div>
