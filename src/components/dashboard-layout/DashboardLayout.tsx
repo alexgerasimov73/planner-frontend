@@ -13,7 +13,7 @@ export const DashboardLayout = ({ children }: PropsWithChildren) => {
 	const { data, isLoading } = useProfile()
 
 	return (
-		<div className='grid 2xl:grid-cols-[1.2fr_6fr] grid-cols-[1.5fr_6fr] min-h-screen'>
+		<div className='grid 2xl:grid-cols-[1.2fr_6fr] grid-cols-[1.5fr_6fr] h-full'>
 			<Sidebar />
 
 			<main className='relative max-h-screen overflow-x-hidden'>

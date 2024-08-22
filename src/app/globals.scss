@@ -42,7 +42,7 @@
 }
 
 body {
-	@apply text-base overflow-hidden;
+	@apply h-screen p-3 text-base overflow-hidden;
 	font-family: var(--font-zen), sans-serif;
 	color: var(--foreground-rgb);
 	background-color: var(--background-color);

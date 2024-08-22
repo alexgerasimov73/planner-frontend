@@ -36,7 +36,7 @@
 	}
 
 	.addCard {
-		@apply flex items-center gap-2 py-2 px-3 border rounded-lg border-primary italic text-sm hover:border-secondary hover:text-secondary active:border-secondary/75;
+		@apply flex items-center gap-2 py-2 px-5 rounded-lg text-sm text-white bg-primary hover:bg-secondary active:bg-secondary/75;
 	}
 }
 

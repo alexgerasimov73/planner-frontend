@@ -12,7 +12,7 @@ export const Header = ({ userData }: IHeader) => {
 	const userName = userData.name || 'Anonymous'
 
 	return (
-		<header className='flex justify-between items-center h-23 p-big-layout shadow-md bg-white'>
+		<header className='sticky top-0 flex justify-between items-center h-23 p-big-layout shadow-md bg-white rounded-r-lg z-10'>
 			<h1 className='text-3xl font-medium'>{`Hello, ${userName}!`}</h1>
 
 			<Link
