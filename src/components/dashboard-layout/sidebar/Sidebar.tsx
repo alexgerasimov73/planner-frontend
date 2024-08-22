@@ -5,6 +5,7 @@ import { Logo } from '@/components/ui/Logo'
 
 import { LogoutButton } from './LogoutButton'
 import { MenuItem } from './MenuItem'
+import styles from './MenuItem.module.scss'
 import { MENU } from './menu.data'
 
 export const Sidebar = memo(() => {
@@ -15,7 +16,7 @@ export const Sidebar = memo(() => {
 			<div>
 				<Logo />
 
-				<div className='relative py-5'>
+				<div className='relative py-5 overflow-hidden'>
 					{MENU.map(item => (
 						<MenuItem
 							key={item.link}
@@ -23,6 +24,7 @@ export const Sidebar = memo(() => {
 							isActive={pathname === item.link}
 						/>
 					))}
+					<div className={styles.itemHighlighted}></div>
 				</div>
 			</div>
 

@@ -1,16 +1,39 @@
 .item {
-	@apply relative flex gap-2.5 items-center ml-4 py-4 pl-4 rounded-l-full text-white hover:opacity-70;
+	@apply relative flex gap-2.5 items-center h-16 ml-4 py-4 pl-4 rounded-l-full text-white z-10;
 
 	&.active {
 		@apply bg-bg text-primary cursor-default  hover:opacity-100;
 
 		&::before,
 		&::after {
-			@apply content-[''] absolute right-0 bottom-full w-8 h-8 rounded-full shadow-[16px_16px_#f8f9ff];
+			@apply content-[''] absolute right-0 bottom-full w-8 h-8 rounded-full shadow-[16px_16px_#f8f9ff] pointer-events-none;
 		}
 
 		&::after {
 			@apply top-full shadow-[16px_-16px_#f8f9ff];
 		}
+	}
+
+	@for $i from 1 through 5 {
+		&:nth-of-type(#{$i}):hover {
+			@apply text-primary;
+
+			& ~ .itemHighlighted {
+				top: ($i - 1) * 64 + 20px;
+			}
+		}
+	}
+}
+
+.itemHighlighted {
+	@apply absolute left-4 -top-20 w-[calc(100%_-_16px)] h-16 bg-bg rounded-l-full opacity-50 transition-all;
+
+	&:before,
+	&:after {
+		@apply content-[''] absolute right-0 bottom-full w-8 h-8 rounded-full shadow-[16px_16px_#f8f9ff] pointer-events-none;
+	}
+
+	&::after {
+		@apply top-full shadow-[16px_-16px_#f8f9ff];
 	}
 }

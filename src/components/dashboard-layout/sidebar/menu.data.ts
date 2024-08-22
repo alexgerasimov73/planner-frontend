@@ -24,7 +24,7 @@ export const MENU: IMenuItem[] = [
 	{
 		icon: Timer,
 		link: DASHBOARD_PAGES.TIMER,
-		name: 'Timer (beta)'
+		name: 'Timer'
 	},
 	{
 		icon: CalendarRange,
