@@ -5,7 +5,7 @@
 		@apply w-[17rem] min-h-[80vh] whitespace-nowrap;
 
 		.card {
-			@apply relative mt-5 p-4 shadow rounded bg-white;
+			@apply relative mt-5 p-4 shadow rounded-xl bg-white;
 
 			&.completed {
 				@apply opacity-50 italic line-through;

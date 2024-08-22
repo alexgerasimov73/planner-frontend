@@ -1,33 +1,16 @@
 .item {
-	@apply relative flex gap-2.5 items-center ml-4 py-4 pl-4 rounded-l-full text-white transition-all hover:opacity-70;
-
-	&::before,
-	&::after {
-		@apply absolute left-full h-[40px] w-[40px]  bg-transparent border-bg;
-
-		content: '';
-		border-right-width: 10px;
-	}
-
-	&::before {
-		top: calc(100% - 10px);
-		border-top-width: 10px;
-		border-top-right-radius: 50%;
-	}
-
-	&::after {
-		bottom: calc(100% - 10px);
-		border-bottom-width: 10px;
-		border-bottom-right-radius: 50%;
-	}
+	@apply relative flex gap-2.5 items-center ml-4 py-4 pl-4 rounded-l-full text-white hover:opacity-70;
 
 	&.active {
-		@apply bg-bg text-primary cursor-default hover:opacity-100;
+		@apply bg-bg text-primary cursor-default  hover:opacity-100;
 
 		&::before,
 		&::after {
-			transform: translateX(-30px);
-			transition: transform 0.266s 0.266s cubic-bezier(0.075, 0.82, 0.165, 1);
+			@apply content-[''] absolute right-0 bottom-full w-8 h-8 rounded-full shadow-[16px_16px_#f8f9ff];
+		}
+
+		&::after {
+			@apply top-full shadow-[16px_-16px_#f8f9ff];
 		}
 	}
 }

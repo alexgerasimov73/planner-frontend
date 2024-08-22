@@ -11,7 +11,7 @@ export const Sidebar = memo(() => {
 	const pathname = usePathname()
 
 	return (
-		<aside className='flex flex-col justify-between h-full bg-primary rounded-l-lg rounded-br-lg'>
+		<aside className='flex flex-col justify-between h-full bg-primary rounded-l-xl rounded-br-xl'>
 			<div>
 				<Logo />
 

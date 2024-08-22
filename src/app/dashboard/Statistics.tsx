@@ -19,7 +19,7 @@ export const Statistics = () => {
 				data.statistics.map(statistic => (
 					<Link
 						key={statistic.label}
-						className='p-layout text-center rounded shadow bg-white transition-transform duration-100 cursor-pointer hover:-translate-y-1'
+						className='p-layout text-center rounded-xl shadow bg-white transition-transform duration-100 cursor-pointer hover:-translate-y-1'
 						href={DASHBOARD_PAGES.TASKS}
 					>
 						<div className='text-xl'>{statistic.label}</div>
