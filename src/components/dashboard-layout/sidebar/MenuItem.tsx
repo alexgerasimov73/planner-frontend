@@ -17,7 +17,7 @@ export const MenuItem = memo(({ item, isActive }: IMenuItemProps) => (
 		})}
 		href={item.link}
 	>
-		<item.icon />
+		<item.icon className='w-6' />
 		<span>{item.name}</span>
 	</Link>
 ))

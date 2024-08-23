@@ -1,8 +1,15 @@
+.sidebarToggler {
+	display: none;
+}
+
 .item {
-	@apply relative flex gap-2.5 items-center h-16 ml-4 py-4 pl-4 rounded-l-full text-white z-10;
+	@apply relative flex gap-2.5 items-center h-16 w-[280px] ml-4 py-4 pl-4 rounded-l-full text-white z-10;
+	transition-property: color, width;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 266ms;
 
 	&.active {
-		@apply bg-bg text-primary cursor-default  hover:opacity-100;
+		@apply bg-bg text-primary cursor-default hover:opacity-100;
 
 		&::before,
 		&::after {
@@ -23,6 +30,26 @@
 			}
 		}
 	}
+}
+
+.sidebarToggler:checked {
+	& ~ div,
+	& ~ button {
+		.logo,
+		.item {
+			width: 100px;
+		}
+
+		span {
+			transform: scaleX(0);
+		}
+	}
+}
+
+.sidebarLabel {
+	position: absolute;
+	bottom: 120px;
+	right: 0px;
 }
 
 .itemHighlighted {

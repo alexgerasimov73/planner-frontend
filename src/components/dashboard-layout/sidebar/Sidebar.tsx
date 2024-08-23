@@ -1,3 +1,4 @@
+import { ArrowLeftCircle } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 import { memo } from 'react'
 
@@ -12,9 +13,15 @@ export const Sidebar = memo(() => {
 	const pathname = usePathname()
 
 	return (
-		<aside className='flex flex-col justify-between h-full bg-primary rounded-l-xl rounded-br-xl'>
+		<aside className='relative flex flex-col justify-between h-full bg-primary rounded-l-xl rounded-br-xl'>
+			<input
+				id='sidebar-toggle'
+				className={styles.sidebarToggler}
+				type='checkbox'
+			/>
+
 			<div>
-				<Logo />
+				<Logo className={styles.logo} />
 
 				<div className='relative py-5 overflow-hidden'>
 					{MENU.map(item => (
@@ -27,6 +34,13 @@ export const Sidebar = memo(() => {
 					<div className={styles.itemHighlighted}></div>
 				</div>
 			</div>
+
+			<label
+				className={styles.sidebarLabel}
+				htmlFor='sidebar-toggle'
+			>
+				<ArrowLeftCircle size={32} />
+			</label>
 
 			<LogoutButton />
 		</aside>
