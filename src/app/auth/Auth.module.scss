@@ -35,7 +35,7 @@
 	}
 
 	.overlayWrapper {
-		@apply absolute top-0 left-1/2 w-1/2 h-full overflow-hidden z-40 transition-all duration-700 ease-in-out;
+		@apply absolute top-0 left-1/2 w-1/2 h-full overflow-hidden z-40 transition-all duration-700 ease-in-out hover:left-[49.5%];
 	}
 
 	.overlay {
@@ -69,7 +69,7 @@
 		}
 
 		.overlayWrapper {
-			@apply -translate-x-full;
+			@apply -translate-x-full hover:left-[50.5%];
 		}
 
 		.overlay {
