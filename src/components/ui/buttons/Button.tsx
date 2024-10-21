@@ -9,7 +9,7 @@ interface Props
 export const Button = ({ children, className, secondary, ...rest }: Props) => (
 	<button
 		className={cn(
-			'py-2 px-7 rounded-lg border border-text shadow-[2px_3px_0px_#1A202C] text-base font-medium text-text transition',
+			'py-2 px-7 rounded-lg border border-text shadow-[2px_3px_0px_#1A202C] text-base font-medium text-text transition-colors',
 			secondary
 				? 'bg-white hover:bg-bg active:bg-bg/85'
 				: 'bg-pink hover:bg-primary active:bg-primary/75',

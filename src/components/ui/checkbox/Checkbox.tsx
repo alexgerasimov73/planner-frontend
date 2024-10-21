@@ -1,9 +1,9 @@
-interface ICheckbox {
+interface Props {
 	readonly checked?: boolean
 	readonly onChange: () => void
 }
 
-export const Checkbox = ({ checked, onChange }: ICheckbox) => (
+export const Checkbox = ({ checked, onChange }: Props) => (
 	<input
 		className='defaultCheckbox relative appearance-none rounded-md border transition ease-linear checked:border-none checked:bg-primary hover:cursor-pointer hover:border-secondary'
 		checked={checked}

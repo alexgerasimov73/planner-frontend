@@ -1,7 +1,7 @@
 import { CSSProperties, PropsWithChildren } from 'react'
 import { tv } from 'tailwind-variants'
 
-interface IBadge {
+interface Props {
 	readonly className?: string
 	readonly style?: CSSProperties
 	readonly variant?: string
@@ -27,7 +27,7 @@ export const Badge = ({
 	className,
 	style,
 	variant
-}: PropsWithChildren<IBadge>) => (
+}: PropsWithChildren<Props>) => (
 	<span
 		className={badge({
 			backgroundColor: variant as 'low' | 'medium' | 'high',

@@ -22,13 +22,13 @@ import { dataForTaskSelect } from '../utils/tasks.utils'
 
 import styles from './KanbanView.module.scss'
 
-interface IKanbanCard {
+interface Props {
 	readonly column: string
 	readonly item: ITaskResponse
 	readonly setItems: Dispatch<SetStateAction<Record<string, ITaskResponse[]>>>
 }
 
-export const KanbanCard = memo(({ column, item, setItems }: IKanbanCard) => {
+export const KanbanCard = memo(({ column, item, setItems }: Props) => {
 	const { control, register, watch } = useForm<TTaskFormState>({
 		defaultValues: {
 			createdAt: item.createdAt,

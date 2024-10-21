@@ -5,7 +5,7 @@
 		@apply w-[17rem] min-h-[80vh] whitespace-nowrap;
 
 		.card {
-			@apply relative mt-5 p-4 shadow rounded-xl bg-white;
+			@apply relative mt-5 p-4 border shadow-[2px_3px_0px_#74dbed] rounded-xl bg-white;
 
 			&.completed {
 				@apply opacity-50 italic line-through;
@@ -36,7 +36,7 @@
 	}
 
 	.addCard {
-		@apply flex items-center gap-2 py-2 px-5 rounded-lg text-sm text-white bg-primary hover:bg-secondary active:bg-secondary/75;
+		@apply flex items-center gap-2 py-2 px-5 rounded-lg border border-text shadow-[2px_3px_0px_#1A202C] text-sm text-text bg-blue transition-colors hover:bg-blue/50 active:bg-blue/75;
 	}
 }
 

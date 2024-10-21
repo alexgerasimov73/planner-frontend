@@ -13,14 +13,14 @@ import { formatCaption } from './DatePickerCaption'
 
 dayjs.extend(LocalizedFormat)
 
-interface IDatePicker {
+interface Props {
 	readonly position?: 'left' | 'right'
 	readonly value: string
 	readonly onChange: (value: string) => void
 }
 
 export const DatePicker = memo(
-	({ position = 'right', value, onChange }: IDatePicker) => {
+	({ position = 'right', value, onChange }: Props) => {
 		const [selected, setSelected] = useState<Date>()
 		const [isOpened, setIsOpened] = useState(false)
 		const ref = useRef(null)

@@ -11,19 +11,14 @@ import { KanbanAddCardInput } from './KanbanAddCardInput'
 import { KanbanCard } from './KanbanCard'
 import styles from './KanbanView.module.scss'
 
-interface IKanbanColumn {
+interface Props {
 	readonly items: ReadonlyArray<ITaskResponse>
 	readonly label: string
 	readonly value: string
 	readonly setItems: Dispatch<SetStateAction<Record<string, ITaskResponse[]>>>
 }
 
-export const KanbanColumn = ({
-	items,
-	label,
-	value,
-	setItems
-}: IKanbanColumn) => (
+export const KanbanColumn = ({ items, label, value, setItems }: Props) => (
 	<Droppable droppableId={value}>
 		{provided => (
 			<div

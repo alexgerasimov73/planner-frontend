@@ -7,14 +7,14 @@ import { addTask } from '../utils/tasks.utils'
 
 import styles from './KanbanView.module.scss'
 
-interface IKanbanAddCardInput {
+interface Props {
 	readonly column: string
 	readonly filterDate?: string
 	readonly setItems: Dispatch<SetStateAction<Record<string, ITaskResponse[]>>>
 }
 
 export const KanbanAddCardInput = memo(
-	({ column, filterDate, setItems }: IKanbanAddCardInput) => (
+	({ column, filterDate, setItems }: Props) => (
 		<div className='mt-5'>
 			<button
 				className={styles.addCard}

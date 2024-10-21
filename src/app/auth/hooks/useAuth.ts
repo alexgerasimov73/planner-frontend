@@ -11,7 +11,7 @@ import { DASHBOARD_PAGES } from '@/config/pages-url.config'
 
 import { authService } from '@/services/auth.service'
 
-export enum TypeForm {
+export const enum TypeForm {
 	login = 'login',
 	register = 'register'
 }

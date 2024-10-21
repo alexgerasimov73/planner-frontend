@@ -5,7 +5,7 @@ import type { ITimerRoundResponse } from '@/types/timer.types'
 
 import styles from './TimerRounds.module.scss'
 
-interface ITimerRounds {
+interface Props {
 	readonly activeRound?: ITimerRoundResponse
 	readonly rounds?: ITimerRoundResponse[]
 	readonly nextRoundHandler: () => void
@@ -19,7 +19,7 @@ export const TimerRounds = ({
 	rounds,
 	nextRoundHandler,
 	prevRoundHandler
-}: ITimerRounds) => {
+}: Props) => {
 	const hasPrevRound = rounds ? rounds.some(round => round.isCompleted) : false
 	const hasNextRound = rounds ? !rounds[rounds.length - 1].isCompleted : false
 

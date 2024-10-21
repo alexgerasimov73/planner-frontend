@@ -3,12 +3,12 @@ import Image from 'next/image'
 
 import { PIcon } from '@/assets/icons'
 
-interface ILogo {
+interface Props {
 	readonly className?: string
 	readonly isPrimaryColor?: boolean
 }
 
-export const Logo = ({ className, isPrimaryColor }: ILogo) => (
+export const Logo = ({ className, isPrimaryColor }: Props) => (
 	<div
 		className={cn(
 			'relative flex items-baseline p-layout pointer-events-none',

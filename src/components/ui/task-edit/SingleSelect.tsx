@@ -8,7 +8,7 @@ import { useOutsideClick } from '@/hooks/useOutsideClick'
 
 import { Badge } from '../Badge'
 
-interface ISingleSelect {
+interface Props {
 	readonly data: IOption[]
 	readonly isColorSelected?: boolean
 	readonly value: string
@@ -16,7 +16,7 @@ interface ISingleSelect {
 }
 
 export const SingleSelect = memo(
-	({ data, isColorSelected, value, onChange }: ISingleSelect) => {
+	({ data, isColorSelected, value, onChange }: Props) => {
 		const [isOpened, setIsOpened] = useState(false)
 		const ref = useRef(null)
 

@@ -5,12 +5,12 @@ import { memo } from 'react'
 import styles from './MenuItem.module.scss'
 import type { IMenuItem } from './menu.interface'
 
-interface IMenuItemProps {
+interface Props {
 	readonly item: IMenuItem
 	readonly isActive: boolean
 }
 
-export const MenuItem = memo(({ item, isActive }: IMenuItemProps) => (
+export const MenuItem = memo(({ item, isActive }: Props) => (
 	<Link
 		className={cn(styles.item, {
 			[styles.active]: isActive

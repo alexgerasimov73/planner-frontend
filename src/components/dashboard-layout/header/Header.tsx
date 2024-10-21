@@ -4,11 +4,11 @@ import type { IUser } from '@/types/auth.types'
 
 import { DASHBOARD_PAGES } from '@/config/pages-url.config'
 
-interface IHeader {
+interface Props {
 	readonly userData: IUser
 }
 
-export const Header = ({ userData }: IHeader) => {
+export const Header = ({ userData }: Props) => {
 	const userName = userData.name || 'Anonymous'
 
 	return (

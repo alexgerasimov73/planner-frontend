@@ -9,11 +9,11 @@ import type { IAuthForm } from '@/types/auth.types'
 import styles from './Auth.module.scss'
 import { TypeForm, useAuth } from './hooks/useAuth'
 
-interface IAuthFormProps {
+interface Props {
 	readonly type: TypeForm
 }
 
-export const AuthForm = ({ type }: IAuthFormProps) => {
+export const AuthForm = ({ type }: Props) => {
 	const {
 		formState: { errors },
 		register,

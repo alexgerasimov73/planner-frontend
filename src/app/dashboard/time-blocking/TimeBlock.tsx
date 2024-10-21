@@ -11,11 +11,11 @@ import type {
 import { useDeleteTimeBlock } from './hooks/useDeleteTimeBlock'
 import { useTimeBlockSortable } from './hooks/useTimeBlockSortable'
 
-interface ITimeBlock {
+interface Props {
 	readonly item: ITimeBlockResponse
 }
 
-export const TimeBlock = ({ item }: ITimeBlock) => {
+export const TimeBlock = ({ item }: Props) => {
 	const { attributes, listeners, style, setNodeRef } = useTimeBlockSortable(
 		item.id
 	)

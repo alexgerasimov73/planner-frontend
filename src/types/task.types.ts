@@ -1,6 +1,6 @@
 import type { IBase } from './common.types'
 
-export enum EnumTaskPriority {
+export const enum EnumTaskPriority {
 	low = 'low',
 	medium = 'medium',
 	high = 'high'

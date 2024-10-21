@@ -11,19 +11,14 @@ import { ListAddRowInput } from './ListAddRowInput'
 import { ListRow } from './ListRow'
 import styles from './ListView.module.scss'
 
-interface IListRowParent {
+interface Props {
 	readonly items: ReadonlyArray<ITaskResponse>
 	readonly label: string
 	readonly value: string
 	readonly setItems: Dispatch<SetStateAction<Record<string, ITaskResponse[]>>>
 }
 
-export const ListRowParent = ({
-	items,
-	label,
-	value,
-	setItems
-}: IListRowParent) => (
+export const ListRowParent = ({ items, label, value, setItems }: Props) => (
 	<Droppable droppableId={value}>
 		{provided => (
 			<div

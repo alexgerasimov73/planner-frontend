@@ -19,7 +19,7 @@ export interface IOption {
 	readonly value: string
 }
 
-export enum TasksRepresentation {
+export const enum TasksRepresentation {
 	list = 'list',
 	kanban = 'kanban'
 }

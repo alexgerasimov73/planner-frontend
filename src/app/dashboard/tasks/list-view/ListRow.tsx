@@ -22,13 +22,13 @@ import { dataForTaskSelect } from '../utils/tasks.utils'
 
 import styles from './ListView.module.scss'
 
-interface IListRow {
+interface Props {
 	readonly column: string
 	readonly item: ITaskResponse
 	readonly setItems: Dispatch<SetStateAction<Record<string, ITaskResponse[]>>>
 }
 
-export const ListRow = memo(({ column, item, setItems }: IListRow) => {
+export const ListRow = memo(({ column, item, setItems }: Props) => {
 	const { control, register, watch } = useForm<TTaskFormState>({
 		defaultValues: {
 			createdAt: item.createdAt,
