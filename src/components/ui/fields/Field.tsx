@@ -1,6 +1,6 @@
 import { type KeyboardEvent, forwardRef } from 'react'
 
-interface InputFieldProps {
+interface Props {
 	readonly id: string
 	readonly className?: string
 	readonly disableAutocomplete?: boolean
@@ -13,7 +13,7 @@ interface InputFieldProps {
 	readonly variant?: string
 }
 
-export const Field = forwardRef<HTMLInputElement, InputFieldProps>(
+export const Field = forwardRef<HTMLInputElement, Props>(
 	(
 		{
 			id,
@@ -54,7 +54,7 @@ export const Field = forwardRef<HTMLInputElement, InputFieldProps>(
 				</label>
 
 				<input
-					className={`flex-center w-full mt-2 p-3 rounded-lg border border-primary bg-white/0 text-base outline-none placeholder:text-gray-700 placeholder:font-normal duration-500 transition-colors hover:border-secondary focus:border-primary ${
+					className={`flex-center w-full mt-2 p-3 rounded-lg border border-pink bg-white text-base outline-none placeholder:text-gray-700 placeholder:font-normal duration-500 transition-colors hover:border-primary focus:border-primary ${
 						disabled
 							? '!border-none !bg-gray-100 dark:!bg-white/5 dark:placeholder:!text-[rgba(255,255,255,0.15)]'
 							: error

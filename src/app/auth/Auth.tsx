@@ -28,10 +28,7 @@ export const Auth = () => {
 				[styles.registerActive]: isRegister
 			})}
 		>
-			<Logo
-				className={styles.logo}
-				isPrimaryColor={!isRegister}
-			/>
+			<Logo className={styles.logo} />
 
 			<div className={styles.login}>
 				<h1 className={styles.heading}>Login</h1>
@@ -56,6 +53,7 @@ export const Auth = () => {
 						</p>
 						<Button
 							className={styles.overlayButton}
+							secondary
 							onClick={toggleAuth}
 						>
 							<ArrowLeft />
@@ -70,6 +68,7 @@ export const Auth = () => {
 						</p>
 						<Button
 							className={styles.overlayButton}
+							secondary
 							onClick={toggleAuth}
 						>
 							To registration

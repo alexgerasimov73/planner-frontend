@@ -23,7 +23,7 @@ export const Logo = ({ className, isPrimaryColor }: ILogo) => (
 		<span
 			className={cn(
 				'absolute top-7 left-16 text-2xl font-bold tracking-widest transition-colors',
-				isPrimaryColor ? 'text-primary' : 'text-white'
+				isPrimaryColor ? 'text-white' : 'text-text'
 			)}
 		>
 			lanner

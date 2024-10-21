@@ -2,12 +2,14 @@ import { DASHBOARD_PAGES } from '../config/pages-url.config'
 
 export const COLORS = {
 	bg: '#f8f9ff',
+	blue: '#74dbed',
+	green: '#63d798',
 	pink: '#FFB9E5',
 	primary: '#DF77F3',
 	secondary: '#7e82b9',
-	text: '#191919',
+	text: '#1A202C',
 	white: '#ffffff',
-	yellow: '#faffc6'
+	yellow: '#ffec1f'
 }
 
 export const COMPLETED = 'completed'

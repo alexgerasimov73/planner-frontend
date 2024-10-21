@@ -69,7 +69,7 @@
 	}
 
 	.overlayButton {
-		@apply flex items-end justify-center gap-4 w-1/3 h-12 mt-52 border-2 border-white;
+		@apply flex items-end justify-center gap-4 w-1/3 h-12 mt-52;
 	}
 
 	&.registerActive {

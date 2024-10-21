@@ -28,7 +28,7 @@
 }
 
 :root {
-	--font-color: #191919;
+	--font-color: #1a202c;
 	--background-color: #f8f9ff;
 	--background-end-rgb: 255, 255, 255;
 }
@@ -54,6 +54,26 @@ body {
 	@media (max-width: 992px) {
 		font-size: 14px;
 	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+label,
+input {
+	&::selection {
+		background-color: #ffec1f;
+	}
+}
+
+input,
+textarea {
+	accent-color: #df77f3;
+	caret-color: #df77f3;
 }
 
 input.defaultCheckbox {
