@@ -4,6 +4,7 @@ export const COLORS = {
 	bg: '#f8f9ff',
 	blue: '#74dbed',
 	green: '#63d798',
+	lime: '#c7f283',
 	pink: '#FFB9E5',
 	primary: '#DF77F3',
 	secondary: '#7e82b9',

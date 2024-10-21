@@ -1,0 +1,19 @@
+.card {
+	@apply relative p-layout text-center rounded-md border-2 bg-white transition-transform duration-100 cursor-pointer;
+
+	&::before {
+		@apply content-[''] absolute left-2 top-2 w-full h-full rounded-md border-2 -z-10 transition-transform;
+	}
+
+	&:hover::before {
+		@apply translate-x-1 translate-y-1;
+	}
+
+	.label {
+		@apply text-xl;
+	}
+
+	.value {
+		@apply text-3xl font-semibold;
+	}
+}

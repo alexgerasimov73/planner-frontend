@@ -13,7 +13,7 @@ export const Sidebar = memo(() => {
 	const pathname = usePathname()
 
 	return (
-		<aside className='relative flex flex-col justify-between h-full bg-primary rounded-l-xl rounded-br-xl'>
+		<aside className='relative flex flex-col justify-between h-full bg-green rounded-l-xl rounded-br-xl border-y-2 border-l-2'>
 			<input
 				id='sidebar-toggle'
 				className={styles.sidebarToggler}
