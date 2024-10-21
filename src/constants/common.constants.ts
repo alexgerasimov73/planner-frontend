@@ -2,8 +2,8 @@ import { DASHBOARD_PAGES } from '../config/pages-url.config'
 
 export const COLORS = {
 	bg: '#f8f9ff',
-	pink: '#ffcce1',
-	primary: '#603e75',
+	pink: '#FFB9E5',
+	primary: '#DF77F3',
 	secondary: '#7e82b9',
 	text: '#191919',
 	white: '#ffffff',

@@ -5,9 +5,22 @@
 		@apply absolute top-5 left-5 z-50;
 	}
 
+	.heading {
+		@apply px-5 py-1 bg-bg text-6xl;
+	}
+
+	.description {
+		@apply max-w-[80%] mt-4 px-2 py-1 bg-bg text-lg text-center;
+	}
+
 	.login,
 	.registration {
 		@apply absolute top-0 left-0 w-50p h-screen flex items-center justify-center flex-col transition-all duration-700 ease-in-out;
+
+		.heading,
+		.description {
+			@apply bg-text text-white;
+		}
 	}
 
 	.login {
@@ -27,7 +40,7 @@
 	}
 
 	.formButton {
-		@apply block w-1/2 h-12 m-auto mt-8;
+		@apply block w-1/2 h-12 m-auto;
 
 		&::first-letter {
 			@apply uppercase;
@@ -39,7 +52,7 @@
 	}
 
 	.overlay {
-		@apply relative h-full w-[200%] -left-full rounded-xl bg-primary text-white translate-y-0 transition-all duration-700 ease-in-out;
+		@apply relative h-full w-[200%] -left-full rounded-xl border-2 border-text bg-[#DF77F3] text-text translate-y-0 transition-all duration-700 ease-in-out;
 	}
 
 	.overlayLogin,
@@ -56,7 +69,7 @@
 	}
 
 	.overlayButton {
-		@apply flex items-end justify-center gap-4 w-1/3 h-12 mt-56 border-2 border-white;
+		@apply flex items-end justify-center gap-4 w-1/3 h-12 mt-52 border-2 border-white;
 	}
 
 	&.registerActive {

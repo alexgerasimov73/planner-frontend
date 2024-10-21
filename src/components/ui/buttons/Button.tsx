@@ -8,7 +8,7 @@ export const Button = ({
 }: PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>) => (
 	<button
 		className={cn(
-			'py-2 px-7 rounded-lg bg-primary text-base font-medium text-white transition hover:bg-secondary active:bg-secondary/75',
+			'py-2 px-7 rounded-lg bg-pink text-base font-medium text-text transition hover:bg-primary active:bg-secondary/75',
 			className
 		)}
 		{...rest}

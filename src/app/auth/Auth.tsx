@@ -34,15 +34,15 @@ export const Auth = () => {
 			/>
 
 			<div className={styles.login}>
-				<h1 className='text-5xl'>Login</h1>
-				<p>use your account</p>
+				<h1 className={styles.heading}>Login</h1>
+				<p className={styles.description}>use your account</p>
 
 				<AuthForm type={TypeForm.login} />
 			</div>
 
 			<div className={styles.registration}>
-				<h1 className='text-5xl'>Create Account</h1>
-				<p>use your email for registration</p>
+				<h1 className={styles.heading}>Create Account</h1>
+				<p className={styles.description}>use your email for registration</p>
 
 				<AuthForm type={TypeForm.register} />
 			</div>
@@ -50,9 +50,9 @@ export const Auth = () => {
 			<div className={styles.overlayWrapper}>
 				<div className={styles.overlay}>
 					<div className={styles.overlayLogin}>
-						<h1 className='text-5xl'>Welcome Back!</h1>
-						<p>
-							To keep connected with us please login with your personal info
+						<h1 className={styles.heading}>Welcome Back!</h1>
+						<p className={styles.description}>
+							to keep connected, please log in with your information
 						</p>
 						<Button
 							className={styles.overlayButton}
@@ -64,8 +64,10 @@ export const Auth = () => {
 					</div>
 
 					<div className={styles.overlayRegistration}>
-						<h1 className='text-5xl'>Hello, Friend!</h1>
-						<p>Enter your personal details and start journey with us</p>
+						<h1 className={styles.heading}>Hello, Friend!</h1>
+						<p className={styles.description}>
+							enter your personal details and start journey with us
+						</p>
 						<Button
 							className={styles.overlayButton}
 							onClick={toggleAuth}
