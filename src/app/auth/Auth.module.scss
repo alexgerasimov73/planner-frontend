@@ -52,7 +52,7 @@
 	}
 
 	.overlay {
-		@apply relative h-full w-[200%] -left-full rounded-xl border-2 border-text bg-[#DF77F3] text-text translate-y-0 transition-all duration-700 ease-in-out;
+		@apply relative h-full w-[200%] -left-full rounded-xl border-2 border-text bg-gradient-to-b from-primary from-70% to-pink text-text translate-y-0 transition-all duration-700 ease-in-out;
 	}
 
 	.overlayLogin,

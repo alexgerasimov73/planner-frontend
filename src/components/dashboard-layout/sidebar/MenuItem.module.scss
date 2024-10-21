@@ -5,7 +5,7 @@
 .logo,
 .item {
 	span {
-		@apply transition-[width,transform] origin-left;
+		@apply whitespace-nowrap transition-[width,opacity,transform] origin-left;
 	}
 }
 
