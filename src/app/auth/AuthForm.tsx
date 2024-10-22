@@ -1,4 +1,3 @@
-import { useIsFetching } from '@tanstack/react-query'
 import { type SubmitHandler, useForm } from 'react-hook-form'
 
 import { Loader } from '@/components/ui/Loader'
@@ -11,11 +10,12 @@ import styles from './Auth.module.scss'
 import { TypeForm, useAuth } from './hooks/useAuth'
 
 interface Props {
+	readonly isPending: boolean
 	readonly type: TypeForm
+	readonly setIsPending: (isPending: boolean) => void
 }
 
-export const AuthForm = ({ type }: Props) => {
-	const isFetching = useIsFetching()
+export const AuthForm = ({ isPending, type, setIsPending }: Props) => {
 	const {
 		formState: { errors },
 		register,
@@ -24,12 +24,12 @@ export const AuthForm = ({ type }: Props) => {
 	} = useForm<IAuthForm>({
 		mode: 'onChange'
 	})
-	const { mutate, setTypeForm } = useAuth(reset)
+	const { mutate, setTypeForm } = useAuth(reset, setIsPending)
 
 	const onSubmit: SubmitHandler<IAuthForm> = data => mutate(data)
 	const handleActionForm = () => setTypeForm(type)
 
-	return isFetching ? (
+	return isPending ? (
 		<div className={styles.loader}>
 			<Loader />
 		</div>

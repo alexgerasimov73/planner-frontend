@@ -17,6 +17,7 @@ import { TypeForm } from './hooks/useAuth'
 export const Auth = () => {
 	const { prefetch } = useRouter()
 	const [isRegister, setIsRegister] = useState(false)
+	const [isPending, setIsPending] = useState(false)
 
 	useEffect(() => prefetch(DASHBOARD_PAGES.HOME), [prefetch])
 
@@ -34,14 +35,22 @@ export const Auth = () => {
 				<h1 className={styles.heading}>Login</h1>
 				<p className={styles.description}>use your account</p>
 
-				<AuthForm type={TypeForm.login} />
+				<AuthForm
+					isPending={isPending}
+					type={TypeForm.login}
+					setIsPending={setIsPending}
+				/>
 			</div>
 
 			<div className={styles.registration}>
 				<h1 className={styles.heading}>Create Account</h1>
 				<p className={styles.description}>use your email for registration</p>
 
-				<AuthForm type={TypeForm.register} />
+				<AuthForm
+					isPending={isPending}
+					type={TypeForm.register}
+					setIsPending={setIsPending}
+				/>
 			</div>
 
 			<div className={styles.overlayWrapper}>

@@ -16,21 +16,32 @@ export const enum TypeForm {
 	register = 'register'
 }
 
-export const useAuth = (reset: UseFormReset<IAuthForm>) => {
+export const useAuth = (
+	reset: UseFormReset<IAuthForm>,
+	setIsPending: (isPending: boolean) => void
+) => {
 	const { push } = useRouter()
 	const [typeForm, setTypeForm] = useState<TypeForm>(TypeForm.login)
 
 	const { isPending: isAuthPending, mutate } = useMutation({
 		mutationKey: ['auth'],
 		mutationFn: (data: IAuthForm) => authService.main(typeForm, data),
-		onSuccess() {
+		onMutate: () => {
+			setIsPending(true)
+			toast.info(
+				'ATTENTION! The first request on the server might take 1-2 minutes because it launches the server and needs some time to be ready.',
+				{ duration: 10_000 }
+			)
+		},
+		onSuccess: () => {
 			toast.success('Succesfully login!')
 			reset()
 			push(DASHBOARD_PAGES.HOME)
 		},
-		onError(err: TAxiosError) {
+		onError: (err: TAxiosError) => {
 			toast.error(`An error has occured: ${err.response?.data.message}`)
-		}
+		},
+		onSettled: () => setIsPending(false)
 	})
 	return { isAuthPending, mutate, setTypeForm }
 }
