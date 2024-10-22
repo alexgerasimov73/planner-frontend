@@ -10,6 +10,7 @@ This is the frontend of the Planner App, a task management application built wit
 
 ## Future Plans
 
+- **Implement mobile and tablet versions of the app**: It'll implement the mobile and tablet versions of the app.
 - **Diary Feature**: Users will be able to write daily entries, set a mood for the day, and reflect on their experiences.
 - **Enhanced Timer**: The timer will be moved to the header for constant visibility.
 - **Fixing bugs**: It is necessary to find and fix all the bugs on the application.
@@ -18,11 +19,13 @@ This is the frontend of the Planner App, a task management application built wit
 ## Demo
 
 You can open demo on [Render](https://planner-frontend-0xte.onrender.com/auth).
-ATTENTION! For the demo hosting, I'm using the free plan. The first request on the server might take 1-2 minutes because it launches the server and needs some time to be ready. The following requests should be quicker.
+ATTENTION! For the demo hosting, I'm using the free plan. The first request on the server might take 1-3 minutes because it launches the server and needs some time to be ready. Sorry! The following requests should be quicker.
 
 Also, I ask you to note that this demo is the static version of the Next.js app because the free plan of the Render service doesn't allow the installation of the non-static version of the Next.js app.
 I used the Render service because it needs to have the same domain for frontend and backend repos, and the free plan of the Render service provides it.
 So, on this demo, it doesn't work middleware, redirects and some other features of the Next.js app (e.g., the redirect to the auth page doesn't happen when tokens are expired).
+
+Additionally, at this moment, it is available only in the desktop version of the application. The mobile and tablet versions are coming soon...
 
 ## Getting Started
 

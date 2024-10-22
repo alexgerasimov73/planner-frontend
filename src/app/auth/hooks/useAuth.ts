@@ -29,7 +29,7 @@ export const useAuth = (
 		onMutate: () => {
 			setIsPending(true)
 			toast.info(
-				'ATTENTION! The first request on the server might take 1-2 minutes because it launches the server and needs some time to be ready.',
+				'ATTENTION! The first request on the server might take 2-3 minutes because it launches the server and needs some time to be ready. Sorry!',
 				{ duration: 10_000 }
 			)
 		},
