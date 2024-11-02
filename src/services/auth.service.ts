@@ -1,4 +1,8 @@
-import { ACCESS_TOKEN, LOGOUT } from '@/constants/common.constants'
+import {
+	ACCESS_TOKEN,
+	LAUNCH_SERVER,
+	LOGOUT
+} from '@/constants/common.constants'
 
 import type { IAuthForm, IAuthResponse } from '@/types/auth.types'
 
@@ -31,5 +35,8 @@ export const authService = {
 		if (response.data) removeTokenFromStorage()
 
 		return response
+	},
+	async launchServer() {
+		return await axiosClassic.get<string>(LAUNCH_SERVER)
 	}
 }

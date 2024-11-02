@@ -13,9 +13,11 @@ import { DASHBOARD_PAGES } from '@/config/pages-url.config'
 import styles from './Auth.module.scss'
 import { AuthForm } from './AuthForm'
 import { TypeForm } from './hooks/useAuth'
+import { useLaunchServer } from './hooks/useLaunchServer'
 
 export const Auth = () => {
 	const { prefetch } = useRouter()
+	const {} = useLaunchServer()
 	const [isRegister, setIsRegister] = useState(false)
 	const [isPending, setIsPending] = useState(false)
 

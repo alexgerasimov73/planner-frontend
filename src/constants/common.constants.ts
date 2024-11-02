@@ -26,6 +26,7 @@ export const UNTITLED_TASK = 'Untitled task'
 export const VIEW_TYPE = 'view-type'
 
 export const ACCESS_TOKEN = `${DASHBOARD_PAGES.AUTH}/login/access-token`
+export const LAUNCH_SERVER = `${DASHBOARD_PAGES.AUTH}/launch-server`
 export const LOGOUT = `${DASHBOARD_PAGES.AUTH}/logout`
 export const TASK_URL = '/user/tasks'
 export const TIMER_URL = '/user/timer'
